@@ -10,7 +10,6 @@ gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
-gem "foreman", "~> 0.87.2"
 gem "pundit", "~> 2.2"
 gem 'devise', '~> 4.2'
 gem 'bootsnap', '>= 1.4.4', require: false
@@ -28,6 +27,7 @@ group :development do
   gem 'web-console', '>= 4.1.0'
   gem 'listen', '~> 3.3'
   gem 'spring'
+  gem "foreman", "~> 0.87.2"
 end
 
 group :test do
