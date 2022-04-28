@@ -53,8 +53,8 @@ ActiveRecord::Schema.define(version: 2022_04_30_175944) do
 
   create_table "courses", force: :cascade do |t|
     t.string "title"
-    t.integer "price"
     t.text "content"
+    t.integer "price"
     t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
