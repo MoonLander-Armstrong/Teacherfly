@@ -1,0 +1,17 @@
+<nav class="flex items-center justify-between px-4" >
+
+  <%= link_to root_path, class: "py-2 bg-green-500" do %>
+    <h1 class="text-4xl ">Teacherfly</h1>
+  <% end %>
+  
+  <div class="">  
+    <% if current_user %>
+      <%= link_to('登出', destroy_user_session_path, :method => :delete) %> |
+      <%= link_to('修改密碼', edit_registration_path(:user)) %>
+    <% else %>
+      <%= link_to('註冊', new_registration_path(:user)) %> |
+      <%= link_to('登入', new_session_path(:user)) %>
+    <% end %>
+  </div>
+  
+</nav>
