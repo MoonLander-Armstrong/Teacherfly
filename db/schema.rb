@@ -51,6 +51,15 @@ ActiveRecord::Schema.define(version: 2022_04_30_175944) do
     t.index ["user_id"], name: "index_chapters_on_user_id"
   end
 
+  create_table "courses", force: :cascade do |t|
+    t.string "title"
+    t.integer "price"
+    t.text "content"
+    t.string "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "sections", force: :cascade do |t|
     t.string "title"
     t.string "published", default: "draft"
