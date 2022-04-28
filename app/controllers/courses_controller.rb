@@ -20,6 +20,29 @@ class CoursesController < ApplicationController
 		end
   end
 
+  def edit
+    @course = Course.find_by(id: params[:id])
+  end
+
+  def update
+    @course = Course.find_by(id: params[:id])
+		if @course.update(course_params)
+			flash[:notice] = "更新成功!"
+			redirect_to "/courses"
+		else
+			render :edit
+		end
+  end
+
+  def destroy
+    @course = Course.find_by(id: params[:id])
+    @course.destroy
+
+    flash[:notice] = "刪除成功"
+    redirect_to "/courses"
+  end
+
+
 
   private
     def course_params
