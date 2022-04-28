@@ -1,3 +1,23 @@
 <h1>全部課程</h1>
 
 <%= link_to "新增課程", new_course_path %>
+
+
+<table>
+	<tr>
+		<td>標題title</td>
+		<td>價格price</td>
+		<td>Action</td>
+	</tr>
+
+	<% @courses.each do |course| %>
+	<tr>
+		<td><%= course.title %></td>
+		<td><%= course.price %></td>
+		<td>
+			<%= link_to "修改", edit_course_path(course.id) %>
+			<%= link_to "刪除", course_path(course.id), method: "delete", data:{confirm: "確認是否刪除?"} %>
+		</td>
+	</tr>
+	<% end %>
+</table>
