@@ -5,14 +5,14 @@
 
 <table>
 	<tr>
-		<td>標題title</td>
+		<td>課程標題title</td>
 		<td>價格price</td>
 		<td>Action</td>
 	</tr>
 
 	<% @courses.each do |course| %>
 	<tr>
-		<td><%= course.title %></td>
+		<td><%= link_to course.title, course_path(course.id) %></td>
 		<td><%= course.price %></td>
 		<td>
 			<%= link_to "修改", edit_course_path(course.id) %>

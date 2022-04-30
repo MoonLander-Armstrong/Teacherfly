@@ -2,8 +2,13 @@
 
 class CoursesController < ApplicationController
   
+  before_action :find_course, only:[:show, :edit, :update, :destroy]
+
   def index
     @courses = Course.all
+  end
+
+  def show
   end
   
   def new
@@ -13,39 +18,37 @@ class CoursesController < ApplicationController
   def create
     @course = Course.new(course_params)
 		if @course.save
-			flash[:notice] = "新增成功!"
-			redirect_to "/courses"
+			redirect_to "/courses", notice: "新增成功！"
 		else
 			render :new
 		end
   end
 
   def edit
-    @course = Course.find_by(id: params[:id])
   end
 
   def update
-    @course = Course.find_by(id: params[:id])
 		if @course.update(course_params)
-			flash[:notice] = "更新成功!"
-			redirect_to "/courses"
+			redirect_to "/courses", notice: "更新成功！"
 		else
 			render :edit
 		end
   end
 
   def destroy
-    @course = Course.find_by(id: params[:id])
     @course.destroy
 
-    flash[:notice] = "刪除成功"
-    redirect_to "/courses"
+    redirect_to "/courses", notice: "刪除成功！"
   end
 
 
 
   private
+    def find_course
+      @course = Course.find_by(id: params[:id])
+    end
+
     def course_params
-      params.require(:course).permit(:title, :content, :price, :status)
+      params.require(:course).permit(:title, :content, :price, :status, :classImg)
     end
 end
