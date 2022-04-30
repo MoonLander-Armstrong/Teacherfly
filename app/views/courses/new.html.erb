@@ -3,6 +3,10 @@
 <%= form_for(@course) do |form| %>
 
     <div>
+        <%= form.label :classImg, "圖片" %>
+        <%= form.file_field :classImg %>
+    </div>
+    <div>
         <%= form.label :title %>
         <%= form.text_field :title %>
     </div>
@@ -16,6 +20,7 @@
         <%= form.label :price %>
         <%= form.text_field :price %>
     </div>
+
 
     <%= form.submit %>
 
