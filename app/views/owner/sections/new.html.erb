@@ -5,7 +5,12 @@
     <%= form.label :title, "標題" %>
     <%= form.text_field :title %>
   </div>
-  
+
+  <div class="field">
+    <%= form.label :media, "上傳影片" %>
+    <%= form.file_field :media %>
+  </div>
+
   <div class="field">
     <%= form.label :content, "課程內文" %>
     <%= form.text_area :content %>

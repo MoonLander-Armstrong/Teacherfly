@@ -17,6 +17,6 @@ class User < ApplicationRecord
     end
   end
 
-  #relationship
+  # relationship
   has_many :chapters
 end

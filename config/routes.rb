@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
 
   resources :chapters, only: [] do
-    resources :sections, only: [:index, :show] do
+    resources :sections, only: %i[index show] do
     end
   end
 end

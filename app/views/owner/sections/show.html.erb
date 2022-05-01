@@ -1,0 +1,3 @@
+<%= @section.title %>
+<%= @section.content %>
+<%= video_tag url_for(@section.media), size: "400x400",  controls: true if @section.media.attached? %>

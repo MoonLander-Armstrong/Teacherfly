@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Section < ApplicationRecord
+  has_one_attached :media, dependent: :destroy
+
   # validates
   validates :title,
             presence: true,

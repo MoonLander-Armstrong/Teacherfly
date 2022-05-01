@@ -1,2 +1,6 @@
 google_client_id: "YOUR_GOOGLE_CLIENT_ID"
 google_client_secret: "YOUR_GOOGLE_CLIENT_SECRET"
+
+#aws s3
+  access_key_id: "YOUR_ACCESS_KEY_ID" 
+  secret_access_key: "YOUR_SECRET_ACCESS_KEY" 

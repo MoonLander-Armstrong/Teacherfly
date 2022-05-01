@@ -4,10 +4,19 @@
 
 <ul>
   <% @chapters.each do |chapter|%>
-    <li><%= chapter.title %></li>
+    <li>章節：<%= chapter.title %> | 
+      <%= link_to "X", owner_chapter_path(chapter), method: "delete" %> | 
+      <%= link_to "編輯", edit_owner_chapter_path(chapter) %> 
+    </li>
     <ul>
       <% chapter.sections.each do |section| %>
-        <li><%= link_to section.title, edit_owner_chapter_section_path(section.chapter_id, section.id) %></li>
+        <li>
+          <%= link_to section.title, owner_chapter_section_path(section.chapter_id, section.id) %> | 
+          <%= link_to "X", owner_chapter_section_path(section.chapter_id, section), method: "delete" %>
+        </li>
+        <li>
+          <%= link_to "編輯", edit_owner_chapter_section_path(section.chapter_id, section.id) %>
+        </li>
       <% end %>
     </ul>
     <%= link_to "新增Section", new_owner_chapter_section_path(chapter.id) %>
