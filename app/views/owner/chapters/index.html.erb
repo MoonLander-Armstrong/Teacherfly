@@ -1,0 +1,17 @@
+<h1>後台：Chapter列表</h1>
+
+<%= render "shared/flash" %>
+
+<ul>
+  <% @chapters.each do |chapter|%>
+    <li><%= chapter.title %></li>
+    <ul>
+      <% chapter.sections.each do |section| %>
+        <li><%= link_to section.title, edit_owner_chapter_section_path(section.chapter_id, section.id) %></li>
+      <% end %>
+    </ul>
+    <%= link_to "新增Section", new_owner_chapter_section_path(chapter.id) %>
+  <% end %>
+</ul>
+
+<%= link_to "新增Chapter", new_owner_chapter_path %>

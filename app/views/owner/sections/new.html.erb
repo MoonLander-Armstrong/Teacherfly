@@ -1,0 +1,19 @@
+<h1>新增Section</h1>
+
+<%= form_with model: @section, url: owner_chapter_sections_path, method: "post" do |form| %>
+  <div class="field">
+    <%= form.label :title, "標題" %>
+    <%= form.text_field :title %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :content, "課程內文" %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div class="field">
+    <%= form.select :published, @section.publishd_state %>
+  </div>
+
+  <%= form.submit "送出" %>
+<% end %>

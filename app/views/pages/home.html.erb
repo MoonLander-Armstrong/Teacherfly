@@ -1,0 +1,12 @@
+<%= render "shared/nav" %>
+
+<ul>
+  <% @chapters.each do |chapter| %>
+    <li>
+      <%= link_to chapter.title, chapter_section_path(chapter.id, chapter.sections.first.id) if chapter.sections.any? %>
+    </li>
+  <% end %>
+</ul>
+
+
+<p>homepage</p>

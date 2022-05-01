@@ -1,0 +1,8 @@
+<li>
+  <li><%= chapter.title %></li>
+  <ul>
+      <% chapter.sections.each do |section| %>
+        <li><%= link_to section.title, edit_owner_chapter_section_path(section.chapter_id, section.id) %></li>
+      <% end %>
+    </ul>
+</li>

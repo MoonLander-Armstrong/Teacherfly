@@ -1,0 +1,12 @@
+<h1>新增Chapter</h1>
+
+<%= render "shared/flash" %>
+
+<%= form_with model: @chapter, url: owner_chapters_path, method: "post" do |form| %>
+  <div class="field">
+    <%= form.label :title, "標題" %>
+    <%= form.text_field :title %>
+  </div>
+  
+  <%= form.submit "送出" %>
+<% end %>
