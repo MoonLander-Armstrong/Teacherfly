@@ -22,6 +22,7 @@ gem 'webpacker', '~> 5.0'
 gem 'image_processing', '~> 1.2'
 gem "aws-sdk-s3", require: false
 gem "paranoia", "~> 2.6"
+gem 'devise-i18n', '~> 1.10', '>= 1.10.2'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
