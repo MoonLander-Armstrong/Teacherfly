@@ -35,7 +35,13 @@ module Owner
     end
 
     def destroy
-      @chapter.sections.delete_all && @chapter.destroy
+      #   #刪掉每一個section的影片
+      @chapter.sections.map { |section| section.media.purge_later }
+      
+      # 刪掉Chapter裡的每個section
+      @chapter.sections.delete_all 
+
+      @chapter.destroy
       redirect_to owner_chapters_path, notice: '刪除chapter!!'
     end
 
