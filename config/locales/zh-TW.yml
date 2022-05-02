@@ -93,7 +93,7 @@ zh-TW:
       destroyed: 再會！您的帳號已被取消。有緣再會。
       edit:
         are_you_sure: 您確定嗎？
-        cancel_my_account: 取消我的帳戶
+        cancel_my_account: 刪除我的帳號
         currently_waiting_confirmation_for_email: 等待 %{email} 的確認
         leave_blank_if_you_don_t_want_to_change_it: 不想修改的話就不需要填寫這個欄位
         title: 修改 %{resource}
@@ -124,7 +124,7 @@ zh-TW:
         sign_in: 登入
         sign_in_with_provider: 用 %{provider} 登入
         sign_up: 註冊
-      minimum_password_length: "（最少%{count}個字符）"
+      minimum_password_length: "（最少%{count}個字）"
     unlocks:
       new:
         resend_unlock_instructions: 重發解鎖說明信件
