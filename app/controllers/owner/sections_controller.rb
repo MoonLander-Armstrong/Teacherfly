@@ -13,7 +13,7 @@ module Owner
     def create
       chapter = Chapter.find(params[:chapter_id])
       @section = chapter.sections.new(section_params)
-
+    
       if @section.save
         redirect_to owner_chapters_path, notice: '新增成功'
       else
@@ -25,6 +25,7 @@ module Owner
     def edit; end
 
     def update
+      @section.media.purge_later 
       if @section.update(section_params)
         redirect_to owner_chapters_path, notice: '更新成功'
       else

@@ -9,7 +9,8 @@
   
   <div class="field">
     <%= form.label :media, "上傳影片" %>
-    <%= form.file_field :media %>
+    <%= form.file_field :media if @section.media.attached? %>
+    <%= @section.media.filename %>
   </div> 
   
   <div class="field">

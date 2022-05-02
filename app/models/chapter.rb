@@ -10,5 +10,11 @@ class Chapter < ApplicationRecord
 
   # relationship
   belongs_to :user
-  has_many :sections
+  has_many :sections, dependent: :delete_all
+
+  def self.qwe(aa)
+    aa.sections.each do |section|
+      section.media.purge_later
+    end
+  end
 end
