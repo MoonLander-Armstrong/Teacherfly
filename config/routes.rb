@@ -17,4 +17,4 @@ Rails.application.routes.draw do
   end
 end
 
-resources :course
+resources :courses
