@@ -25,6 +25,7 @@ module Owner
     end
 
     def edit
+      @chapters = @course.chapters
     end
 
     def update
@@ -53,7 +54,7 @@ module Owner
       end
 
       def course_params
-        params.require(:course).permit(:title, :content, :price, :status, :classImg).merge(user_id: current_user.id)
+        params.require(:course).permit(:title, :content, :price, :status, :classImg)
       end
   end
 end

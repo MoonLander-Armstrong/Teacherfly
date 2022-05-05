@@ -2,7 +2,7 @@
 
 module Owner
   class ChaptersController < ApplicationController
-    before_action :find_chapter, only: %i[edit update destroy]
+    before_action :find_chapter, only: %i[edit update]
 
     def index
       @chapters = Chapter.all
@@ -13,10 +13,11 @@ module Owner
     end
 
     def create
-      @chapter = current_user.chapters.new(chapter_params)
+      @course = Course.find(params[:id])
+      @chapter = @course.chapters.new(chapter_params)
 
       if @chapter.save
-        redirect_to owner_chapters_path, notice: '新增成功'
+        redirect_to edit_owner_course_path(@course), notice: '新增成功'
       else
         flash.now[:alert] = '請輸入正確資訊'
         render :new
@@ -26,8 +27,9 @@ module Owner
     def edit; end
 
     def update
+      @course = Course.find(params[:id])
       if @chapter.update(chapter_params)
-        redirect_to owner_chapters_path, notice: '更新成功'
+        redirect_to owner_courses_path, notice: '更新成功'
       else
         flash.now[:alter] = '請輸入正確資訊'
         render :edit
@@ -35,20 +37,21 @@ module Owner
     end
 
     def destroy
+      @course = Course.find(params[:id])
       #   #刪掉每一個section的影片
-      @chapter.sections.map { |section| section.media.purge_later }
+      #@chapter.sections.map { |section| section.media.purge_later }
       
       # 刪掉Chapter裡的每個section
-      @chapter.sections.delete_all 
+     # @chapter.sections.delete_all 
 
-      @chapter.destroy
-      redirect_to owner_chapters_path, notice: '刪除chapter!!'
+      @course.chapters.find(params[:id]).destroy
+      redirect_to edit_owner_course_path(@course), notice: '刪除chapter!!'
     end
 
     private
 
     def chapter_params
-      params.require(:chapter).permit(:title)
+      params.permit(:title)
     end
 
     def find_chapter
