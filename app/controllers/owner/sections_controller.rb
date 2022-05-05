@@ -38,7 +38,7 @@ module Owner
       if @section.media.attached?
         @section.media.purge_later
         @section.destroy
-        redirect_to owner_chapters_path, notice: '刪除成功（有影片）'
+        redirect_to owner_chapters_path, notice: '刪除成功x）'
       else
         @section.destroy
         redirect_to owner_chapters_path, notice: '刪除成功'

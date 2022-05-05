@@ -4,17 +4,16 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  namespace :owner, only: [] do
-    resources :chapters, except: [:show] do
-      resources :sections, except: [] do
-      end
+  namespace :owner do
+    resources :courses do 
     end
   end
 
-  resources :chapters, only: [] do
-    resources :sections, only: %i[index show] do
+
+  #前台
+  resources :courses, only: %i[index show]do
+    resources :sections, only: %i[index show] do 
     end
   end
-
-  resources :courses
+  
 end
