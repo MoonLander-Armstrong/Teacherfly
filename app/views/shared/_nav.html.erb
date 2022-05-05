@@ -1,17 +1,41 @@
-<nav class="flex items-center justify-between px-4" >
+<nav class="md:flex shadow-md bg-green-200" data-controller="hamburger" data-hamburger-show-value="false">
+  <div class="flex items-center md:mr-auto">
+    <%= link_to root_path, class: "logo ml-auto mr-auto" do %>
+      <h1 class="text-5xl">Teacher:Fly</h1>
+      <% end %>
 
-  <%= link_to root_path, class: "py-2 bg-green-500" do %>
-    <h1 class="text-4xl ">Teacherfly</h1>
-  <% end %>
   
-  <div class="">  
-    <% if current_user %>
-      <%= link_to('登出', destroy_user_session_path, :method => :delete) %> |
-      <%= link_to('修改密碼', edit_registration_path(:user)) %>
-    <% else %>
-      <%= link_to('註冊', new_registration_path(:user)) %> |
-      <%= link_to('登入', new_session_path(:user)) %>
-    <% end %>
+    <button class="p-1 mr-4 md:hidden" data-hamburger-target="button" data-action="click->hamburger#toggleNavBar">
+      <div class="w-7 h-0.5 my-1 bg-black"></div>
+      <div class="w-7 h-0.5 my-2 bg-black"></div>
+      <div class="w-7 h-0.5 my-1 bg-black"></div>
+    </button>
   </div>
-
+    
+  <ul class="md:flex md:max-h-full login-area text-center " data-hamburger-target="navbar">
+    <li>
+      <%= link_to "進入後台", owner_chapters_path %>
+    </li>
+    <li>
+      <%= link_to "所有課程", "#" %>
+    </li>
+    <li>
+      <%= link_to "我的課程", "#" %>
+    </li>
+    <% if current_user %>
+      <li>
+        <%= link_to('登出', destroy_user_session_path, :method => :delete) %>
+      </li>
+      <li>
+        <%= link_to('修改密碼', edit_registration_path(:user)) %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to('註冊', new_registration_path(:user)) %>
+      </li>
+      <li>
+        <%= link_to('登入', new_session_path(:user)) %>
+      </li>
+    <% end %>
+  </ul>
 </nav>
