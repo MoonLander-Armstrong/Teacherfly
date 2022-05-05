@@ -1,22 +1,48 @@
-<h1>修改課程內容</h1>
+<h1 class="text-3xl"><%= @course.title %> の 課程後台</h1>
 
-<%= form_for(@course) do |form| %>
 
-    <div>
-        <%= form.label :title %>
-        <%= form.text_field :title %>
-    </div>
-    
-    <div>
-        <%= form.label :content %>
-        <%= form.text_area :content %>
-    </div>
 
-    <div>
-        <%= form.label :price %>
-        <%= form.text_field :price %>
-    </div>
+<div class="grid grid-cols-2 gap-4 mb-10">
+  <%= form_with(model: @course, url: owner_course_path) do |form| %>
+
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+
+
+  
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+
+
+    <%= form.label :price %>
+    <%= form.text_field :price %>
 
     <%= form.submit %>
+  <% end %>
+</div>
 
-<% end %>
+
+<div class="grid grid-cols-2 gap-4 mb-10">
+  <%= form_with model: @chapter, url: owner_chapters_path do |form| %>
+  <h2 class="text-3xl text-green-600">新增Chapter</h2>
+
+  <div class="field">
+    <%= form.label :title, "標題" %>
+    <%= form.text_field :title %>
+  </div>
+
+    <%= form.submit "送出" %>
+  <% end %>
+</div>
+
+<h1 class="text-2xl">後台：Chapter列表</h1>
+
+  <ul>
+    <% @chapters.each do |chapter| %>
+      <li>章節：<%= chapter.title %> |
+        <%= link_to "X", owner_chapter_path(@course, chapter), method: "delete" %> | 
+        <%= link_to "編輯", edit_owner_chapter_path(chapter) %>  
+      </li>
+    <% end %>
+  </ul>
+

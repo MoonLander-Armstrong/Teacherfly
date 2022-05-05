@@ -6,14 +6,19 @@ Rails.application.routes.draw do
 
   namespace :owner do
     resources :courses do 
+      member do 
+        resources :chapters do
+          resources :sections  
+        end
+      end
     end
   end
 
 
   #前台
-  resources :courses, only: %i[index show]do
-    resources :sections, only: %i[index show] do 
-    end
-  end
+  # resources :courses, only: %i[index show]do
+  #   resources :sections, only: %i[index show] do 
+  #   end
+  # end
   
 end
