@@ -1,13 +1,11 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-@import "./devise.scss";
+@import "./devise";
+@import "./nav";
+
 input {
   border: 1px solid #000;
-}
-
-a {
-  text-decoration: underline;
 }
 
 textarea {
