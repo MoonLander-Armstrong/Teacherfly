@@ -9,7 +9,7 @@ class Chapter < ApplicationRecord
             }
 
   # relationship
-  belongs_to :user
+  belongs_to :course
   has_many :sections, dependent: :delete_all
 
   def self.qwe(aa)

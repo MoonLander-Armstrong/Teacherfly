@@ -2,7 +2,7 @@
 
 class ApplicationController < ActionController::Base
   # before_action :authenticate_user!
-  # def after_sign_in_path_for(resource)
-  #   new_course_path(resource)
-  # end
+  def after_sign_in_path_for(resource)
+    owner_courses_path
+  end
 end

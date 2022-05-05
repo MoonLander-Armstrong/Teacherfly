@@ -36,8 +36,12 @@ class CoursesController < ApplicationController
   end
 
   def destroy
-    @course.destroy
-
+    if @course.classImg.attached?
+      @course.classImg.purge_later
+      @course.destroy
+    else
+      @course.destroy
+    end
     redirect_to "/courses", notice: "刪除成功！"
   end
 

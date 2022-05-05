@@ -1,0 +1,17 @@
+
+<% if @course %>
+    <h1><%= link_to @course.title %>課程內容</h1>
+
+    <%= image_tag @course.classImg if @course.classImg.attached?%>   
+
+    <ul>
+        <li>content: <%= @course.content %></li>
+        <li>price: <%= @course.price %></li>
+        <li>status: <%= @course.status %></li>
+    </ul>
+
+<% else %>
+
+    <h1>查無此資料</h1>
+
+<% end %>

@@ -18,5 +18,5 @@ class User < ApplicationRecord
   end
 
   # relationship
-  has_many :chapters
+  has_many :courses
 end
