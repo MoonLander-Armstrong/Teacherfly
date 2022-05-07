@@ -1,0 +1,19 @@
+.course-card {
+  @apply flex flex-col w-full mx-auto shadow rounded overflow-hidden;
+}
+
+.course-card-hover:hover h2 {
+  @apply text-green-400;
+}
+
+.course-card-hover h2 {
+  @apply transition;
+}
+
+.course-card-image {
+  aspect-ratio: 16/9;
+}
+
+.course-card-main {
+  @apply flex-grow;
+}

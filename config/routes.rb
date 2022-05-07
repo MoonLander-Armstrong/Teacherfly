@@ -5,20 +5,19 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   namespace :owner do
-    resources :courses do 
-      member do 
-        resources :chapters do
-          resources :sections  
+    resources :courses do
+      resources :chapters do
+        collection do
+          resources :sections do
+          end
         end
       end
     end
   end
 
-
-  #前台
-  # resources :courses, only: %i[index show]do
-  #   resources :sections, only: %i[index show] do 
-  #   end
-  # end
-  
+  # frontstate
+  resources :courses, only: %i[index show]do
+    resources :sections, only: %i[show] do 
+    end
+  end
 end
