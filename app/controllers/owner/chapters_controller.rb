@@ -2,6 +2,7 @@
 
 module Owner
   class ChaptersController < ApplicationController
+    layout "owner"
     before_action :find_chapter, only: %i[edit update]
 
     def index
@@ -13,7 +14,7 @@ module Owner
     end
 
     def create
-      @course = Course.find(params[:id])
+      @course = Course.find(params[:course_id])
       @chapter = @course.chapters.new(chapter_params)
 
       if @chapter.save
@@ -37,10 +38,10 @@ module Owner
     end
 
     def destroy
-      @course = Course.find(params[:id])
+      @course = Course.find(params[:course_id])
       #   #刪掉每一個section的影片
       #@chapter.sections.map { |section| section.media.purge_later }
-      
+
       # 刪掉Chapter裡的每個section
      # @chapter.sections.delete_all 
 
@@ -51,7 +52,7 @@ module Owner
     private
 
     def chapter_params
-      params.permit(:title)
+      params.require(:chapter).permit(:title)
     end
 
     def find_chapter

@@ -3,7 +3,7 @@
 
 
 <div class="grid grid-cols-2 gap-4 mb-10">
-  <%= form_with(model: @course, url: owner_course_path) do |form| %>
+  <%= form_with model: @course, url: owner_course_path(@course) do |form| %>
 
     <%= form.label :title %>
     <%= form.text_field :title %>
@@ -23,7 +23,7 @@
 
 
 <div class="grid grid-cols-2 gap-4 mb-10">
-  <%= form_with model: @chapter, url: owner_chapters_path do |form| %>
+  <%= form_with model: @course.chapters, url: owner_course_chapters_path(@course)  do |form| %>
   <h2 class="text-3xl text-green-600">新增Chapter</h2>
 
   <div class="field">
@@ -39,9 +39,10 @@
 
   <ul>
     <% @chapters.each do |chapter| %>
-      <li>章節：<%= chapter.title %> |
-        <%= link_to "X", owner_chapter_path(@course, chapter), method: "delete" %> | 
-        <%= link_to "編輯", edit_owner_chapter_path(chapter) %>  
+      <li>
+        章節：<%= chapter.title %> |
+        <%= link_to "X", owner_course_chapter_path(chapter.course_id, chapter.id), method: "delete" %> | 
+        <%= link_to "編輯", edit_owner_course_chapter_path(chapter.course_id, chapter.id) %>  
       </li>
     <% end %>
   </ul>
