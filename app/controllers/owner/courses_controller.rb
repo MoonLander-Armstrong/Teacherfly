@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 module Owner
   class CoursesController < ApplicationController
-    
+    layout "owner"
     before_action :find_course, only:[:show, :edit, :update, :destroy]
 
     def index
@@ -10,7 +10,7 @@ module Owner
 
     def show
     end
-    
+
     def new
       @course = Course.new
     end

@@ -2,20 +2,23 @@
 
 module Owner
   class SectionsController < ApplicationController
+    layout "owner"
     before_action :find_section, only: %i[show edit update destroy]
 
     def index; end
 
     def new
+      @chapter = Chapter.find(params[:chapter_id])
       @section = Section.new
     end
 
     def create
-      chapter = Chapter.find(params[:chapter_id])
-      @section = chapter.sections.new(section_params)
-    
+      course = Course.find(params[:course_id])
+      @chapter = course.chapters.find(params[:chapter_id])
+      @section = @chapter.sections.new(section_params)
+
       if @section.save
-        redirect_to owner_chapters_path, notice: '新增成功'
+        redirect_to owner_course_path(params[:course_id]), notice: '新增成功'
       else
         flash.now[:alert] = '請輸入正確資訊'
         render :new
@@ -25,9 +28,9 @@ module Owner
     def edit; end
 
     def update
-      @section.media.purge_later 
+      @section.media.purge_later
       if @section.update(section_params)
-        redirect_to owner_chapters_path, notice: '更新成功'
+        redirect_to owner_course_chapters_path(params[:course_id]), notice: '更新成功'
       else
         flash.now[:alert] = '請輸入正確資訊'
         render :edit
@@ -54,8 +57,7 @@ module Owner
     end
 
     def find_section
-      chapter = Chapter.find(params[:chapter_id])
-      @section = chapter.sections.find(params[:id])
+      @section = Section.find(params[:id])
     end
   end
 end

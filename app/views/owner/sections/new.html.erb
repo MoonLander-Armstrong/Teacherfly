@@ -1,6 +1,6 @@
 <h1>新增Section</h1>
 
-<%= form_with model: @section, url: owner_chapter_sections_path, method: "post" do |form| %>
+<%= form_with model: @section, url: owner_course_chapter_sections_path(@chapter.course_id, @chapter), method: "post" do |form| %>
   <div class="field">
     <%= form.label :title, "標題" %>
     <%= form.text_field :title %>
