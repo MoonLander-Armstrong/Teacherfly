@@ -1,49 +1,64 @@
-<h1 class="text-3xl"><%= @course.title %> の 課程後台</h1>
+<div class="">
 
+  <h1 class="text-3xl"><%= @course.title %> の 課程後台</h1>
 
+  <div class="bg-emerald-200">
+    <%= form_with model: @course, url: owner_course_path(@course) do |form| %>
 
-<div class="grid grid-cols-2 gap-4 mb-10">
-  <%= form_with model: @course, url: owner_course_path(@course) do |form| %>
+      <%= form.label :title %>
+      <%= form.text_field :title %>
 
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+      <%= form.label :description %>
+      <%= form.text_field :description %>
+      
+      <%= form.label :content %>
+      <%= form.text_field :content %>
 
+      <%= form.label :price %>
+      <%= form.text_field :price %>
 
-  
-    <%= form.label :content %>
-    <%= form.text_field :content %>
-
-
-    <%= form.label :price %>
-    <%= form.text_field :price %>
-
-    <%= form.submit %>
-  <% end %>
-</div>
-
-
-<div class="grid grid-cols-2 gap-4 mb-10">
-  <%= form_with model: @course.chapters, url: owner_course_chapters_path(@course)  do |form| %>
-  <h2 class="text-3xl text-green-600">新增Chapter</h2>
-
-  <div class="field">
-    <%= form.label :title, "標題" %>
-    <%= form.text_field :title %>
+      <%= form.submit %>
+    <% end %>
   </div>
 
-    <%= form.submit "送出" %>
-  <% end %>
-</div>
 
-<h1 class="text-2xl">後台：Chapter列表</h1>
+  <div >
+    <%= form_with model: @course.chapters, url: owner_course_chapters_path(@course)  do |form| %>
+    <h2 class="text-3xl text-green-600">新增Chapter</h2>
+
+    <div class="field">
+      <%= form.label :title, "標題" %>
+      <%= form.text_field :title %>
+    </div>
+
+      <%= form.submit "送出" %>
+    <% end %>
+  </div>
+
+  <h1 class="text-2xl">後台：Chapter列表</h1>
 
   <ul>
     <% @chapters.each do |chapter| %>
       <li>
         章節：<%= chapter.title %> |
         <%= link_to "X", owner_course_chapter_path(chapter.course_id, chapter.id), method: "delete" %> | 
-        <%= link_to "編輯", edit_owner_course_chapter_path(chapter.course_id, chapter.id) %>  
+        <%= link_to "編輯", edit_owner_course_chapter_path(chapter.course_id, chapter.id) %>  |
+        <%= link_to "新增Sections", new_owner_course_chapter_section_path(@course, chapter) %>
+        <ul>
+          <% chapter.sections.each do |section| %>
+            <% if chapter.present? %>
+              SECTION:
+              <li>
+              <%= section.title %> |
+              <%= link_to "編輯", edit_owner_course_section_path(@course, section)%> |
+              <%= link_to "SHOW", owner_course_section_path(@course, section)%> |
+              <%= link_to "X", owner_course_section_path(@course, section), method: "delete" %>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
       </li>
     <% end %>
   </ul>
 
+</div>

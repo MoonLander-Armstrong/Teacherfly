@@ -1,23 +1,26 @@
-<h1 class="text-4xl">全部課程</h1>
+<div class>
+	<div>
+		<h1 class="text-4xl">全部課程</h1>
 
-<%= link_to "新增課程", new_owner_course_path %>
+		<%= link_to "新增課程", new_owner_course_path %>
 
+		<table>
+			<tr>
+				<td>課程標題</td>
+				<td>價格</td>
+				<td>Action</td>
+			</tr>
 
-<table>
-	<tr>
-		<td>課程標題</td>
-		<td>價格</td>
-		<td>Action</td>
-	</tr>
-
-	<% @courses.each do |course| %>
-	<tr>
-		<td><%= link_to course.title, owner_course_path(course) %></td>
-		<td><%= course.price %></td>
-		<td>
-			<%= link_to "後台", edit_owner_course_path(course) %>
-			<%= link_to "刪除", owner_course_path(course), method: "delete", data:{confirm: "確認是否刪除?"} %>
-		</td>
-	</tr>
-	<% end %>
-</table>
+			<% @courses.each do |course| %>
+			<tr>
+				<td><%= link_to course.title, owner_course_path(course) %></td>
+				<td><%= course.price %></td>
+				<td>
+					<%= link_to "後台", edit_owner_course_path(course) %>
+					<%= link_to "刪除", owner_course_path(course), method: "delete", data:{confirm: "確認是否刪除?"} %>
+				</td>
+			</tr>
+			<% end %>
+		</table>
+	</div>
+</div>

@@ -50,11 +50,11 @@ module Owner
 
     private
       def find_course
-        @course = Course.find_by(id: params[:id])
+        @course = Course.find(params[:id])
       end
 
       def course_params
-        params.require(:course).permit(:title, :content, :price, :status, :classImg)
+        params.require(:course).permit(:title, :content, :price, :status, :description, :classImg)
       end
   end
 end
