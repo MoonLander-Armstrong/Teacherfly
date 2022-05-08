@@ -18,5 +18,5 @@ class User < ApplicationRecord
   end
 
   # relationship
-  has_many :courses, dependent: :delete_all
+  has_many :courses
 end

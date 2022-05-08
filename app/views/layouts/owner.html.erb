@@ -12,6 +12,9 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="flex h-screen">
+      <%= render "owner/courses/dashboard" %>
+      <%= yield %>
+    </div>
   </body>
 </html>
