@@ -41,6 +41,9 @@ module Owner
         @course.classImg.purge_later
         @course.destroy
       else
+        @course.chapters.each do |q|
+          q.sections.delete_all
+        end
         @course.destroy
       end
       redirect_to owner_courses_path, notice: "刪除成功！"
