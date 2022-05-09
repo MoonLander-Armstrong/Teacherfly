@@ -8,14 +8,13 @@ import Turbolinks from "turbolinks";
 import * as ActiveStorage from "@rails/activestorage";
 import "channels";
 import "stylesheets/application";
+import { Application } from "@hotwired/stimulus";
+import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers";
 
 Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
 Turbolinks.setProgressBarDelay(10);
-
-import { Application } from "@hotwired/stimulus";
-import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers";
 
 window.Stimulus = Application.start();
 const context = require.context("./controllers", true, /\.js$/);

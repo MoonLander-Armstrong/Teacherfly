@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   # front state
   resources :courses, only: %i[index show]do
-    resources :sections, only: %i[show] do 
+    resources :sections, only: %i[show] do
     end
   end
 end
