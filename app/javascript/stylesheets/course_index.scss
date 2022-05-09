@@ -1,5 +1,9 @@
 .course-card {
-  @apply flex flex-col w-full mx-auto shadow rounded overflow-hidden;
+  @apply flex flex-col w-full mx-auto shadow rounded overflow-hidden shadow-lg transition;
+}
+
+.course-card-hover:hover {
+  @apply transform -translate-x-1 -translate-y-1 transition duration-300;
 }
 
 .course-card-hover:hover h2 {
@@ -10,7 +14,7 @@
   @apply transition;
 }
 
-.course-card-image {
+.course-card-image img {
   aspect-ratio: 16/9;
 }
 

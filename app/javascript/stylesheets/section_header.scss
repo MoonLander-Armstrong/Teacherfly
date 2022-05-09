@@ -1,0 +1,31 @@
+.section_header {
+  .left-arrow i {
+    transform: translate(0, 0);
+    transition: 0.2s ease;
+  }
+
+  .left-arrow:hover i {
+    transform: translate(-5px, 0);
+    transition: 0.2s ease;
+  }
+
+  ul {
+    width: 150px;
+  }
+
+  ul li {
+    @apply p-2;
+  }
+
+  ul li:hover {
+    @apply bg-green-400;
+  }
+
+  ul li:not(:last-child) {
+    @apply mb-2;
+  }
+
+  .mobile-list li:first-child {
+    @apply p-0;
+  }
+}
