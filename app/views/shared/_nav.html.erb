@@ -1,9 +1,8 @@
-<nav class="md:container md:flex md:mx-auto" data-controller="hamburger" data-hamburger-show-value="false">
+<nav class="md:container md:flex md:mx-auto" data-controller="hamburger" data-hamburger-show-value="false" data-action="resize@window->hamburger#layout">
   <div class="flex items-center md:mr-auto">
     <%= link_to root_path, class: "logo ml-auto mr-auto" do %>
       <h1 class="text-5xl">Teacher:Fly</h1>
       <% end %>
-
   
     <button class="p-1 mr-4 md:hidden" data-hamburger-target="button" data-action="click->hamburger#toggleNavBar">
       <div class="w-7 h-0.5 my-1 bg-black"></div>

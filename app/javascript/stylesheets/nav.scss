@@ -1,5 +1,5 @@
 .logo {
-  @apply w-60 p-4;
+  @apply p-4;
 }
 
 .login-area {
@@ -8,15 +8,4 @@
   a {
     @apply block w-full py-4 md:px-8 md:py-8 hover:underline hover:bg-green-400 transition;
   }
-}
-
-.show-animation {
-  max-height: 500px;
-  transition: max-height 0.3s linear;
-}
-
-.fade-animation {
-  max-height: 0px;
-  overflow: hidden;
-  transition: max-height 0.2s linear;
 }

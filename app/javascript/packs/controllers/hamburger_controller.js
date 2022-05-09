@@ -15,11 +15,14 @@ export default class extends Controller {
 
   showValueChanged(current) {
     if (current) {
-      this.navbarTarget.classList.add("show-animation");
-      this.navbarTarget.classList.remove("fade-animation");
+      this.element.parentElement.style.height = "360px";
     } else {
-      this.navbarTarget.classList.add("fade-animation");
-      this.navbarTarget.classList.remove("show-animation");
+      this.element.parentElement.style.height = "88px";
     }
+  }
+
+  layout() {
+    this.element.parentElement.style.height = "88px";
+    this.showValue = false;
   }
 }
