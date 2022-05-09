@@ -8,6 +8,7 @@ module Owner
     def index; end
 
     def new
+      @course = Course.find(params[:course_id])
       @chapter = Chapter.find(params[:chapter_id])
       @section = Section.new
     end
@@ -16,8 +17,9 @@ module Owner
       @course = Course.find(params[:course_id])
       @chapter = @course.chapters.find(params[:chapter_id])
       @section = @chapter.sections.new(section_params)
-
-      # render html: params
+      
+      
+      
       
       if @section.save  
         redirect_to edit_owner_course_path(@course), notice: '新增成功'
