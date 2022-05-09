@@ -1,0 +1,8 @@
+<h1>講師名單</h1>
+
+<%= link_to "新增履歷", new_lecturer_path %>
+
+<section class="lecturer-list">
+    <%= render partial: "lecturer", collection: @lecturers, as: :lecturer %>
+    <%#= render @lecturers %>
+</section>

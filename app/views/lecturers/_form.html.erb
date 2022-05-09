@@ -1,0 +1,23 @@
+<%= form_with(model: lecturer) do |form| %>
+    <div>
+        <%= form.label :name, "姓名" %>
+        <%= form.text_field :name %>
+    </div>
+
+    <div>
+        <%= form.label :content, "講師介紹" %>
+        <%= form.text_area :content %>
+    </div>
+
+    <div>
+        <%= form.label :mugshot, "講師照片" %>
+    <div>
+      <%= image_tag lecturer.mugshot.variant(resize_to_limit: [300, 200]) if lecturer.mugshot.attached? %>
+      <%= form.file_field :mugshot %>
+    </div>
+  </div>
+
+  <%= link_to "回上頁", lecturers_path %>
+  <%= form.submit %>
+
+<% end %>

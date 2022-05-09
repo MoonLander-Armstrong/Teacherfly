@@ -1,0 +1,16 @@
+<article class="lecturer-card">
+    <header>
+        <%= lecturer.name %>
+    </header>
+
+    <% if lecturer.mugshot.attached? %>
+        <%= image_tag lecturer.mugshot %>
+    <% else %>
+        
+    <% end %>
+
+    <footer class="actions">
+        <%= link_to "編輯", edit_lecturer_path(lecturer.id) %>
+        <%= link_to "刪除", lecturer_path(lecturer.id), method: "delete", data:{confirm: "確認是否刪除?"} %>
+    </footer>
+</article>

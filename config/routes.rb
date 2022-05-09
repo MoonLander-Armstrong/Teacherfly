@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     resources :sections, only: %i[index show] do
     end
   end
-
+  
   resources :courses
+  resources :lecturers
+  
 end
