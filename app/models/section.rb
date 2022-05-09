@@ -13,7 +13,7 @@ class Section < ApplicationRecord
   # relationship
   belongs_to :chapter
 
-  def publishd_state
+  def self.published_state
     [
       %w[
         草稿 draft

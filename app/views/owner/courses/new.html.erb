@@ -15,7 +15,7 @@
       <%= form.label :description %>
       <%= form.text_field :description %>
     </div>
-    
+
     <div>
         <%= form.label :content %>
         <%= form.text_area :content %>
@@ -24,6 +24,11 @@
     <div>
         <%= form.label :price %>
         <%= form.text_field :price %>
+    </div>
+    
+    <div>
+      <%= form.label :status %>
+      <%= form.select :status, Section.published_state %>
     </div>
 
 
