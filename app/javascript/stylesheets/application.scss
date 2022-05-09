@@ -3,10 +3,9 @@
 @import "tailwindcss/utilities";
 @import "./devise";
 @import "./nav";
-@import "./course";
-@import "./owner";
 @import "./course_index";
 @import "./courses_show";
+@import "./section_header.scss";
 
 input {
   border: 1px solid #000;
