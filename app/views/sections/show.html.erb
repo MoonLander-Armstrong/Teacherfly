@@ -1,0 +1,62 @@
+<%= content_for :header do %>
+  <div class="section_header flex justify-between flex-grow text-xl text-green-800">
+    <div class="flex items-center">
+      <div >
+        <%= link_to courses_path, class: "section_header_btn" do %>
+          <i class="fa-solid fa-house"></i>
+        <% end %>
+      </div>
+      <div class="md:hidden border-l border-green-700">
+        <button class="section_header_btn" data-action="click->section-list#toggle">
+          <i class="fa-solid fa-list"></i>
+        </button>
+      </div>
+    </div>
+    <div class="flex md:hidden items-center mr-2">
+      <%= link_to "#", class: "px-6 py-0.5 mr-2 border border-green-700 rounded hover:bg-green-700 hover:text-green-200 transition" do %>
+        <i class="fa-solid fa-chevron-left"></i>
+      <% end %>
+      <%= link_to "#", class: "px-6 py-0.5 border border-green-700 rounded hover:bg-green-700 hover:text-green-200 transition" do %>
+        <i class="fa-solid fa-chevron-right"></i>
+      <% end %>
+    </div>
+    
+    <div class="md:flex hidden items-center mr-2">
+      <%= link_to "#", class: "px-6 py-0.5 mr-2 border border-green-700 rounded hover:bg-green-700 hover:text-green-200 transition" do %>
+        <i class="fa-solid fa-chevron-left mr-2"></i>
+        前往上一章節
+      <% end %>
+      <%= link_to "#", class: "px-6 py-0.5 border border-green-700 rounded hover:bg-green-700 hover:text-green-200 transition" do %>
+        前往下一章節
+        <i class="fa-solid fa-chevron-right ml-2"></i>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<%= content_for :sidebar do %>
+  <nav class="section-dropdown fade absolute md:relative left-0 right-0 md:w-64 lg:w-72 md:max-h-screen flex-shrink-0 overflow-scroll bg-white z-10" data-section-list-target="sectionDropdown" data-action="resize@window->section-list#resize">
+    <div class="shadow">
+      <h1 class="text-xl font-bold text-center"><%= @course.title %></h1>
+      <div class="px-4 my-4 text-center">
+        <div class="progress-bar relative h-3 border rounded-full">
+        </div>
+        <span class="inline-block my-3">已完成<span class="ml-4">50%</span></span>
+      </div>
+    </div>
+    <h2 class="text-lg font-bold text-center">所有章節</h2>
+    <%= render partial: "chapter", collection: @course.chapters %>
+  </nav>
+<% end %>
+
+<section class="flex flex-grow px-5 min-h-screen overflow-scroll relative">
+  <div class="mx-auto">
+    <h1 class="text-3xl mb-4"><%= @section.title %></h1>
+    <div class="section-media" data-section-list-target="loading">
+      <div class="loading">Loading...</div>
+      <div class="lds-ring"><div></div><div></div><div></div><div></div><span class="text-xl font-bold" data-section-list-target="loadingCircle">Loading</span></div>
+      <%= video_tag url_for(@section.media), controls: true if @section.media.attached? %>
+    </div>
+    <p class="mt-4"><%= @section.content %></p>
+  </div>
+</section>
