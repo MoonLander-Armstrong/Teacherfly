@@ -3,7 +3,7 @@
   <h1 class="text-3xl"><%= @course.title %> の 課程後台</h1>
 
   <div class="bg-emerald-200">
-    <%= form_with model: @course, url: owner_course_path(@course) do |form| %>
+    <%= form_with model: @course, url: owner_course_path(@course.id) do |form| %>
     <div>
       <%= form.label :title %>
       <%= form.text_field :title %>
@@ -37,6 +37,8 @@
 
 
   <div >
+
+
     <%= form_with model: @course.chapters, url: owner_course_chapters_path(@course)  do |form| %>
     <h2 class="text-3xl text-green-600">新增Chapter</h2>
 
