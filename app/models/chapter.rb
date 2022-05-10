@@ -12,5 +12,15 @@ class Chapter < ApplicationRecord
   belongs_to :course
   has_many :sections, dependent: :delete_all
 
+  def prev_chapter
+    if course.chapters.where("id < ?", id).last.nil?
+      course.chapters.where("id < ?", id).last
+      return
+    end
+      course.chapters.where("id < ?", id).last
+  end
 
+  def next_chapter
+    course.chapters.where("id > ?", id).first
+  end
 end
