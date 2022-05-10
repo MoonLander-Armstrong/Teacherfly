@@ -7,5 +7,6 @@ class SectionsController < ApplicationController
     @user = current_user
     @course = Course.find(params[:course_id])
     @section = Section.find(params[:id])
+    @chapter = @section.chapter
   end
 end

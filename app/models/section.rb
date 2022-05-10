@@ -23,4 +23,20 @@ class Section < ApplicationRecord
       ]
     ]
   end
+
+  def prev_section
+    if chapter.sections.where("id < ?", id).last.nil?
+      chapter.prev_chapter.sections.last
+    else
+      chapter.sections.where("id < ?", id).last
+    end
+  end
+
+  def next_section
+    if chapter.sections.where("id > ?", id).first.nil?
+      chapter.next_chapter.sections.first
+    else
+      chapter.sections.where("id > ?", id).first
+    end
+  end
 end

@@ -27,7 +27,7 @@ export default class extends Controller {
       const circle = this.loadingTarget.children[1];
       this.loadingTarget.removeChild(modal);
       this.loadingTarget.removeChild(circle);
-    }, 3000);
+    }, 2000);
   }
 
   toggle() {
