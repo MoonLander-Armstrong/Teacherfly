@@ -18,11 +18,12 @@
     <%= javascript_pack_tag 'application', 'data-t  urbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <header class="section_header fixed flex items-center w-full h-14 bg-green-200 shadow-md">
-      <%= render "/sections/nav" %>
+  <body data-controller="section-list">
+    <header class="section_header fixed flex items-center w-full h-14 bg-green-200 shadow-md z-10">
+      <%= yield :header %>
     </header>
-    <main class="main">
+    <main class="section_main md:flex pt-20 relative max-h-screen">
+      <%= yield :sidebar %>
       <%= yield %>
     </main>
   </body>

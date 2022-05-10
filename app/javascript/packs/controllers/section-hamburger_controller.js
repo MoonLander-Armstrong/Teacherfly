@@ -7,7 +7,6 @@ export default class extends Controller {
     this.avatarShow = false;
     this.hamburgerShow = false;
   }
-  connect() {}
 
   hiddenAvatar() {
     this.hamburgerShow = !this.hamburgerShow;
