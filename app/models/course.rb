@@ -7,6 +7,7 @@ class Course < ApplicationRecord
   belongs_to :user
   has_many :chapters, dependent: :delete_all
 
-  has_many :course_lecturers
-  has_many :lecturers, through: :course_lecturers
+  
+
+
 end

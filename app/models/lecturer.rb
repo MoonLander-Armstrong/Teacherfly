@@ -1,8 +1,9 @@
 class Lecturer < ApplicationRecord
-    validates :name, presence: true
-    
-    has_one_attached :mugshot
+	validates :name, presence: true
+	
+	has_one_attached :mugshot, dependent: :destroy
 
-    has_many :course_lecturers
-    has_many :courses, through: :course_lecturers
+	has_many :courses
+
+
 end
