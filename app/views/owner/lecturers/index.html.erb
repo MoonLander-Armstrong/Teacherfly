@@ -1,0 +1,22 @@
+<div>
+    <h1>講師名單</h1>
+</div>
+<div>
+    <%= link_to "新增講師", new_owner_lecturer_path %>
+</div>
+
+<table>
+    <tr>
+        <td>講師姓名</td>
+    </tr>
+
+    <% @lecturers.each do |lecturer| %>
+    <tr>
+        <td><%= lecturer.name %></td>
+        <td>
+            <%= link_to "修改", edit_owner_lecturer_path(lecturer.id) %>
+            <%= link_to "刪除", owner_lecturer_path(lecturer.id), method: "delete", data: {confirm: "確認是否刪除？"} %>
+        </td>
+    </tr>
+    <% end %>
+</table>

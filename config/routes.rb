@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   # back stage
   namespace :owner do
+    resources :lecturers
     resources :courses do
       resources :chapters do
         resources :sections, only: [:new, :create]

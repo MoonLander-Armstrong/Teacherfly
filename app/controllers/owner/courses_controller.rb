@@ -13,7 +13,7 @@ module Owner
 
     def new
       @course = Course.new
-    end
+    end       
 
     def create 
       @course = current_user.courses.new(course_params)

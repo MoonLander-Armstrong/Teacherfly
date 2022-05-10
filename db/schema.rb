@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_08_070959) do
+ActiveRecord::Schema.define(version: 2022_05_09_111806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,15 @@ ActiveRecord::Schema.define(version: 2022_05_08_070959) do
     t.index ["course_id"], name: "index_chapters_on_course_id"
   end
 
+  create_table "course_lecturers", force: :cascade do |t|
+    t.bigint "course_id", null: false
+    t.bigint "lecturer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["course_id"], name: "index_course_lecturers_on_course_id"
+    t.index ["lecturer_id"], name: "index_course_lecturers_on_lecturer_id"
+  end
+
   create_table "courses", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -70,6 +79,14 @@ ActiveRecord::Schema.define(version: 2022_05_08_070959) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["course_id"], name: "index_enrolls_on_course_id"
     t.index ["user_id"], name: "index_enrolls_on_user_id"
+  end
+
+  create_table "lecturers", force: :cascade do |t|
+    t.string "name"
+    t.string "nickname"
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "sections", force: :cascade do |t|
@@ -100,6 +117,8 @@ ActiveRecord::Schema.define(version: 2022_05_08_070959) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "chapters", "courses"
+  add_foreign_key "course_lecturers", "courses"
+  add_foreign_key "course_lecturers", "lecturers"
   add_foreign_key "courses", "users"
   add_foreign_key "enrolls", "courses"
   add_foreign_key "enrolls", "users"
