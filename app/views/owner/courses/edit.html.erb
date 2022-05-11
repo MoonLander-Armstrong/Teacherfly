@@ -29,6 +29,11 @@
       <%= form.select :status, Section.published_state %>
     </div>
 
+
+    <div>
+      <%= form.label :lecturer_id %>
+      <%= form.select :lecturer_id, Lecturer.pluck(:name, :id) %>
+    </div>
     <div>
       <%= form.submit %>
     </div>
@@ -53,28 +58,6 @@
 
   <h1 class="text-2xl">後台：Chapter列表</h1>
 
-  <ul>
-    <% @chapters.each do |chapter| %>
-      <li>
-        章節：<%= chapter.title %> |
-        <%= link_to "X", owner_course_chapter_path(chapter.course_id, chapter.id), method: "delete" %> | 
-        <%= link_to "編輯", edit_owner_course_chapter_path(chapter.course_id, chapter.id) %>  |
-        <%= link_to "新增Sections", new_owner_course_chapter_section_path(@course, chapter) %>
-        <ul>
-          <% chapter.sections.each do |section| %>
-            <% if chapter.present? %>
-              SECTION:
-              <li>
-              <%= section.title %> |
-              <%= link_to "編輯", edit_owner_course_section_path(@course, section)%> |
-              <%= link_to "SHOW", owner_course_section_path(@course, section)%> |
-              <%= link_to "X", owner_course_section_path(@course, section), method: "delete" %>
-              </li>
-            <% end %>
-          <% end %>
-        </ul>
-      </li>
-    <% end %>
-  </ul>
+
 
 </div>
