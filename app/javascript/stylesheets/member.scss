@@ -27,7 +27,7 @@
 }
 
 .member-footer {
-  @apply flex items-center text-sm italic text-gray-400 tracking-widest;
+  @apply flex items-center mt-4 text-sm italic text-gray-400 tracking-widest;
 
   &::before {
     content: "";
