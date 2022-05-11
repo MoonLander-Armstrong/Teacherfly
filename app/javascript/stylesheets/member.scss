@@ -1,0 +1,31 @@
+.member-form {
+  @apply px-4 py-8 mx-auto sm:w-2/3 lg:w-2/5 shadow-lg;
+}
+
+.input {
+  @apply w-full py-2 pl-3 mt-1 mb-2 leading-none bg-gray-50 rounded focus:outline-none;
+
+  &:focus-visible {
+    outline-color: rgb(9, 160, 105);
+  }
+
+  &:focus {
+    outline-color: rgb(9, 160, 105);
+  }
+}
+
+// .devise_submit_button {
+//   @apply w-full py-4 text-sm font-semibold leading-none text-white bg-green-500 border-none rounded focus:ring-2 ring-offset-green-300 focus:ring-offset-2 focus:bg-green-700 focus:ring-offset-green-300 focus:outline-none hover:bg-green-700;
+// }
+
+.devise_submit_button {
+  @apply focus:ring-offset-red-400;
+}
+
+.login {
+  @apply focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border rounded-lg border-gray-700 flex items-center w-full mt-10;
+}
+
+.google {
+  @apply focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border rounded-lg border-gray-700 flex items-center w-full mt-10;
+}
