@@ -1,7 +1,7 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-@import "./devise";
+@import "./member";
 @import "./nav";
 @import "./courses_index";
 @import "./courses_show";
@@ -9,14 +9,76 @@
 @import "./section_show";
 @import "./owner";
 
+// form controls
 input {
-  border: 1px solid #000;
+  @apply w-full pl-2 py-2 mb-3 border border-black rounded;
+
+  &:focus {
+    @apply border-2 border-green-300 outline-none ring-2 ring-green-500 ring-offset-1;
+  }
+}
+
+input[type="submit"] {
+  @apply border-none bg-green-300;
+
+  &:hover {
+    @apply bg-green-400 ring-2 ring-green-500 ring-offset-green-300 ring-offset-1;
+  }
+
+  &:focus {
+    @apply ring-offset-green-300;
+  }
+
+  &:active {
+    @apply border-none ring-offset-green-300;
+  }
 }
 
 textarea {
   @apply border border-black;
 }
 
+.field_with_errors {
+  input {
+    border-color: red;
+    border-width: 1px;
+
+    &:focus {
+      @apply ring-0 border-2;
+    }
+  }
+
+  label {
+    color: red;
+  }
+}
+
+// flash messages
+.flash {
+  @apply flex justify-between items-center pl-4 pr-2 py-2 my-2 text-white rounded-md;
+}
+
+.flash-notice {
+  @apply bg-green-600;
+}
+
+.flash-alert {
+  @apply bg-red-600;
+}
+
+.flash-btn {
+  @apply block w-8 h-8 rounded-full;
+
+  &:focus {
+    @apply bg-white text-black;
+  }
+
+  &:active {
+    @apply bg-white text-black;
+  }
+}
+
+// front stage common style
 .header {
   height: 88px;
   overflow: hidden;
