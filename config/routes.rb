@@ -10,11 +10,14 @@ Rails.application.routes.draw do
     resources :courses do
       resources :chapters do
         resources :sections, only: [:new, :create]
-        
+
         collection do
           resources :sections, except: [:new, :create]
         end
       end
+    end
+    resources :users, only: [:index, :update] do
+      get :information
     end
   end
 
