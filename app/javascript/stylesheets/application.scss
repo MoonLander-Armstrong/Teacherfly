@@ -11,10 +11,10 @@
 
 // form controls
 input {
-  @apply w-full pl-2 py-2 mb-3 border border-black rounded;
+  @apply w-full pl-2 py-2 mb-3 border bg-gray-50 border-black rounded;
 
   &:focus {
-    @apply border-2 border-green-300 outline-none ring-2 ring-green-500 ring-offset-1;
+    @apply border-2 border-green-300 outline-none ring-2 ring-green-500;
   }
 }
 
@@ -22,7 +22,7 @@ input[type="submit"] {
   @apply border-none bg-green-300;
 
   &:hover {
-    @apply bg-green-400 ring-2 ring-green-500 ring-offset-green-300 ring-offset-1;
+    @apply bg-green-400 ring-offset-green-300 ring-offset-1 cursor-pointer;
   }
 
   &:focus {
