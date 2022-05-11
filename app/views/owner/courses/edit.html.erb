@@ -26,7 +26,7 @@
         <%= form.label :status %>
         <%= form.select :status, Section.published_state %>
       </div>
-
+      
       <div>
         <%= form.label :lecturer_id %>
         <%= form.select :lecturer_id, Lecturer.pluck(:name, :id) %>
