@@ -18,66 +18,62 @@
   </ul>
 <% end %>
 
-
-
 <section class="w-full h-full px-4 bg-gradient-to-tl">
   <nav class="flex items-center justify-between w-full h-16 border-b-2">
     <h1 class="inline-block m-4 text-2xl text-blue-900">Curriculum</h1> 
     <%= link_to new_owner_course_chapter_path(@course) do %>
-    <button class="px-4 py-2 mx-5 my-auto bg-green-300 border-0 border-gray-800 rounded hover:bg-green-400">新增章節</button>
+    	<button class="px-4 py-2 mx-5 my-auto bg-green-300 border-0 border-gray-800 rounded hover:bg-green-400">新增章節</button>
     <% end %>
   </nav>
 
-<% @chapters.each do |chapter| %>
- 	<table class="w-full mt-16 border border-gray-200 table-auto min-w-max">
-		<thead>
-			<tr class="w-full mt-10 text-sm leading-normal text-gray-600 uppercase bg-gray-200 ">
-				<th class="flex justify-between px-6 py-3 text-left"><%= link_to chapter.title, edit_owner_course_chapter_path(chapter.course_id, chapter)%>
-					<%= link_to owner_course_chapter_path(chapter.course_id, chapter), method: "delete", data: { confirm: "確定刪除章節嗎？"} do %>
-					<div class="text-sm hover:text-red-600">刪除</div>
-					<% end %>
-				</th>
-			</tr>
-		</thead>
-  <% chapter.sections.each do |section| %>
-		<tbody class="text-sm font-light text-gray-600">
-			<tr class="border-gray-200 hover:bg-green-100">
-					<td class="px-6 py-3 text-left whitespace-nowrap">
+	<% @chapters.each do |chapter| %>
+		<table class="w-full mt-16 border border-gray-200 table-auto min-w-max">
+			<thead>
+				<tr class="w-full mt-10 text-sm leading-normal text-gray-600 uppercase bg-gray-200 ">
+					<th class="flex justify-between px-6 py-3 text-left"><%= link_to chapter.title, edit_owner_course_chapter_path(chapter.course_id, chapter)%>
+						<%= link_to owner_course_chapter_path(chapter.course_id, chapter), method: "delete", data: { confirm: "確定刪除章節嗎？"} do %>
+							<div class="text-sm hover:text-red-600">刪除</div>
+						<% end %>
+					</th>
+				</tr>
+			</thead>
+			<% chapter.sections.each do |section| %>
+				<tbody class="text-sm font-light text-gray-600">
+					<tr class="border-gray-200 hover:bg-green-100">
+						<td class="px-6 py-3 text-left whitespace-nowrap">
 							<div class="flex items-center justify-between">
 								<span class="px-5 font-mediums">
 									<%= link_to section.title, edit_owner_course_section_path(@course, section) %>
 									<% if section.published == "draft" %>
-									<span class="px-3 py-1 m-3 text-xs text-gray-400 bg-gray-200 rounded-full ">
-									<%= section.published %>
-								<% end %>
+										<span class="px-3 py-1 m-3 text-xs text-gray-400 bg-gray-200 rounded-full ">
+											<%= section.published %>
+										</span>
+									<% end %>
 								</span>
-								</span>
-
 								<%= link_to owner_course_section_path(@course, section), method: "delete",data: { confirm: "確定刪除？" } do %>
-								<div class="w-4 mr-2 transform hover:text-red-500 hover:scale-110">
-									<svg xmlns="http://www.w3./2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<div class="w-4 mr-2 transform hover:text-red-500 hover:scale-110">
+										<svg xmlns="http://www.w3./2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-									</svg>
-								</div>
+										</svg>
+									</div>
 								<% end %>
 							</div>
-					</td>
-			</tr>
-  <% end %>
-    	<tr class="border-gray-200 hover:bg-green-100">
-				<td class="px-8 py-3 text-left whitespace-nowrap">
+						</td>
+					</tr>
+			<% end %>
+				<tr class="border-gray-200 hover:bg-green-100">
+					<td class="px-8 py-3 text-left whitespace-nowrap">
 						<%= link_to new_owner_course_chapter_section_path(@course, chapter) do %>
-						<div class="flex items-center">
-							<div class="mr-2">
+							<div class="flex items-center">
+								<div class="mr-2"></div>
+								<span class="font-medium text-green-500"> + 新增Section</span>
 							</div>
-							<span class="font-medium text-green-500"> + 新增Section</span>
-						</div>
 						<% end %>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-<% end %>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	<% end %>
 </section>
 
 
