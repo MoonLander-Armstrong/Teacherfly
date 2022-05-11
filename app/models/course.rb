@@ -5,6 +5,7 @@ class Course < ApplicationRecord
   has_one_attached :classImg
 
   belongs_to :user
+  belongs_to :lecturer
   has_many :chapters, dependent: :delete_all
 
   def first_section
