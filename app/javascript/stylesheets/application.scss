@@ -10,16 +10,32 @@
 @import "./owner";
 
 // form controls
+.form-control-group {
+  @apply flex pl-2;
+}
+
 input {
-  @apply w-full pl-2 py-2 mb-3 border bg-gray-50 border-black rounded;
+  @apply w-full pl-3 py-1 mt-1 mb-3 border bg-gray-50 border-black rounded;
 
   &:focus {
     @apply border-2 border-green-300 outline-none ring-2 ring-green-500;
   }
 }
 
+input[type="checkbox"] {
+  @apply w-auto mr-4;
+
+  &:focus {
+    @apply border-green-300;
+  }
+
+  &:checked {
+    @apply bg-green-400;
+  }
+}
+
 input[type="submit"] {
-  @apply border-none bg-green-300;
+  @apply pl-0 border-none bg-green-300;
 
   &:hover {
     @apply bg-green-400 ring-offset-green-300 ring-offset-1 cursor-pointer;
