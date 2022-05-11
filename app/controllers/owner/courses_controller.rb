@@ -49,8 +49,6 @@ module Owner
       redirect_to owner_courses_path, notice: "刪除成功！"
     end
 
-
-
     def information
       @course = Course.find(params[:id])
     end
