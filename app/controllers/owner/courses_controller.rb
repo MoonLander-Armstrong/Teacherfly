@@ -60,18 +60,15 @@ module Owner
       @chapters = @course.chapters
       render layout: "ID_owner"
     end
-    
+
     private
+
       def find_course
         @course = Course.find(params[:id])
       end
 
       def course_params
-<<<<<<< HEAD
         params.require(:course).permit(:title, :content, :price, :status, :description, :classImg, :lecturer_id).merge(user_id: current_user.id)
-=======
-        params.require(:course).permit(:title, :content, :price, :status, :description, :classImg).merge(user_id: current_user.id)
->>>>>>> 86ecd1f (course與lecturer關聯及下拉選單)
       end
   end
 end

@@ -27,3 +27,11 @@
 
     <%= form.submit %>
 
+    <div>
+      <%= form.label :lecturer_id %>
+      <%= form.select :lecturer_id, Lecturer.pluck(:name, :id) %>
+    </div>
+
+    <%= form.submit %>
+
+<% end %>
