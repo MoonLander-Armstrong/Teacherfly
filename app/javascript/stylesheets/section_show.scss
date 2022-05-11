@@ -18,14 +18,14 @@
 
   .show {
     top: 5rem;
-    min-height: min-content;
-    transition: top 0.3s linear, bottom 0.3s linear;
+    max-height: min-content;
+    transition: top 0.3s linear;
   }
 
   .fade {
-    top: -150%;
-    min-height: min-content;
-    transition: top 0.3s linear, bottom 0.3s linear;
+    top: -500%;
+    max-height: min-content;
+    transition: top 0.3s linear;
   }
 
   .loading::after {
