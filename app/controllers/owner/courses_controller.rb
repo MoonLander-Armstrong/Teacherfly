@@ -16,8 +16,8 @@ module Owner
     end       
 
     def create 
-      @lecturer = Lecturer.find_or_create_by(name: current_user.email)
-      @course = @lecturer.courses.new(course_params)
+      lecturer = Lecturer.find_or_create_by(name: current_user.email)
+      @course = lecturer.courses.new(course_params)
       if @course.save
         redirect_to owner_courses_path, notice: "新增成功！"
       else
@@ -30,6 +30,7 @@ module Owner
     end
 
     def update
+      @lecturer = Lecturer.find_by(id: params[:lecturer_id])
       if @course.update(course_params)
         redirect_to owner_courses_path, notice: "更新成功！"
       else
@@ -58,7 +59,7 @@ module Owner
       end
 
       def course_params
-        params.require(:course).permit(:title, :content, :price, :status, :description, :classImg).merge(user_id: current_user.id)
+        params.require(:course).permit(:title, :content, :price, :status, :description, :classImg, :lecturer_id).merge(user_id: current_user.id)
       end
   end
 end
