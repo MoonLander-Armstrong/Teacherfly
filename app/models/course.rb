@@ -1,6 +1,6 @@
 class Course < ApplicationRecord
   validates :title, presence: true
-  validates :description, presence: true, length: { maximum: 50 }
+  validates :description, length: { maximum: 50 }
   # relationship
   has_one_attached :classImg
 

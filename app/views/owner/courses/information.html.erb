@@ -1,0 +1,199 @@
+
+
+
+<%= form_with model: @course, url: owner_course_path(@course) do |form| %>
+<div class="flex flex-col items-center justify-center">
+
+  <card class="flex flex-col w-11/12 mt-10">
+    
+    <header class="flex flex-row items-center gap-3">
+        <div class="text-xl font-bold"> 課程發布狀態 </div>
+    </header>
+    
+    <content class="grid grid-cols-4 gap-3">
+
+      <div class="flex flex-col col-span-3">
+        <description class="pt-2 text-sm font-light">
+          Publish or unpublish your course. See what your course looks like to visitors or enrolled students.
+        </description>
+      </div>
+      
+      <div class="flex items-center">
+
+      </div>
+      
+    </content>
+    
+    <footer class="flex flex-row items-center gap-3 pt-7">
+      
+      <div class="font-semibold">
+        <%= form.label :status, "狀態" %>
+      </div>
+      <div class="px-2 py-1 duration-100 delay-100 border-2 border-gray-200 rounded-xl">
+        <%= form.select :status, Section.published_state %>
+      </div>
+      
+
+      
+    </footer>
+    
+    <hr class="mt-5">
+    
+  </card>
+
+  <card class="flex flex-col w-11/12 mt-5">
+    
+    <header class="flex flex-row items-center gap-3">
+        <div class="text-xl font-bold"> 課程背景圖片 </div>
+    </header>
+    
+    <content class="grid grid-cols-4 gap-3">
+
+      <div class="flex flex-col col-span-3">
+
+
+        <description class="pt-2 text-sm font-light">
+          Brand your course by setting a custom course image.
+        </description>
+      </div>
+      
+
+      
+    </content>
+    
+    <footer class="flex flex-row items-center gap-3 pt-7">
+      
+      <div class="font-semibold">
+        <%= form.label :classImg, "圖片" %>
+      </div>
+        <div class="px-2 py-1  duration-100 delay-100 ">
+        <%= form.file_field :classImg %>
+      </div>
+      
+     
+      
+    </footer>
+    
+    <hr class="mt-5">
+    
+  </card>
+
+  <card class="flex flex-col w-11/12 mt-5">
+    
+    <header class="flex flex-row items-center gap-3">
+        <div></div>
+    </header>
+    
+    <content class="grid grid-cols-4 gap-3">
+
+      <div class="flex flex-col col-span-3">
+        <subject class="pt-3 text-xl font-bold">
+          課程標題 & 簡介
+        </subject>
+
+        <description class="pt-2 text-sm font-light">
+          Change information about your course
+        </description>
+      </div>
+      
+      <div class="flex items-center">
+
+      </div>
+      
+    </content>
+    
+    <footer class="flex flex-row items-center gap-3 pt-7">
+      
+      <div class="font-semibold">
+        <%= form.label :title, "課程標題" %>
+      </div>
+      <div class="px-2 py-1  duration-100 delay-100 ">
+        <%= form.text_field :title, class: "information-input" %>
+      </div>
+
+      
+
+      
+    </footer>
+    
+    <footer class="flex flex-row items-center gap-3 pt-7">
+
+      <div class="font-semibold">
+        <%= form.label :description, "課程簡介" %> 
+      </div>
+      <div class="px-2 py-1  duration-100 delay-100 " >
+        <%= form.text_field :description, class: "information-input" %>
+      </div>
+
+      
+
+      
+    </footer>
+    
+    <footer class="flex flex-row items-center gap-3 pt-7">
+      
+      <div class="font-semibold">
+        <%= form.label :content %>
+      </div>
+      <div class="px-2 py-1  duration-100 delay-100">
+        <%= form.text_area :content %> 
+      </div>
+
+      
+
+      
+    </footer>
+    
+    <hr class="mt-5">
+    
+  </card>
+
+  <card class="flex flex-col w-11/12 mt-5">
+  
+    <header class="flex flex-row items-center gap-3 text-2xl">
+        <div> 講師 </div>
+    </header>
+    
+    <content class="grid grid-cols-4 gap-3">
+
+      <div class="flex flex-col col-span-3">
+        <subject class="pt-3 text-lg font-bold">
+          Go (Golang) with Structs and Interfaces
+        </subject>
+
+        <description class="pt-2 text-sm font-light">
+          Although it would be possible for us to write programs only using Go’s built-in data types, at some point, it would become quite tedious. Consider a program that....
+        </description>
+      </div>
+      
+      <div class="flex items-center">
+
+      </div>
+      
+    </content>
+    
+    <footer class="flex flex-row items-center gap-3 pt-7">
+      
+      <button class="px-2 py-1 text-xs duration-100 delay-100 bg-gray-200 rounded-full hover:bg-gray-300">
+        Tutorial
+      </button>
+      
+      <div class="text-xs text-gray-500">
+        7 min read
+      </div>
+      
+      <div class="text-xs text-gray-500">
+        Based on your reading history
+      </div>
+      
+    </footer>
+    
+    <hr class="mt-5">
+  
+  </card>
+  
+  <div class="absolute top-3 right-3">
+    <%= form.submit %>  
+  </div>
+</div>
+<% end %>

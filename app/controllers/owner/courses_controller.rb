@@ -12,8 +12,8 @@ module Owner
     end
 
     def new
-      @course = Course.new
-    end       
+      @course = current_user.courses.new
+    end
 
     def create 
       lecturer = Lecturer.find_or_create_by(name: current_user.email)
@@ -27,6 +27,7 @@ module Owner
 
     def edit
       @chapters = @course.chapters
+      render layout: "ID_owner"
     end
 
     def update
@@ -39,13 +40,10 @@ module Owner
     end
 
     def destroy
-      if @course.classImg.attached?
-        @course.classImg.purge_later
+      if @course.classImg.attached? 
+        @course.classImg.purge_later 
         @course.destroy
       else
-        @course.chapters.each do |q|
-          q.sections.delete_all
-        end
         @course.destroy
       end
       redirect_to owner_courses_path, notice: "刪除成功！"
@@ -53,6 +51,17 @@ module Owner
 
 
 
+    def information
+      @course = Course.find(params[:id])
+      render layout: "ID_owner"
+    end
+
+    def curriculum
+      @course = Course.find(params[:id])
+      @chapters = @course.chapters
+      render layout: "ID_owner"
+    end
+    
     private
       def find_course
         @course = Course.find(params[:id])

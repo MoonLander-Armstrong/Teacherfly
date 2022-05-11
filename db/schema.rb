@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2022_05_11_072921) do
     t.string "title"
     t.text "content"
     t.integer "price"
-    t.string "status"
+    t.string "status", default: "draft"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
