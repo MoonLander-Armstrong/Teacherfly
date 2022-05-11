@@ -10,7 +10,8 @@ class Chapter < ApplicationRecord
 
   # relationship
   belongs_to :course
-  has_many :sections, dependent: :delete_all
+
+  has_many :sections, dependent: :destroy
 
   def prev_chapter
     if course.chapters.where("id < ?", id).last.nil?

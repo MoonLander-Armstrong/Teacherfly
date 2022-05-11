@@ -45,7 +45,7 @@ module Owner
     def destroy
       course = Course.find(params[:course_id])
       if @section.media.attached?
-        @section.media.purge_later
+        @section.media.purge_later 
         @section.destroy
         redirect_to edit_owner_course_path(course), notice: '刪除成功x）'
       else
@@ -53,15 +53,15 @@ module Owner
         redirect_to edit_owner_course_path(course), notice: '刪除成功'
       end
     end
-
+    
     def show; end
-
+    
     private
-
+    
     def section_params
       params.require(:section).permit(:title, :content, :published, :finished, :media)
     end
-
+    
     def find_section
       @section = Section.find(params[:id])
     end

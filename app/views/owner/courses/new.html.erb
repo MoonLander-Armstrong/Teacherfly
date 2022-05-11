@@ -1,29 +1,26 @@
-<h1>新增課程</h1>
 
-<%= form_for(@course, url: owner_courses_path ) do |form| %>
+<div class="container">
+  <div class="row">
+    <div class="w-full p-10 mt-28 lg:w-1/2 ">
+      <h1 class="pb-4 text-3xl text-red-800">新增課程</h1>
+      <%= form_for(@course, url: owner_courses_path) do |form| %>
 
-    <div>
-        <%= form.label :classImg, "圖片" %>
-        <%= form.file_field :classImg %>
-    </div>
-    <div>
-        <%= form.label :title %>
-        <%= form.text_field :title %>
-    </div>
-    
-    <div>
-      <%= form.label :description %>
-      <%= form.text_field :description %>
-    </div>
+        
+          <%= form.label :title %>
+        
+        <div>
+          <%= form.text_field :title %>
+        </div>
 
-    <div>
-        <%= form.label :content %>
-        <%= form.text_area :content %>
-    </div>
+        
+  
+        <div>
+          <p>作者</p>
+        </div>
+        
+      <%= form.submit %>
 
-    <div>
-        <%= form.label :price %>
-        <%= form.text_field :price %>
+      <% end %>
     </div>
     
     <div>
@@ -38,4 +35,3 @@
 
     <%= form.submit %>
 
-<% end %>

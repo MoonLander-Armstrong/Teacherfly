@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   namespace :owner do
     resources :lecturers
     resources :courses do
+      member do 
+        get :information
+        get :curriculum
+      end
       resources :chapters do
         resources :sections, only: [:new, :create]
 

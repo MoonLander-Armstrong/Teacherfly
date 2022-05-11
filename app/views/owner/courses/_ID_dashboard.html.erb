@@ -6,6 +6,7 @@
   </div>
     
   <nav class="mt-10">
+
     <a class="flex items-center px-6 py-2 mt-4 text-gray-500 bg-opacity-25 hover:bg-gray-700 hover:text-gray-100"  href="/owner/courses">
         <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
             stroke="currentColor">
@@ -18,9 +19,17 @@
         <span class="mx-3">Courses</span>
     </a>
     
-
+    <a class="flex items-center justify-end px-6 py-2 mt-4 text-gray-500 bg-opacity-25 hover:bg-gray-700 hover:text-gray-100"  href=<%= information_owner_course_path(@course)%> >
+        <span class="mx-3">Information</span>
+    </a>
+    <a class="flex items-center justify-end px-6 py-2 mt-4 text-gray-500 bg-opacity-25 hover:bg-gray-700 hover:text-gray-100"  href=<%= curriculum_owner_course_path(@course)%> >
+        <span class="mx-3">Curriculum</span>
+    </a>
+    <a class="flex items-center justify-end px-6 py-2 mt-4 text-gray-500 bg-opacity-25 hover:bg-gray-700 hover:text-gray-100"  href="#" >
+        <span class="mx-3">Comment</span>
+    </a>
     <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
-        href="/owner/lecturers">
+        href="#">
         <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
             stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -28,7 +37,7 @@
             </path>
         </svg>
 
-        <span class="mx-3">Lecturers</span>
+        <span class="mx-3">Site</span>
     </a>
 
 
@@ -44,28 +53,6 @@
         <span class="mx-3">User</span>
     </a>
 
-    <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
-        href="#">
-        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-            stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
-            </path>
-        </svg>
-
-        <span class="mx-3">Dashboard</span>
-    </a>
-    <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
-        href="#">
-        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-            stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
-            </path>
-        </svg>
-
-        <span class="mx-3">Forms</span>
-    </a>
     <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
         href="#">
         <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"

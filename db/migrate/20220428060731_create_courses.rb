@@ -4,7 +4,7 @@ class CreateCourses < ActiveRecord::Migration[6.1]
       t.string :title
       t.text :content
       t.integer :price
-      t.string :status
+      t.string :status, default: 'draft'
 
       t.timestamps
     end
