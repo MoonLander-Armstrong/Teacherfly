@@ -1,37 +1,22 @@
 <div class="container">
   <div class="row">
-    <div class="w-full p-10 mt-28 lg:w-1/2 ">
+    <div class="w-full p-10 mx-auto mt-28 lg:w-1/2">
       <h1 class="pb-4 text-3xl text-red-800">新增課程</h1>
       <%= form_for(@course, url: owner_courses_path) do |form| %>
          <%= form.label :title %>
         <div>
           <%= form.text_field :title %>
         </div>
+
+        
+  
+          <%= form.label :lecturer_id %>
         <div>
-          <p>作者</p>
+          <%= form.select :lecturer_id, Lecturer.pluck(:name, :id) %>
         </div>
 
         <%= form.submit %>
       <% end %>
     </div>
-    
-    <div>
-      <%= form.label :status %>
-      <%= form.select :status, Section.published_state %>
-    </div>
-
-    <div>
-      <%= form.label :lecturer_id %>
-      <%= form.select :lecturer_id, Lecturer.pluck(:name, :id) %>
-    </div>
-
-    <%= form.submit %>
-
-    <div>
-      <%= form.label :lecturer_id %>
-      <%= form.select :lecturer_id, Lecturer.pluck(:name, :id) %>
-    </div>
-
-    <%= form.submit %>
-
-<% end %>
+  </div>
+</div>

@@ -20,7 +20,10 @@
 
 <%= form_with model: @course, url: owner_course_path(@course) do |form| %>
 <div class="flex flex-col items-center justify-center">
+  <nav class="flex items-center justify-between w-full h-16 border-b-2">
+    <h1 class="inline-block m-4 text-2xl text-blue-900">Curriculum</h1> 
 
+  </nav>
   <card class="flex flex-col w-11/12 mt-10">
     
     <header class="flex flex-row items-center gap-3">
@@ -83,7 +86,7 @@
       <div class="font-semibold">
         <%= form.label :classImg, "圖片" %>
       </div>
-        <div class="px-2 py-1  duration-100 delay-100 ">
+        <div class="px-2 py-1 duration-100 delay-100 ">
         <%= form.file_field :classImg %>
       </div>
       
@@ -124,7 +127,7 @@
       <div class="font-semibold">
         <%= form.label :title, "課程標題" %>
       </div>
-      <div class="px-2 py-1  duration-100 delay-100 ">
+      <div class="px-2 py-1 duration-100 delay-100 ">
         <%= form.text_field :title, class: "information-input" %>
       </div>
 
@@ -138,7 +141,7 @@
       <div class="font-semibold">
         <%= form.label :description, "課程簡介" %> 
       </div>
-      <div class="px-2 py-1  duration-100 delay-100 " >
+      <div class="px-2 py-1 duration-100 delay-100 " >
         <%= form.text_field :description, class: "information-input" %>
       </div>
 
@@ -152,7 +155,7 @@
       <div class="font-semibold">
         <%= form.label :content %>
       </div>
-      <div class="px-2 py-1  duration-100 delay-100">
+      <div class="px-2 py-1 duration-100 delay-100">
         <%= form.text_area :content %> 
       </div>
 
@@ -209,8 +212,8 @@
   
   </card>
   
-  <div class="absolute top-3 right-3">
-    <%= form.submit %>  
+  <div class="absolute top-3 right-12">
+    <%= form.submit "更新課程" %>  
   </div>
 </div>
 <% end %>
