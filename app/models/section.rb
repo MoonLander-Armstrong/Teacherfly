@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
 class Section < ApplicationRecord
-
-  include Slugable
-  
   has_one_attached :media, dependent: :destroy
 
   # validates
