@@ -17,6 +17,10 @@ class User < ApplicationRecord
     end
   end
 
+  # validates
+  validates :username, length: { maxinum: 20 }
+
   # relationship
   has_many :courses
+  has_one_attached :avatar
 end

@@ -39,4 +39,3 @@ yarn-debug.log*
 # Ignore application configuration
 /config/application.yml
 .vscode
-tt.html
