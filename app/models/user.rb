@@ -25,6 +25,6 @@ class User < ApplicationRecord
   validates :username, length: { maximum: 20 }
 
   # relationship
-  has_many :courses, dependent: :destroy
+  has_many :courses
   has_one_attached :avatar, dependent: :destroy
 end
