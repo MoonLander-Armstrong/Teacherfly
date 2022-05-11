@@ -8,6 +8,7 @@ class Course < ApplicationRecord
   belongs_to :lecturer
   has_one_attached :classImg
   has_many :chapters, dependent: :destroy
+  belongs_to :lecturer
 
   def first_section
     self.chapters.first.sections.first
