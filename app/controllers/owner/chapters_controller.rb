@@ -28,7 +28,10 @@ module Owner
       end
     end
 
-    def edit; end
+    def edit; 
+      @course = Course.find(params[:course_id])
+    end
+
 
     def update
       @course = Course.find(params[:course_id])

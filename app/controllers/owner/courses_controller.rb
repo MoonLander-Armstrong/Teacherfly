@@ -13,6 +13,7 @@ module Owner
 
     def new
       @course = current_user.courses.new
+      lecturer = Lecturer.find_or_create_by(name: current_user.email)
     end
 
     def create 
@@ -27,7 +28,6 @@ module Owner
 
     def edit
       @chapters = @course.chapters
-      render layout: "ID_owner"
     end
 
     def update
