@@ -21,7 +21,8 @@ module Users
     end
 
     def failure
-      redirect_to root_path flash.now[:alert] = '無法獲得驗證！'
+      flash.now[:alert] = '無法獲得驗證！'
+      redirect_to root_path
     end
 
     # More info at:
