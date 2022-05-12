@@ -19,7 +19,7 @@
 <% end %>
 
 <%= form_with model: @course, url: owner_course_path(@course) do |form| %>
-<div class="flex flex-col items-center justify-center">
+<div class="flex flex-col items-center justify-center min-w-full">
   <nav class="flex items-center justify-between w-full h-16 border-b-2">
     <h1 class="inline-block m-4 text-2xl text-blue-900">Curriculum</h1> 
 
@@ -33,7 +33,7 @@
     <content class="grid grid-cols-4 gap-3">
 
       <div class="flex flex-col col-span-3">
-        <description class="pt-2 text-sm font-light">
+        <description class="pt-2 font-light text">
           Publish or unpublish your course. See what your course looks like to visitors or enrolled students.
         </description>
       </div>
@@ -72,7 +72,7 @@
       <div class="flex flex-col col-span-3">
 
 
-        <description class="pt-2 text-sm font-light">
+        <description class="pt-2 font-light text">
           Brand your course by setting a custom course image.
         </description>
       </div>
@@ -111,7 +111,7 @@
           課程標題 & 簡介
         </subject>
 
-        <description class="pt-2 text-sm font-light">
+        <description class="pt-2 font -light text">
           Change information about your course
         </description>
       </div>
@@ -174,15 +174,15 @@
         <div> 講師 </div>
     </header>
     
-    <content class="grid grid-cols-4 gap-3">
+    <content class="grid grid-cols-12 gap-3">
 
-      <div class="flex flex-col col-span-3">
+      <div class="flex flex-col col-span-3 ">
         <subject class="pt-3 text-lg font-bold">
-          Go (Golang) with Structs and Interfaces
+          Choose an author for your course
         </subject>
 
         <description class="pt-2 text-sm font-light">
-          Although it would be possible for us to write programs only using Go’s built-in data types, at some point, it would become quite tedious. Consider a program that....
+          er a program that....
         </description>
       </div>
       

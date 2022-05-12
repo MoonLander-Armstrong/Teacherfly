@@ -22,7 +22,7 @@ module Owner
       
       
       if @section.save  
-        redirect_to edit_owner_course_path(@course), notice: '新增成功'
+        redirect_to curriculum_owner_course_path(@course), notice: '新增成功'
         #redirect_to root_path, notice: '新增成功'
       else
         flash.now[:alert] = '請輸入正確資訊'
@@ -33,9 +33,10 @@ module Owner
     def edit; end
 
     def update
+      @course = Course.find(params[:course_id])
       @section.media.purge_later
       if @section.update(section_params)
-        redirect_to owner_course_chapters_path(params[:course_id]), notice: '更新成功'
+        redirect_to curriculum_owner_course_path(@course), notice: '新增成功'
       else
         flash.now[:alert] = '請輸入正確資訊'
         render :edit
@@ -47,10 +48,10 @@ module Owner
       if @section.media.attached?
         @section.media.purge_later 
         @section.destroy
-        redirect_to edit_owner_course_path(course), notice: '刪除成功x）'
+        redirect_to curriculum_owner_course_path(course), notice: '新增成功'
       else
         @section.destroy
-        redirect_to edit_owner_course_path(course), notice: '刪除成功'
+        redirect_to curriculum_owner_course_path(course), notice: '新增成功'
       end
     end
     
