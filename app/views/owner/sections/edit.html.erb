@@ -1,3 +1,23 @@
+<%= content_for :course do %>
+  <ul class="sidebar-list">
+    <li>
+      <%= link_to information_owner_course_path(@course) do %>
+        <i class="fa-solid fa-chalkboard-user"></i>Information
+      <% end %>
+    </li>
+    <li>
+      <%= link_to curriculum_owner_course_path(@course) do %>
+        <i class="fa-solid fa-chalkboard-user"></i>Curriculum
+      <% end %>
+    </li>
+    <li>
+      <%= link_to "#" do %>
+        <i class="fa-solid fa-chalkboard-user"></i>Comment
+      <% end %>
+    </li>
+  </ul>
+<% end %>
+
 <div class="container">
   <div class="row">
     <div class="w-full p-10 mx-auto mt-28 lg:w-1/2">
@@ -13,12 +33,15 @@
           <div class="field">
             <%= form.label :media, "上傳影片" %>
             <%= form.file_field :media%>
+            <% if @section.media.attached? %>
+            <p class="text-lg text-pink-400">已上傳檔案: </p>
             <%= @section.media.filename %>
+            <% end %>
           </div> 
           
           <div class="field">
             <%= form.label :content, "課程內文" %>
-            <%= form.text_area :content %>
+            <%= form.text_area :content, data: { controller: "markdown-editor" }   %>
           </div>
 
           <div class="field">

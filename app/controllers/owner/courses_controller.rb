@@ -46,7 +46,7 @@ module Owner
       else
         @course.destroy
       end
-      redirect_to owner_courses_path, notice: "刪除成功！"
+      redirect_to owner_courses_path, alert: "刪除成功！"
     end
 
     def information

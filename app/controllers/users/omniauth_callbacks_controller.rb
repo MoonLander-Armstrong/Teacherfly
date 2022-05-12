@@ -12,7 +12,7 @@ module Users
       @user = User.create_from_provider_data(request.env['omniauth.auth'])
 
       if @user.persisted?
-        flash[:notice] = I18n.t 'devise.omniauth_callbacks.success', kind: 'Google'
+        flash.now[:notice] = I18n.t 'devise.omniauth_callbacks.success', kind: 'Google'
         sign_in_and_redirect @user, event: :authentication
       else
         session['devise.google_data'] = request.env['omniauth.auth']
@@ -21,7 +21,7 @@ module Users
     end
 
     def failure
-      redirect_to root_path, alert: '無法獲得驗證！'
+      redirect_to root_path, flash.now[:alert]: '無法獲得驗證！'
     end
 
     # More info at:

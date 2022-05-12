@@ -1,3 +1,22 @@
+<%= content_for :course do %>
+  <ul class="sidebar-list">
+    <li>
+      <%= link_to information_owner_course_path(@course) do %>
+        <i class="fa-solid fa-chalkboard-user"></i>Information
+      <% end %>
+    </li>
+    <li>
+      <%= link_to curriculum_owner_course_path(@course) do %>
+        <i class="fa-solid fa-chalkboard-user"></i>Curriculum
+      <% end %>
+    </li>
+    <li>
+      <%= link_to "#" do %>
+        <i class="fa-solid fa-chalkboard-user"></i>Comment
+      <% end %>
+    </li>
+  </ul>
+<% end %>
 
 
 <div class="container">
@@ -18,7 +37,7 @@
 
           <div class="field">
             <%= form.label :content, "課程內文" %>
-            <%= form.text_area :content %>
+            <%= form.text_area :content, data: { controller: "markdown-editor" }   %>
           </div>
 
           <div class="field">

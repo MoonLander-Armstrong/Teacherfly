@@ -46,7 +46,7 @@ module Owner
     def destroy
       @course = Course.find(params[:course_id])
       @chapter.destroy
-      redirect_to curriculum_owner_course_path(@course), notice: '刪除chapter!!'
+      redirect_to curriculum_owner_course_path(@course), alert: '刪除成功'
     end
     
     private

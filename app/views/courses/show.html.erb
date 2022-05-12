@@ -1,8 +1,8 @@
 <section class="information">
   <div class="banner">
-    <div class="banner-bg relative">
+    <div class="relative banner-bg">
       <%= image_tag @course.classImg, class: "w-full h-full object-cover" if @course.classImg.attached? %>
-      <div class="absolute w-2/3 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2	 z-10">
+      <div class="absolute w-2/3 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2	z-10">
         <h1 class="mb-4 text-5xl font-bold text-white text-center"><%= @course.title %></h1>
         <h2 h2 class="mb-6 text-3xl text-white text-center"><%= @course.description %></h2>
         <div class="flex">
@@ -10,42 +10,37 @@
         </div>
       </div>
 
-      <div class="absolute top-0 right-0 bottom-0 left-0 bg-black opacity-20">
+      <div class="absolute top-0 bottom-0 left-0 right-0 bg-black opacity-20">
       </div>
     </div>
   </div>
-  <div class="description py-12">
+  <div class="py-12 description">
     <div class="w-2/3 mx-auto">
-      <p class="text-xl"><%= @course.content %></p>
+      <p class="text-xl"><%= markdown(@course.content) %></p>
     </div>
   </div>
-  <div class="lecturer pt-12 bg-green-500">
+  <div class="pt-12 bg-green-500 lecturer">
     <div class="lecturer-header">
       <h2 class="text-3xl font-bold text-center">課程講師</h2>
     </div>
-    <div class="lectuere-info md:flex w-2/3 mx-auto p-8">
+    <div class="w-2/3 p-8 mx-auto lectuere-info md:flex">
       <div class="lecturer-profile">
-        <div class="lecturer-avatar mx-auto mb-4 rounded-full overflow-hidden">
-          <%= image_tag "avatar", class: "w-full h-full object-cover" %>
+        <div class="mx-auto mb-4 overflow-hidden rounded-full lecturer-avatar">
+          <%= image_tag url_for(@lecturer.mugshot) if @lecturer.mugshot.attached? %>
         </div>
-        <div class="lecturer-name text-xl font-bold text-center">
-          <h3>王孝先</h3>
-          <h3>Tgo Wang</h3>
+        <div class="text-xl font-bold text-center lecturer-name">
+          <h3><%= @lecturer.name %></h3>
+          <h3><%= @lecturer.nickname %></h3>
         </div>
       </div>
-      <div class="lecturer-experence p-4">
-        <ul class="lecturer-experence-list pl-4 mb-4">
-          <li>特賣點一</li>
-          <li>特賣點二</li>
-          <li>特賣點三</li>
-        </ul>
-        <p>考試大多治療客戶下列命令出發努力，手機鈴聲賺錢還在將在感覺到一會信譽當前主機保持重大下載，宜蘭驚人經常發揮進一步是不是抽菸區，不僅鏡頭鄉民們才會不但工廠操作系統。</p>
-        <p>交通上下，事故億元一段四周相應一會一次存在，背景雖然植物僅供放下遠程經驗它是免費電影人數你不他在證據，本帖舉辦風情豪華超過，小子供求如下。</p>
+      <div class="p-4 lecturer-experence">
+        <ul class="pl-4 mb-4 lecturer-experence-list">
+        <%= markdown(@lecturer.content) %>
       </div>
     </div>
   </div>
 </section>
-<section class="course py-8">
+<section class="py-8 course">
   <h2 class="mb-8 text-3xl font-bold text-center">課程大綱</h2>
   <div class="chapter-group">
     <%= render partial: "courses/chapter", collection: @course.chapters %>

@@ -4,9 +4,11 @@
 		<%= link_to  new_owner_course_path do %>  
     	<button class="px-4 py-2 mx-5 my-auto bg-green-300 border-gray-800 rounded hover:bg-green-400">新增課程</button>
 		<% end %>
-  </nav>
-
-	<table class="owner-table">
+  </nav>	
+	
+	<%= render "shared/flash" %>	
+	
+	<table class="mt-10 owner-table">
 		<thead class="owner-thead">
 			<tr>
 				<th class="text-left owner-text">課程標題</th>

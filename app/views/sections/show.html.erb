@@ -1,41 +1,41 @@
 <%= content_for :header do %>
-  <div class="section_header flex justify-between flex-grow text-xl text-green-800">
+  <div class="flex justify-between flex-grow text-xl text-green-800 section_header">
     <div class="flex items-center">
       <div >
         <%= link_to courses_path, class: "section_header_btn" do %>
           <i class="fa-solid fa-house"></i>
         <% end %>
       </div>
-      <div class="md:hidden border-l border-green-700">
+      <div class="border-l border-green-700 md:hidden">
         <button class="section_header_btn" data-action="click->section-list#toggle">
           <i class="fa-solid fa-list"></i>
         </button>
       </div>
     </div>
-    <div class="flex md:hidden items-center mr-2">
+    <div class="flex items-center mr-2 md:hidden">
       <% unless @course.first_section.id == params[:id].to_i %>
         <%= link_to course_section_path(@course.id, @section.prev_section), class: "px-6 py-0.5 mr-2 border border-green-700 rounded hover:bg-green-700 hover:text-green-200 transition" do %>
-          <i class="fa-solid fa-chevron-left mr-2"></i>
+          <i class="mr-2 fa-solid fa-chevron-left"></i>
         <% end %>
       <% end %>
       <% unless @course.last_section.id == params[:id].to_i %>
         <%= link_to course_section_path(@course.id, @section.next_section), class: "px-6 py-0.5 border border-green-700 rounded hover:bg-green-700 hover:text-green-200 transition" do %>
-          <i class="fa-solid fa-chevron-right ml-2"></i>
+          <i class="ml-2 fa-solid fa-chevron-right"></i>
         <% end %>
       <% end %>
     </div>
     
-    <div class="md:flex hidden items-center mr-2">      
+    <div class="items-center hidden mr-2 md:flex">      
       <% unless @course.first_section.id == params[:id].to_i %>
         <%= link_to course_section_path(@course.id, @section.prev_section), class: "px-6 py-0.5 mr-2 border border-green-700 rounded hover:bg-green-700 hover:text-green-200 transition" do %>
-          <i class="fa-solid fa-chevron-left mr-2"></i>
+          <i class="mr-2 fa-solid fa-chevron-left"></i>
           前往上一章節
         <% end %>
       <% end %>
       <% unless @course.last_section.id == params[:id].to_i %>
         <%= link_to course_section_path(@course.id, @section.next_section), class: "px-6 py-0.5 border border-green-700 rounded hover:bg-green-700 hover:text-green-200 transition" do %>
           前往下一章節
-          <i class="fa-solid fa-chevron-right ml-2"></i>
+          <i class="ml-2 fa-solid fa-chevron-right"></i>
         <% end %>
       <% end %>
     </div>
@@ -43,11 +43,11 @@
 <% end %>
 
 <%= content_for :sidebar do %>
-  <nav class="section-dropdown fade absolute md:relative left-0 right-0 md:w-64 lg:w-72 md:max-h-screen flex-shrink-0 overflow-scroll bg-white z-10" data-section-list-target="sectionDropdown" data-action="resize@window->section-list#resize">
+  <nav class="absolute left-0 right-0 z-10 flex-shrink-0 overflow-scroll bg-white section-dropdown fade md:relative md:w-64 lg:w-72 md:max-h-screen" data-section-list-target="sectionDropdown" data-action="resize@window->section-list#resize">
     <div class="shadow">
       <h1 class="text-xl font-bold text-center"><%= @course.title %></h1>
       <div class="px-4 my-4 text-center">
-        <div class="progress-bar relative h-3 border rounded-full">
+        <div class="relative h-3 border rounded-full progress-bar">
         </div>
         <span class="inline-block my-3">已完成<span class="ml-4">50%</span></span>
       </div>
@@ -57,14 +57,14 @@
   </nav>
 <% end %>
 
-<section class="flex flex-grow px-5 max-h-screen overflow-scroll relative">
+<section class="relative flex flex-grow max-h-screen px-5 overflow-scroll">
   <div class="mx-auto">
-    <h1 class="text-3xl mb-4"><%= @section.title %></h1>
+    <h1 class="mb-4 text-3xl"><%= @section.title %></h1>
     <div class="section-media" data-section-list-target="loading">
       <div class="loading">Loading...</div>
       <div class="lds-ring"><div></div><div></div><div></div><div></div><span class="text-xl font-bold" data-section-list-target="loadingCircle">Loading</span></div>
       <%= video_tag url_for(@section.media), controls: true if @section.media.attached? %>
     </div>
-    <p class="mt-4"><%= @section.content %></p>
+    <p class="mt-4"><%= markdown(@section.content)%></p>
   </div>
 </section>
