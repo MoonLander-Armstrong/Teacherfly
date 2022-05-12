@@ -1,3 +1,25 @@
+<%= content_for :course do %>
+  <ul class="sidebar-list">
+    <li>
+      <%= link_to information_owner_course_path(@course) do %>
+        <i class="fa-solid fa-chalkboard-user"></i>Information
+      <% end %>
+    </li>
+    <li>
+      <%= link_to curriculum_owner_course_path(@course) do %>
+        <i class="fa-solid fa-chalkboard-user"></i>Curriculum
+      <% end %>
+    </li>
+    <li>
+      <%= link_to "#" do %>
+        <i class="fa-solid fa-chalkboard-user"></i>Comment
+      <% end %>
+    </li>
+  </ul>
+<% end %>
+
+
+
 <div class="container">
   <div class="row">
     <div class="w-full p-10 mx-auto mt-28 lg:w-1/2">

@@ -21,8 +21,10 @@
 <%= form_with model: @course, url: owner_course_path(@course) do |form| %>
 <div class="flex flex-col items-center justify-center min-w-full">
   <nav class="flex items-center justify-between w-full h-16 border-b-2">
-    <h1 class="inline-block m-4 text-2xl text-blue-900">Curriculum</h1> 
-
+    <h1 class="inline-block m-4 text-2xl text-blue-900">Information</h1> 
+    <div>
+      <%= form.submit "更新課程" %>  
+    </div>
   </nav>
   <card class="flex flex-col w-11/12 mt-10">
     
@@ -178,7 +180,6 @@
 
       <div class="flex flex-col col-span-3 ">
         <subject class="pt-3 text-lg font-bold">
-          Choose an author for your course
         </subject>
 
         <description class="pt-2 text-sm font-light">
@@ -212,8 +213,5 @@
   
   </card>
   
-  <div class="absolute top-3 right-12">
-    <%= form.submit "更新課程" %>  
-  </div>
 </div>
 <% end %>

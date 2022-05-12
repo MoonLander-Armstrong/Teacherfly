@@ -1,3 +1,25 @@
+<%= content_for :course do %>
+  <ul class="sidebar-list">
+    <li>
+      <%= link_to information_owner_course_path(@course) do %>
+        <i class="fa-solid fa-chalkboard-user"></i>Information
+      <% end %>
+    </li>
+    <li>
+      <%= link_to curriculum_owner_course_path(@course) do %>
+        <i class="fa-solid fa-chalkboard-user"></i>Curriculum
+      <% end %>
+    </li>
+    <li>
+      <%= link_to "#" do %>
+        <i class="fa-solid fa-chalkboard-user"></i>Comment
+      <% end %>
+    </li>
+  </ul>
+<% end %>
+
+
+
 <section class="w-full h-full px-4 bg-gradient-to-tl">
   <nav class="flex items-center justify-between w-full h-16 border-b-2">
     <h1 class="inline-block m-4 text-2xl text-blue-900">Curriculum</h1> 
