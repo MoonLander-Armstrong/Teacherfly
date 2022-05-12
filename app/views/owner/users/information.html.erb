@@ -1,0 +1,39 @@
+<%= content_for :user do %>
+  <ul class="sidebar-list">
+    <li>
+      <%= link_to information_owner_user_path(@user) do %>
+        <i class="fa-solid fa-chalkboard-user"></i>Information
+      <% end %>
+    </li>
+    <li>
+      <%= link_to "#" do %>
+        <i class="fa-solid fa-chalkboard-user"></i>Enrollment
+      <% end %>
+    </li>
+    <li>
+      <%= link_to "#" do %>
+        <i class="fa-solid fa-chalkboard-user"></i>Purches
+      <% end %>
+    </li>
+  </ul>
+<% end %>
+
+<section>
+  <h1>學生基本資訊</h1>
+  <%= form_with model:@user, url: owner_user_path(@user), method: "patch" do |form| %>
+    <div class="field">
+      <div>
+        <%= image_tag url_for(@user.avatar) if @user.avatar.attached? %>
+      </div>
+    </div>
+    <div class="field">
+      <%= form.label :username, "姓名" %>
+      <%= form.text_field :username %>
+    </div>
+    <div class="field">
+      <%= form.label :email %>
+      <%= form.email_field :email %>
+    </div>
+    <%= form.submit "儲存" %>
+  <% end %>
+</section>

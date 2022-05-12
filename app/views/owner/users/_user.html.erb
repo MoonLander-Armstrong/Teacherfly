@@ -1,0 +1,22 @@
+<tr class="border-b border-gray-200 hover:bg-gray-100">
+  <td class="text-left owner-text whitespace-nowrap">
+    <div class="flex items-center">
+      <div class="mr-2">
+        <div>
+          <%= image_tag url_for(user.avatar) if user.avatar.attached? %>
+        </div>
+        <span class="font-medium"><%= link_to user.username, information_owner_user_path(user) %></span>
+      </div>
+    </div>
+  </td>
+  <td class="px-6 py-3 text-left">
+    <div class="flex items-center">
+      <span><%= user.email %></span>
+    </div>
+  </td>
+  <td class="px-6 py-3 text-center">
+    <div class="flex items-center justify-center">
+      <span>$ 100</span>
+    </div>
+  </td>
+</tr>

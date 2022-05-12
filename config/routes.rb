@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   namespace :owner do
     resources :lecturers
     resources :courses do
-      member do 
+      member do
         get :information
         get :curriculum
       end
@@ -21,11 +21,13 @@ Rails.application.routes.draw do
       end
     end
     resources :users, only: [:index, :update] do
-      get :information
+      member do
+        get :information
+      end
     end
   end
 
-  # front state
+  # front stage
   resources :courses, only: %i[index show]do
     resources :sections, only: %i[show] do
     end

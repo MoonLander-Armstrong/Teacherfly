@@ -1,25 +1,17 @@
-
 <div class="container">
   <div class="row">
     <div class="w-full p-10 mt-28 lg:w-1/2 ">
       <h1 class="pb-4 text-3xl text-red-800">新增課程</h1>
       <%= form_for(@course, url: owner_courses_path) do |form| %>
-
-        
-          <%= form.label :title %>
-        
+         <%= form.label :title %>
         <div>
           <%= form.text_field :title %>
         </div>
-
-        
-  
         <div>
           <p>作者</p>
         </div>
-        
-      <%= form.submit %>
 
+        <%= form.submit %>
       <% end %>
     </div>
     
