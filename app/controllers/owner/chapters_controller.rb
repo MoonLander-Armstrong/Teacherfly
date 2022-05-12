@@ -13,7 +13,6 @@ module Owner
     def new
       @course = Course.find(params[:course_id])
       @chapter = Chapter.new
-      render layout: "ID_owner"
     end
 
     def create
