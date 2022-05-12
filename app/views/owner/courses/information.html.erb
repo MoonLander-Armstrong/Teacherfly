@@ -158,8 +158,8 @@
       <div class="font-semibold">
         <%= form.label :content %>
       </div>
-      <div class="px-2 py-1 duration-100 delay-100" data-controller="markdown-">
-        <%= form.text_area :content %> 
+      <div class="px-2 py-1 duration-100 delay-100">
+        <%= form.text_area :content, data: { controller: "markdown-editor" }   %> 
       </div>
 
       
@@ -184,7 +184,7 @@
         </subject>
 
         <description class="pt-2 text-sm font-light">
-          er a program that....
+          Choose an author for your course.
         </description>
       </div>
       
@@ -196,17 +196,14 @@
     
     <footer class="flex flex-row items-center gap-3 pt-7">
       
-      <button class="px-2 py-1 text-xs duration-100 delay-100 bg-gray-200 rounded-full hover:bg-gray-300">
-        Tutorial
-      </button>
-      
-      <div class="text-xs text-gray-500">
-        7 min read
+      <div class="font-semibold">
+        <%= form.label :lecturer_id, "選擇講師" %>
+      </div>
+      <div class="px-2 py-1 duration-100 delay-100 border-2 border-gray-200 rounded-xl">
+        <%= form.select :lecturer_id, Lecturer.pluck(:name, :id) %>
       </div>
       
-      <div class="text-xs text-gray-500">
-        Based on your reading history
-      </div>
+
       
     </footer>
     

@@ -18,9 +18,6 @@ module Owner
       @chapter = @course.chapters.find(params[:chapter_id])
       @section = @chapter.sections.new(section_params)
       
-      
-      
-      
       if @section.save  
         redirect_to curriculum_owner_course_path(@course), notice: '新增成功'
         #redirect_to root_path, notice: '新增成功'
@@ -30,7 +27,10 @@ module Owner
       end
     end
 
-    def edit; end
+    def edit
+      @course = Course.find(params[:course_id])
+    end
+
 
     def update
       @course = Course.find(params[:course_id])
@@ -48,10 +48,10 @@ module Owner
       if @section.media.attached?
         @section.media.purge_later 
         @section.destroy
-        redirect_to curriculum_owner_course_path(course), notice: '新增成功'
+        redirect_to curriculum_owner_course_path(course), alert: '刪除成功'
       else
         @section.destroy
-        redirect_to curriculum_owner_course_path(course), notice: '新增成功'
+        redirect_to curriculum_owner_course_path(course), alert: '刪除成功'
       end
     end
     

@@ -7,6 +7,7 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find_by(id: params[:id])
+    @lecturer = @course.lecturer
   end
 
   private

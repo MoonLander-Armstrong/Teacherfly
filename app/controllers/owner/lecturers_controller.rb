@@ -39,7 +39,7 @@ class Owner::LecturersController < ApplicationController
     end
 
     @lecturer.destroy
-    redirect_to owner_lecturers_path, notice: "刪除成功！"
+    redirect_to owner_lecturers_path, alter: "刪除成功！"
   end
 
   private

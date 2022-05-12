@@ -1,22 +1,29 @@
-<div>
-  <h1>新增講師</h1>
-</div>
-<div>    
-  <%= form_with(model: @lecturer, url: owner_lecturers_path) do |form| %>
-  <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-  <div>
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
 
-  <div>
-    <%= form.label :mugshot, "講師照片" %>
-    <%= form.file_field :mugshot %>
-  </div>
+<div class="container">
+  <div class="row">
+    <div class="w-full p-10 mx-auto mt-28 lg:w-1/2">
+      <div>
+        <h1>新增講師</h1>
+      </div>
+      <div>    
+        <%= form_with(model: @lecturer, url: owner_lecturers_path) do |form| %>
+        <div>
+          <%= form.label :name %>
+          <%= form.text_field :name %>
+        </div>
+        <div>
+          <%= form.label :content %>
+          <%= form.text_area :content, data: { controller: "markdown-editor" }   %>
+        </div>
 
-  <%= form.submit %>
-  <% end %>
+        <div>
+          <%= form.label :mugshot, "講師照片" %>
+          <%= form.file_field :mugshot %>
+        </div>
+
+        <%= form.submit %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
