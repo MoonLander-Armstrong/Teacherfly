@@ -1,12 +1,15 @@
-<h1>編輯Chapter</h1>
-
-<%= render "shared/flash" %>
-
-<%= form_with model: @chapter, url: owner_course_chapter_path(@chapter.course, @chapter) do |form| %>
-  <div class="field">
-    <%= form.label :title, "標題" %>
-    <%= form.text_field :title,  maxlength: 20 %>
-  </div>
+<div class="container">
+  <div class="row">
+    <div class="w-full p-10 mx-auto mt-28 lg:w-1/2">
+      <h1 class="pb-4 text-3xl text-red-800">新增課程</h1>
+      <%= form_with model: @chapter, url: owner_course_chapter_path(@chapter.course, @chapter) do |form| %>
+        <div class="field">
+          <%= form.label :title, "標題" %>
+          <%= form.text_field :title,  maxlength: 20 %>
+        </div>
   
-  <%= form.submit %>
-<% end %>
+      <%= form.submit %>
+      <% end %> 
+    </div>
+  </div>
+</div>

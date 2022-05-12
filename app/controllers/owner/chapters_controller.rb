@@ -33,7 +33,7 @@ module Owner
     def update
       @course = Course.find(params[:course_id])
       if @chapter.update(chapter_params)
-        redirect_to owner_courses_path, notice: '更新成功'
+        redirect_to curriculum_owner_course_path(@course), notice: '新增成功'
       else
         flash.now[:alter] = '請輸入正確資訊'
         render :edit
