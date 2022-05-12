@@ -1,0 +1,40 @@
+<div class="owner-logo">
+  <%= link_to owner_courses_path do %>
+    <h1 class="whitespace-nowrap">長度測試長度測試長度測試長度測試長度測試長度測試長度測試's school</h1>
+  <% end %>
+</div>
+<ul class="sidebar-list">
+  <li>
+    <%= link_to owner_courses_path do %>
+      <i class="fa-solid fa-book-open"></i>Courses
+    <% end %>
+    <%= yield :course %>
+  </li>
+  <li>
+    <%= link_to owner_lecturers_path do %>
+      <i class="fa-solid fa-chalkboard-user"></i>Lecturers
+    <% end %>
+    <%= yield :lecturer %>
+  </li>
+  <li>
+    <%= link_to owner_users_path do %>
+      <i class="fa-solid fa-user-group"></i>Users
+    <% end %>
+    <%= yield :user %>
+  </li>
+  <li>
+    <%= link_to "#" do %>
+      <i class="fa-solid fa-chart-line"></i>Dashboard
+    <% end %>
+  </li>
+  <li>
+    <%= link_to "#" do %>
+      <i class="fa-solid fa-computer"></i>Site
+    <% end %>
+  </li>
+  <li>
+    <%= link_to "#" do %>
+      <i class="fa-solid fa-gear"></i>Setting
+    <% end %>
+  </li>
+</ul>

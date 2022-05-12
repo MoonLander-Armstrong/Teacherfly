@@ -1,25 +1,22 @@
 <div>
-    <h1>新增講師</h1>
+  <h1>新增講師</h1>
 </div>
 <div>    
-    <%= form_with(model: @lecturer, url: owner_lecturers_path) do |form| %>
+  <%= form_with(model: @lecturer, url: owner_lecturers_path) do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :content %>
+    <%= form.text_area :content %>
+  </div>
 
-    <div>
-        <%= form.label :name %>
-        <%= form.text_field :name %>
-    </div>
+  <div>
+    <%= form.label :mugshot, "講師照片" %>
+    <%= form.file_field :mugshot %>
+  </div>
 
-    <div>
-        <%= form.label :content %>
-        <%= form.text_area :content %>
-    </div>
-
-    <div>
-        <%= form.label :mugshot, "講師照片" %>
-        <%= form.file_field :mugshot %>
-    </div>
-
-    <%= form.submit %>
-
-    <% end %>
+  <%= form.submit %>
+  <% end %>
 </div>

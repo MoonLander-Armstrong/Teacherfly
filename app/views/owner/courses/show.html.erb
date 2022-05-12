@@ -1,4 +1,3 @@
-
 <% if @course %>
   <h1><span class="text-4xl"><%= @course.title %></span> の課程內容</h1>
   <%= image_tag @course.classImg if @course.classImg.attached?%>   
@@ -10,12 +9,10 @@
   
   <div>
     chapter: 
-  <% @course.chapters.each do |chapter| %>
-  <li><%= chapter.title %></li>
-  <% end %>    
+    <% @course.chapters.each do |chapter| %>
+      <li><%= chapter.title %></li>
+    <% end %>    
   </div>   
-  
 <% else %>
-
   <h1>查無此資料</h1>
 <% end %>

@@ -53,7 +53,6 @@ module Owner
 
     def information
       @course = Course.find(params[:id])
-      render layout: "ID_owner"
     end
 
     def curriculum

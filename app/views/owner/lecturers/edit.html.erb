@@ -1,27 +1,31 @@
+<%= content_for :lecturer do %>
+<ul class="sidebar-list">
+  <li>
+    <%= link_to edit_owner_lecturer_path(@lecturer) do %>
+      <i class="fa-solid fa-chalkboard-user"></i>Information
+    <% end %>
+  </li>
+</ul>
+<% end %>
+
 <div>
     <h1>新增講師</h1>
 </div>
-
 <div>
-   
     <%= form_with(model: @lecturer, url: owner_lecturer_path(@lecturer)) do |form| %>
-
-    <div>
+      <div>
         <%= form.label :name %>
         <%= form.text_field :name %>
-    </div>
-
-    <div>
+      </div>
+      <div>
         <%= form.label :content %>
         <%= form.text_area :content %>
-    </div>
-
-    <div>
+      </div>
+      <div>
         <%= form.label :mugshot, "講師照片" %>
         <%= form.file_field :mugshot %>
-    </div>
-
-    <%= form.submit %>
-
+      </div>
+      
+      <%= form.submit %>
     <% end %>
 </div>
