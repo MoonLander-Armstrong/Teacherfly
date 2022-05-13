@@ -1,7 +1,11 @@
 <div class="flex w-full sm:w-1/2 md:w-1/3 px-4 py-4">
   <%= link_to course_path(course), class: "course-card course-card-hover" do %>
     <div class="w-full course-card-image">
-      <%= image_tag course.classImg, class: "w-full h-full object-fit" if course.classImg.attached? %>
+      <% if course.classImg.attached? %>
+        <%= image_tag course.classImg, class: "w-full h-full object-fit" %>
+      <% else %>
+        <div>此課程沒有圖片</div>
+      <% end %>
     </div>
 
     <div class="course-card-main p-6">
