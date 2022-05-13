@@ -50,10 +50,10 @@
     <footer class="flex flex-row items-center gap-3 pt-7">
       
       <div class="font-semibold">
-        <%= form.label :status, "狀態" %>
+        <%= form.label :published, "狀態" %>
       </div>
       <div class="px-2 py-1 duration-100 delay-100 border-2 border-gray-200 rounded-xl">
-        <%= form.select :status, Section.published_state %>
+        <%= form.select :published, Section.published_state %>
       </div>
       
 

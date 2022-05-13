@@ -2,17 +2,17 @@
 
 class CoursesController < ApplicationController
   def index
-    @courses = Course.all
+    @courses = Course.published
   end
 
   def show
-    @course = Course.find_by(id: params[:id])
+    @course = Course.find(params[:id])
     @lecturer = @course.lecturer
   end
 
   private
 
     def course_params
-      params.require(:course).permit(:title, :content, :price, :status, :description,  :classImg)
+      params.require(:course).permit(:title, :content, :price, :published, :description,  :classImg)
     end
 end

@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class Section < ApplicationRecord
+
+  include Slugable
+  
   has_one_attached :media, dependent: :destroy
 
   # validates
@@ -12,6 +15,9 @@ class Section < ApplicationRecord
 
   # relationship
   belongs_to :chapter
+
+  scope :published, -> { where(published: "publish") }
+  scope :draft, -> { where(published: "draft") }
 
   def self.published_state
     [

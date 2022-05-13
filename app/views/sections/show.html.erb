@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="flex items-center mr-2 md:hidden">
-      <% unless @course.first_section.id == params[:id].to_i %>
+      <% unless @course.first_section.slug == params[:id].to_i %>
         <%= link_to course_section_path(@course.id, @section.prev_section), class: "px-6 py-0.5 mr-2 border border-green-700 rounded hover:bg-green-700 hover:text-green-200 transition" do %>
           <i class="mr-2 fa-solid fa-chevron-left"></i>
         <% end %>
