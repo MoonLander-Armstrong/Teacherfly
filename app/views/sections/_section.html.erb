@@ -1,6 +1,6 @@
 <li>
-  <%= link_to course_section_path(@course.id, section.id), class: "flex items-center py-3 bg-gray-100 hover:bg-green-200 transition" do %>
-  <div class="px-4 border-r border-green-700 text-green-600">
+  <%= link_to course_section_path(@course, section), class: "flex items-center py-3 bg-gray-100 hover:bg-green-200 transition" do %>
+  <div class="px-4 text-green-600 border-r border-green-700">
     <% if true %>
       <i class="fa-solid fa-circle-check"></i>
     <% else %>
@@ -8,7 +8,7 @@
     <% end %>
   </div>
   <div class="ml-4">
-    <i class="fa-solid fa-book mr-2"></i><%= section.title %>
+    <i class="mr-2 fa-solid fa-book"></i><%= section.title %>
   </div>
   <% end %>
 </li>

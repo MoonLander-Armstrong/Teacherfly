@@ -10,7 +10,6 @@ class Course < ApplicationRecord
   belongs_to :lecturer
   has_one_attached :classImg
   has_many :chapters, dependent: :destroy
-  belongs_to :lecturer
 
   # scope
   scope :published, -> { where(published: "publish") }

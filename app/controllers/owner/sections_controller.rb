@@ -8,7 +8,7 @@ module Owner
     def index; end
 
     def new
-      @course = Course.find(params[:course_id])
+      @course = Course.friendly.find(params[:course_id])
       @chapter = Chapter.find(params[:chapter_id])
       @section = Section.new
     end
@@ -28,7 +28,7 @@ module Owner
     end
 
     def edit
-      @course = Course.find(params[:course_id])
+      @course = Course.friendly.find(params[:course_id])
     end
 
 
@@ -64,7 +64,7 @@ module Owner
     end
     
     def find_section
-      @section = Section.find(params[:id])
+      @section = Section.friendly.find(params[:id])
     end
   end
 end

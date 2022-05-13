@@ -42,11 +42,11 @@ module Owner
     end
 
     def information
-      @course = Course.find(params[:id])
+      @course = Course.friendly.find(params[:id])
     end
 
     def curriculum
-      @course = Course.find(params[:id])
+      @course = Course.friendly.find(params[:id])
       @chapters = @course.chapters
     end
 
@@ -63,7 +63,7 @@ module Owner
     private
 
       def find_course
-        @course = Course.find(params[:id])
+        @course = Course.friendly.find(params[:id])
       end
 
       def course_params
