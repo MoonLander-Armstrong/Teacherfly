@@ -14,8 +14,17 @@
   @apply transition;
 }
 
+.course-card-image {
+  aspect-ratio: 16/9;
+  position: relative;
+}
+
 .course-card-image img {
   aspect-ratio: 16/9;
+}
+
+.course-card-image div {
+  @apply absolute inset-0 flex justify-center items-center text-xl tracking-widest text-white bg-gray-500;
 }
 
 .course-card-main {
