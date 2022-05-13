@@ -15,6 +15,7 @@
 				<th class="text-left owner-text">作者</th>
 				<th class="text-center owner-text">講師</th>
 				<th class="text-center owner-text">狀態</th>
+				<th class="text-center owner-text">售價</th>
 				<th class="text-center owner-text">其他</th>
 			</tr>
 		</thead>
@@ -42,6 +43,13 @@
 						<span class="tag <%= course.published == "publish" ? "tag-publish" : "tag-draft" %>">
 							<%= course.published %>
 						</span>
+					</td>
+					<td class="px-6 py-3 text-center">
+						<div class="flex justify-center item-center">
+							<div class="w-4 mr-2">
+								<p>$<%= course.price %></p>
+							</div>
+						</div>
 					</td>
 					<td class="px-6 py-3 text-center">
 						<div class="flex justify-center item-center">
