@@ -14,6 +14,7 @@ class User < ApplicationRecord
     where(provider: provider_data.provider, uid: provider_data.uid).first_or_create do |user|
       user.email = provider_data.info.email
       user.password = Devise.friendly_token[0, 20]
+      user.username = provider_data.info.name
     end
   end
 
@@ -21,6 +22,6 @@ class User < ApplicationRecord
   validates :username, length: { maximum: 20 }
 
   # relationship
-  has_many :courses
-  has_one_attached :avatar
+  has_many :courses, dependent: :destroy
+  has_one_attached :avatar, dependent: :destroy
 end

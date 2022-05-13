@@ -18,22 +18,36 @@
   </ul>
 <% end %>
 
-<section>
-  <h1>學生基本資訊</h1>
-  <%= form_with model:@user, url: owner_user_path(@user), method: "patch" do |form| %>
-    <div class="field">
-      <div>
-        <%= image_tag url_for(@user.avatar) if @user.avatar.attached? %>
-      </div>
+<section class="container">
+  <div class="row">
+    <div class="w-full p-10 mx-auto mt-28 lg:w-1/2">
+      <h1 class="pb-4 text-3xl text-red-800">學生基本資訊</h1>
+      <%= form_with model:@user, url: owner_user_path(@user), method: "patch" do |form| %>
+        <div class="field tt w-40 h-40 mx-auto rounded-full overflow-hidden" data-controller="avatar-label">
+          <%= form.label :avatar, class: "avatar-label relative block w-40 h-40 rounded-full overflow-hidden cursor-pointer" do %>
+            <div class="absolute inset-0 text-white w-40 h-40 mx-auto">
+              <% if @user.avatar.attached? %>
+                <%= image_tag url_for(@user.avatar), class: "w-40 h-40 object-cover" %>
+              <% else %>
+                <div class="flex justify-center items-center bg-gray-300 w-40 h-40 rounded-full overflow-hidden" data-avatar-label-target="fakeImg">
+                  <i class="fa-solid fa-user text-6xl"></i>
+                </div>
+                <img src="" class="w-40 h-40 object-cover hidden" data-avatar-label-target="preview">
+              <% end %>
+            </div>
+          <% end %>
+          <%= form.file_field :avatar, class: "hidden", data: { action: "change->avatar-label#loadImg", avatar_label_target: "fileInput" } %>
+        </div>
+        <div class="field">
+          <%= form.label :username, "姓名" %>
+          <%= form.text_field :username %>
+        </div>
+        <div class="field">
+          <%= form.label :email %>
+          <%= form.email_field :email %>
+        </div>
+        <%= form.submit "儲存" %>
+      <% end %>
     </div>
-    <div class="field">
-      <%= form.label :username, "姓名" %>
-      <%= form.text_field :username %>
-    </div>
-    <div class="field">
-      <%= form.label :email %>
-      <%= form.email_field :email %>
-    </div>
-    <%= form.submit "儲存" %>
-  <% end %>
+  </div>
 </section>
