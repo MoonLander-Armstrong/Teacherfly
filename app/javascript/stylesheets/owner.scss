@@ -1,23 +1,35 @@
 .owner-list {
-  @apply w-full h-full px-4 py-10 m-auto bg-gradient-to-tl ;
+  @apply w-full h-full px-4 py-10 m-auto bg-gradient-to-tl;
 }
 
 .owner-title {
-  @apply flex justify-between w-full mb-11 ;
+  @apply flex justify-between w-full mb-11;
 }
 
 .owner-table {
-  @apply w-full table-auto min-w-max ;
+  @apply w-full table-auto min-w-max;
 }
 
 .owner-thead {
-  @apply text-sm leading-normal text-gray-600 uppercase bg-gray-200 ;
+  @apply text-sm leading-normal text-gray-600 uppercase bg-gray-200;
 }
 
 .owner-text {
-  @apply px-6 py-3 ;
+  @apply px-6 py-3;
 }
 
 .owner-tbody {
-  @apply text-sm font-light text-gray-600 ;
+  @apply text-sm font-light text-gray-600;
+}
+
+.tag {
+  @apply px-3 py-1 text-xs rounded-full;
+}
+
+.tag-publish {
+  @apply text-green-600 bg-green-200;
+}
+
+.tag-draft {
+  @apply text-red-400 bg-red-200;
 }

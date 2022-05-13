@@ -39,12 +39,8 @@
 						</div>
 					</td>
 					<td class="px-6 py-3 text-center">
-						<% if course.published == "publish" %>
-						<span class="px-3 py-1 text-xs text-green-600 bg-green-200 rounded-full">
-						<% else %>
-							<span class="px-3 py-1 text-xs text-red-400 bg-red-200 rounded-full">
-						<% end %>
-						<%= course.published %>
+						<span class="tag <%= course.published == "publish" ? "tag-publish" : "tag-draft" %>">
+							<%= course.published %>
 						</span>
 					</td>
 					<td class="px-6 py-3 text-center">
