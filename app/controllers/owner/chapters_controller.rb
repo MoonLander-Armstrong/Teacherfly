@@ -56,7 +56,7 @@ module Owner
     end
     
     def find_chapter
-      @chapter = Chapter.friendly.find(params[:id])
+      @chapter = Chapter.find(params[:id])
     end
   end
 end

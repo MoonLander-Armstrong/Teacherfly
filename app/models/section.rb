@@ -2,7 +2,7 @@
 
 class Section < ApplicationRecord
 
-  include Slugable
+  # include Slugable
   
   has_one_attached :media, dependent: :destroy
 
