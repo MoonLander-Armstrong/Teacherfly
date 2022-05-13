@@ -2,18 +2,10 @@
 module Owner
   class CoursesController < ApplicationController
     layout "owner"
-    before_action :find_course, only:[:show, :edit, :update, :destroy]
+    before_action :find_course, only:[:update, :destroy]
 
     def index
       @courses = Course.all
-    end
-
-    def show
-    end
-
-    def new
-      @course = current_user.courses.new
-      lecturer = Lecturer.find_or_create_by(name: current_user.username)
     end
 
     def create 
@@ -26,16 +18,12 @@ module Owner
       end
     end
 
-    def edit
-      @chapters = @course.chapters
-    end
-
     def update
       @lecturer = Lecturer.find_by(id: params[:lecturer_id])
       if @course.update(course_params)
         redirect_to owner_courses_path, notice: "更新成功！"
       else
-        render :edit
+        render :information
       end
     end
 
