@@ -1,5 +1,5 @@
 class Lecturer < ApplicationRecord
-	validates :name, presence: true
+	validates :name, presence: true, uniqueness: true
 	
 	has_one_attached :mugshot, dependent: :destroy
 

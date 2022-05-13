@@ -39,13 +39,13 @@
 						</div>
 					</td>
 					<td class="px-6 py-3 text-center">
-						<% if course.status == "publish" %>
-							<span class="px-3 py-1 text-xs text-green-600 bg-green-200 rounded-full">
+						<% if course.published == "publish" %>
+						<span class="px-3 py-1 text-xs text-green-600 bg-green-200 rounded-full">
 						<% else %>
 							<span class="px-3 py-1 text-xs text-red-400 bg-red-200 rounded-full">
 						<% end %>
-								<%= course.status %>
-							</span>
+						<%= course.published %>
+						</span>
 					</td>
 					<td class="px-6 py-3 text-center">
 						<div class="flex justify-center item-center">

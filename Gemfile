@@ -23,6 +23,7 @@ gem 'rails', '~> 6.1.5.1'
 gem 'sass-rails', '>= 6'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 5.0'
+gem 'friendly_id', '~> 5.4', '>= 5.4.2'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

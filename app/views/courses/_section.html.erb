@@ -1,5 +1,5 @@
 <li class="sections">
-  <%= link_to course_section_path(@course.id, section.id), class: "block" do %>
-    <i class="fa-solid fa-book mr-2"></i><%= section.title %>
+  <%= link_to course_section_path(@course, section), class: "block" do %>
+    <i class="mr-2 fa-solid fa-book"></i><%= section.title %>
   <% end %>
 </li>
