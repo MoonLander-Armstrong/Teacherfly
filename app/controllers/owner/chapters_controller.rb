@@ -6,18 +6,18 @@ module Owner
     before_action :find_chapter, only: %i[edit update destroy]
 
     def index
-      @course = Course.find(params[:course_id])
+      @course = Course.friendly.find(params[:course_id])
       @chapters = Chapter.all
     end
 
     def new
-      @course = Course.find(params[:course_id])
+      @course = Course.friendly.find(params[:course_id])
       @chapter = Chapter.new
       render layout: "ID_owner"
     end
 
     def create
-      @course = Course.find(params[:course_id])
+      @course = Course.friendly.find(params[:course_id])
       @chapter = @course.chapters.new(chapter_params)
 
       if @chapter.save
@@ -34,7 +34,7 @@ module Owner
 
 
     def update
-      @course = Course.find(params[:course_id])
+      @course = Course.friendly.find(params[:course_id])
       if @chapter.update(chapter_params)
         redirect_to curriculum_owner_course_path(@course), notice: '新增成功'
       else
@@ -56,7 +56,7 @@ module Owner
     end
     
     def find_chapter
-      @chapter = Chapter.find(params[:id])
+      @chapter = Chapter.friendly.find(params[:id])
     end
   end
 end

@@ -1,4 +1,4 @@
-<ul class="chapter w-2/3 lg:w-1/2 mx-auto">
-  <li class="chapter-title text-lg"><i class="fa-solid fa-graduation-cap mr-2"></i><%= chapter.title %></li>
-  <%= render partial: "courses/section", collection: chapter.sections, locals: {course: @course} %>
+<ul class="w-2/3 mx-auto chapter lg:w-1/2">
+  <li class="text-lg chapter-title"><i class="mr-2 fa-solid fa-graduation-cap"></i><%= chapter.title %></li>
+  <%= render partial: "courses/section", collection: chapter.sections.published, locals: {course: @course} %>
 </ul>
