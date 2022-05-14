@@ -45,7 +45,7 @@ class Owner::LecturersController < ApplicationController
   private
 
   def lecturer_params
-    params.require(:lecturer).permit(:name, :content, :mugshot)
+    params.require(:lecturer).permit(:name, :nickname, :content, :mugshot)
   end
 
   def find_lecturer

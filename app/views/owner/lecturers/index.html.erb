@@ -19,7 +19,18 @@
           <td class="owner-text text-left whitespace-nowrap">
             <div class="flex items-center">
               <div class="mr-2">
-                <span class="font-medium"><%= lecturer.name %></span>
+                <%= link_to edit_owner_lecturer_path(lecturer), class: "font-medium flex items-center" do %>
+                  <% if lecturer.mugshot.attached? %>
+                    <div class="w-8 h-8 mr-4 rounded-full overflow-hidden">
+                      <%= image_tag url_for(lecturer.mugshot) if lecturer.mugshot.attached? %>
+                    </div>
+                  <% else %>
+                    <div class="flex justify-center items-center bg-gray-300 w-8 h-8 mr-4 rounded-full overflow-hidden">
+                      <i class="fa-solid fa-user"></i>
+                    </div>
+                  <% end %>
+                  <span><%= lecturer.name %><%= "/ #{lecturer.nickname}" if lecturer.nickname.present? %></span>
+                <% end %>
               </div>
             </div>
           </td>

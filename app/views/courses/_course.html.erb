@@ -31,7 +31,7 @@
         <span class="text-sm">講師：
         <%= Lecturer.find(course.lecturer_id).name %></span>   
       </div>
-      <span>$<%= course.price %></span>
+      <span><%= course.price.zero? ? "Free" : "$ #{course.price}" %></span>
     </div>
   <% end %>
 </div>
