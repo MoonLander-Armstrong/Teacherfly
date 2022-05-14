@@ -55,5 +55,11 @@ Rails.application.routes.draw do
       end
     end
   end
-  resources :orders, only: [:index]
+
+  resources :orders do
+    collection do
+      get :payment
+      post :payment_response
+    end
+  end
 end
