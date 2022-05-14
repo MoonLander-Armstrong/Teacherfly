@@ -7,9 +7,6 @@
         <div>
           <%= form.text_field :title %>
         </div>
-
-        
-  
           <%= form.label :lecturer_id %>
         <div>
           <%= form.select :lecturer_id, Lecturer.pluck(:name, :id) %>

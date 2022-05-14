@@ -8,7 +8,11 @@ module Owner
       @courses = Course.all
     end
 
-    def create 
+    def new
+      @course = current_user.courses.new
+    end
+
+    def create
       lecturer = Lecturer.find_or_create_by(name: current_user.username)
       @course = lecturer.courses.new(course_params)
       if @course.save
