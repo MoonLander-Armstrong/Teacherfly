@@ -25,6 +25,12 @@ class Course < ApplicationRecord
   end
 
   def last_section
-    self.chapters.last.sections.last
+    if self.chapters.last.sections.present?
+      self.chapters.last.sections.last
+    else
+      self.chapters.select { |c| c.sections == true 
+        return c.sections.last 
+      }
+    end  
   end
 end
