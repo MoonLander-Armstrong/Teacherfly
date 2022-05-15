@@ -31,18 +31,18 @@ class Section < ApplicationRecord
   end
 
   def prev_section
-    if chapter.sections.where("id < ?", id).last.nil?
+    if chapter.sections.where("published = ? AND id < ?", "publish", id).last.nil?
       chapter.prev_chapter.sections.last
     else
-      chapter.sections.where("id < ?", id).last
+      chapter.sections.where("published = ? AND id < ?", "publish", id).last
     end
   end
 
   def next_section
-    if chapter.sections.where("id > ?", id).first.nil?
+    if chapter.sections.where("published = ? AND id < ?", "publish", id).first.nil?
       chapter.next_chapter.sections.first
     else
-      chapter.sections.where("id > ?", id).first
+      chapter.sections.where("published = ? AND id < ?", "publish", id).first
     end
   end
 end

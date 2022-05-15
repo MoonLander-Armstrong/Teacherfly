@@ -10,6 +10,7 @@ module Owner
 
     def new
       @course = current_user.courses.new
+      lecturer = Lecturer.find_or_create_by(name: current_user.username)
     end
 
     def create
@@ -50,15 +51,6 @@ module Owner
       @chapters = @course.chapters
     end
 
-    def information
-      @course = Course.find(params[:id])
-    end
-
-    def curriculum
-      @course = Course.find(params[:id])
-      @chapters = @course.chapters
-      render layout: "ID_owner"
-    end
     
     private
 
