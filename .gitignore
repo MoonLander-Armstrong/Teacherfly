@@ -39,4 +39,5 @@ yarn-debug.log*
 # Ignore application configuration
 /config/application.yml
 .vscode
-.DS_Store
+tt.html
+/app/service/newebpay/mmm.rb
