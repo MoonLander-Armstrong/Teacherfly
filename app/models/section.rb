@@ -15,7 +15,7 @@ class Section < ApplicationRecord
 
   # relationship
   belongs_to :chapter
-
+  has_many :comments
   scope :published, -> { where(published: "publish") }
   scope :draft, -> { where(published: "draft") }
 

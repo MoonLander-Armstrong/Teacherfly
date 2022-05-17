@@ -51,6 +51,12 @@ module Owner
       @chapters = @course.chapters
     end
 
+    def comments
+      @course = Course.includes(:chapters).friendly.find(params[:id])
+      @chapters = Chapter.includes(:sections).find_by(course_id: @course)
+    end
+
+
     
     private
 

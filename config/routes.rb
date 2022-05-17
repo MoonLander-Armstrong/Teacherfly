@@ -11,12 +11,15 @@ Rails.application.routes.draw do
       member do
         get :information
         get :curriculum
+        get :comments
       end
       resources :chapters do
         resources :sections, only: [:new, :create]
 
         collection do
-          resources :sections, except: [:new, :create]
+          resources :sections, except: [:new, :create] do 
+            resources :comments, shallow: true, only: [:create, :destroy]
+          end
         end
       end
     end
@@ -30,6 +33,19 @@ Rails.application.routes.draw do
   # front stage
   resources :courses, only: %i[index show]do
     resources :sections, only: %i[show] do
+      resources :comments, shallow: true, only: [:create, :destroy]
     end
   end
+
+  # API
+  namespace :api do
+    namespace :v1 do
+      resources :comments, only: [] do
+        member do 
+          post :reply
+        end
+      end
+    end
+  end
+
 end
