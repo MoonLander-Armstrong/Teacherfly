@@ -27,5 +27,6 @@ class User < ApplicationRecord
   # relationship
   has_many :courses
   has_many :comments
+  has_many :orders
   has_one_attached :avatar, dependent: :destroy
 end
