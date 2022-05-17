@@ -2,12 +2,12 @@ module Newebpay
   class Mpg
     attr_accessor :info
 
-    def initialize
+    def initialize(params)
       @key = ENV["newebpay_key"]
       @iv = ENV["newebpay_iv"]
       @merchant_id = ENV["merchant_id"]
       @info = {}
-      set_info()
+      set_info(params)
     end
 
     def form_info
@@ -21,23 +21,23 @@ module Newebpay
 
     private
     
-    def set_info
+    def set_info(order)
       #必填欄位
       info[:MerchantID] = @merchant_id
       info[:RespondType] = "JSON"
       info[:TimeStamp] = Time.now.to_i.to_s
       info[:Version] = "2.0"
-      info[:MerchantOrderNo] = "123"
-      info[:Amt] = "200"
-      info[:ItemDesc] = "第一次串接就成功"
+      info[:MerchantOrderNo] = order.slug
+      info[:Amt] = order.price
+      info[:ItemDesc] = order.title 
       info[:LoginType] = 0
       
       #選填欄位
-      info[:ReturnURL] = ""
+      info[:ReturnURL] = "https://"+ENV["ngrok_host_name"]+"/orders/payment_response"
       info[:NotifyURL] = ""
-      info[:Email] = "aaa@aa.com"
+      info[:Email] = order.user.email
       info[:CREDIT] = 1
-      info[:TradeLimit] = 300
+      #info[:TradeLimit] = 300
     end
     
     def trade_info 

@@ -12,6 +12,7 @@ class Course < ApplicationRecord
   has_many :chapters, dependent: :destroy
   has_many :sections, through: :chapters
   has_many :comments
+  has_many :orders
 
   # scope
   scope :published, -> { where(published: "publish") }

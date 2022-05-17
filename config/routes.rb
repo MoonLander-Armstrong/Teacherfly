@@ -32,6 +32,13 @@ Rails.application.routes.draw do
 
   # front stage
   resources :courses, only: %i[index show]do
+
+    resources :orders, only: [] do
+      collection do
+        get :payment
+      end
+    end
+
     resources :sections, only: %i[show] do
       resources :comments, shallow: true, only: [:create, :destroy]
     end
@@ -54,11 +61,10 @@ Rails.application.routes.draw do
         end
       end
     end
-  end
 
-  resources :orders do
+  end
+  resources :orders, only: [:index] do
     collection do
-      get :payment
       post :payment_response
     end
   end

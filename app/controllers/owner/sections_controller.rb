@@ -6,7 +6,7 @@ module Owner
     before_action :find_section, only: %i[show edit update destroy]
 
     def new
-      @course = Course.find(params[:course_id])
+      @course = current_user.courses.friendly.find(params[:course_id])
       @chapter = Chapter.find(params[:chapter_id])
       @section = Section.new
     end

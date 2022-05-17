@@ -1,16 +1,23 @@
-<h1>訂單付款</h1>
+<h1 class="mt-12 text-4xl text-center">訂單資訊</h1>
 
 <%=form_with url: "https://ccore.newebpay.com/MPG/mpg_gateway", method: "post" do |form| %>
-    <% @form_info %>
+  <div class="hidden">
+    <%#= @form_info %> 
     <%= form.text_field :MerchantID, value: @form_info[:MerchantID] %>
     <%= form.text_field :TradeInfo, value: @form_info[:TradeInfo] %>
     <%= form.text_field :TradeSha, value: @form_info[:TradeSha] %>
     <%= form.text_field :Version, value: @form_info[:Version] %>
+  </div>
+
+  <%= form_with(model: @order) do |f| %>
+
+    <%= f.label :購買課程 %>
+    <%= f.text_field :name, value: @course.title %>
+    <%= f.label :購買價格 %>
+    <%= f.text_field :price, value: @course.price %>
 
 
-    
 
-    <%= form.submit %>
-
-
+    <%= form.submit "確認付款" %>
+  <% end %>
 <% end %>

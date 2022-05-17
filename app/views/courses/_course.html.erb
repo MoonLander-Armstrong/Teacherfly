@@ -23,7 +23,7 @@
           <% if course.lecturer.mugshot.attached? %>
             <%= image_tag url_for(course.lecturer.mugshot) %>
           <% else %>
-            <div class="flex justify-center items-center bg-gray-300 w-8 h-8 mr-4 rounded-full overflow-hidden">
+            <div class="flex items-center justify-center w-8 h-8 mr-4 overflow-hidden bg-gray-300 rounded-full">
               <i class="fa-solid fa-user"></i>
             </div>
           <% end %>
