@@ -8,13 +8,13 @@ module Owner
     def index; end
 
     def new
-      @course = Course.friendly.find(params[:course_id])
+      @course = Course.find(params[:course_id])
       @chapter = Chapter.find(params[:chapter_id])
       @section = Section.new
     end
 
     def create
-      @course = Course.friendly.find(params[:course_id])
+      @course = Course.find(params[:course_id])
       @chapter = @course.chapters.find(params[:chapter_id])
       @section = @chapter.sections.new(section_params)
       
@@ -28,12 +28,12 @@ module Owner
     end
 
     def edit
-      @course = Course.friendly.find(params[:course_id])
+      @course = Course.find(params[:course_id])
     end
 
 
     def update
-      @course = Course.friendly.find(params[:course_id])
+      @course = Course.find(params[:course_id])
       @section.media.purge_later
       if @section.update(section_params)
         redirect_to curriculum_owner_course_path(@course), notice: '新增成功'
@@ -44,7 +44,7 @@ module Owner
     end
 
     def destroy
-      course = Course.friendly.find(params[:course_id])
+      course = Course.find(params[:course_id])
       if @section.media.attached?
         @section.media.purge_later 
         @section.destroy

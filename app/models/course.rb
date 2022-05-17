@@ -10,6 +10,7 @@ class Course < ApplicationRecord
   belongs_to :lecturer
   has_one_attached :classImg
   has_many :chapters, dependent: :destroy
+  has_many :sections, through: :chapters
 
   # scope
   scope :published, -> { where(published: "publish") }
@@ -20,17 +21,7 @@ class Course < ApplicationRecord
     course.price ||= 0
   end
 
-  def first_section
-    self.chapters.first.sections.first
-  end
-
-  def last_section
-    if self.chapters.last.sections.present?
-      self.chapters.last.sections.last
-    else
-      self.chapters.select { |c| c.sections == true 
-        return c.sections.last 
-      }
-    end  
+  def all_published_sections
+    sections.published
   end
 end

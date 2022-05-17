@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 class Section < ApplicationRecord
+  include Slugable
 
-  # include Slugable
-  
   has_one_attached :media, dependent: :destroy
 
   # validates
@@ -31,18 +30,18 @@ class Section < ApplicationRecord
   end
 
   def prev_section
-    if chapter.sections.where("published = ? AND id < ?", "publish", id).last.nil?
-      chapter.prev_chapter.sections.last
+    if chapter.sections.where(["id < ? and published = ?", id, "publish"]).present?
+      chapter.sections.where(["id < ? and published = ?", id, "publish"]).last
     else
-      chapter.sections.where("published = ? AND id < ?", "publish", id).last
+      chapter.prev_chapter.sections.published.last
     end
   end
 
   def next_section
-    if chapter.sections.where("published = ? AND id < ?", "publish", id).first.nil?
-      chapter.next_chapter.sections.first
+    if chapter.sections.where(["id > ? and published = ?", id, "publish"]).present?
+      chapter.sections.where(["id > ? and published = ?", id, "publish"]).first
     else
-      chapter.sections.where("published = ? AND id < ?", "publish", id).first
+      chapter.next_chapter.first.sections.published.first
     end
   end
 end
