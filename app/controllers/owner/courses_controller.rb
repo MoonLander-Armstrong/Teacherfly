@@ -14,7 +14,7 @@ module Owner
     end
 
     def create
-      lecturer = Lecturer.find_or_create_by(name: current_user.username)
+      lecturer = Lecturer.find(params[:course][:lecturer_id])
       @course = lecturer.courses.new(course_params)
       if @course.save
         redirect_to owner_courses_path, notice: "新增成功！"
