@@ -1,13 +1,14 @@
 # Teacherfly
-Website 網站:
+**Website 網站**:
+
+![image](https://user-images.githubusercontent.com/100756999/169078197-882f631e-44ff-4bd4-b26c-1b4c1802a1a5.png)
 
 你還在苦於沒有適合建立自己的教學網站嗎? 無論你是學富五車的教師/補教業者，還是有滿腔知識想分享給大眾的創作者，不知道該如何建立自己的教學網站，又不希望自己教學平台被淹沒在眾多教學商店裡面，能有自己的影音平台網站，那就快來使用 TeacherFly吧~
 
 
-
 # feature
 
-TeacherFly 是向 Teacher:able 致敬的教學影音平台產品，主要有三大賣點：
+**TeacherFly 是向 Teacher:able 致敬的教學影音平台產品，主要有三大賣點**：
 
 - 建立自己的教學網站：快速建立自己的教學網站，註冊即建立。
 - 管理自己的學生用戶：控管學生用戶購買狀況及閱覽權限。
@@ -17,19 +18,19 @@ TeacherFly 是向 Teacher:able 致敬的教學影音平台產品，主要有三�
 
 # Technologies 
 
-- Frontend : HTML / CSS（ SCSS Tailwind )  / JavaScript (Stimulus)
-- Backend : Ruby(2.7.5) / Ruby on Rails(6.1.5.1) 
-- Database : PostgreSQL
-- Deployment : Heroku
-- Third-Party Login : Google
-- Other Technologies : AWS S3 
-- Cash flow : NewebPay
+- **Frontend** : HTML / CSS（ SCSS Tailwind )  / JavaScript (Stimulus)
+- **Backend** : Ruby(2.7.5) / Ruby on Rails(6.1.5.1) 
+- **Database** : PostgreSQL
+- **Deployment** : Heroku
+- **Third-Party Login** : Google
+- **Other Technologies** : AWS S3 
+- **Cash flow** : NewebPay
 
 
 # Member
 
-- 王孝先
-- 詹濟安
-- 林沛萱
-- 韓之瑜
-- 閻緯濂
+- [王孝先](https://github.com/s8854198)
+- [詹濟安](https://github.com/zhanjian0217)
+- [林沛萱](https://github.com/PeiHsuan0416)
+- [韓之瑜](https://github.com/gizelliang)
+- [閻緯濂](https://github.com/williamyen96630)
