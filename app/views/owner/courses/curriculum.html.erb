@@ -25,9 +25,7 @@
     	<button class="px-4 py-2 mx-5 my-auto bg-green-300 border-0 border-gray-800 rounded hover:bg-green-400">新增章節</button>
     <% end %>
   </nav>
-
-	<%= render "shared/flash" %>	
-	
+	<%= render "shared/flash" %>
 	<% @chapters.each do |chapter| %>
 		<table class="w-full mt-16 border border-gray-200 table-auto min-w-max">
 			<thead>
@@ -39,8 +37,8 @@
 					</th>
 				</tr>
 			</thead>
-			<% chapter.sections.each do |section| %>
-				<tbody class="text-sm font-light text-gray-600">
+			<tbody class="text-sm font-light text-gray-600">
+				<% chapter.sections.each do |section| %>
 					<tr class="border-gray-200 hover:bg-green-100">
 						<td class="px-6 py-3 text-left whitespace-nowrap">
 							<div class="flex items-center justify-between">
@@ -62,7 +60,7 @@
 							</div>
 						</td>
 					</tr>
-			<% end %>
+				<% end %>
 				<tr class="border-gray-200 hover:bg-green-100">
 					<td class="px-8 py-3 text-left whitespace-nowrap">
 						<%= link_to new_owner_course_chapter_section_path(@course, chapter) do %>
