@@ -68,7 +68,7 @@
   <%# 這裡是留言區 %>
     <div>
       <h2 class="text-3xl">留言區:</h2>
-      <%= render partial: "comments/form", locals: { section: @section, parent: nil }%>
+      <%= render partial: "comments/form", locals: { course: @course, section: @section, parent: nil }%>
       <%= render @section.comments.where(parent_id: nil).order(id: :desc) %>
     </div>
   </div>

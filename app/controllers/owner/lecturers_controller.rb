@@ -14,21 +14,21 @@ class Owner::LecturersController < ApplicationController
 
   def create
     @lecturer = Lecturer.new(lecturer_params)
-
     if @lecturer.save
       redirect_to owner_lecturers_path, notice: "新增成功"
     else
+      flash.now[:alert] = "請輸入正確資訊"
       render :new
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @lecturer.update(lecturer_params)
       redirect_to owner_lecturers_path, notice: "更新成功"
     else
+      flash.now[:alert] = "請輸入正確資訊"
       render :edit
     end
   end

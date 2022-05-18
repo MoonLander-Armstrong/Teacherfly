@@ -2,15 +2,15 @@
 module Owner
   class CoursesController < ApplicationController
     layout "owner"
-    before_action :find_course, only:[:update, :destroy]
+    before_action :find_course, only:[:update, :destroy, :information, :curriculum, :comments]
 
     def index
-      @courses = Course.all
+      @courses = current_user.courses.order(id: :asc)
     end
 
     def new
       @course = current_user.courses.new
-      lecturer = Lecturer.find_or_create_by(name: current_user.username)
+      Lecturer.find_or_create_by(name: current_user.username)
     end
 
     def create
@@ -24,7 +24,6 @@ module Owner
     end
 
     def update
-      @lecturer = Lecturer.find_by(id: params[:lecturer_id])
       if @course.update(course_params)
         redirect_to owner_courses_path, notice: "更新成功！"
       else
@@ -33,39 +32,30 @@ module Owner
     end
 
     def destroy
-      if @course.classImg.attached? 
-        @course.classImg.purge_later 
-        @course.destroy
+      if @course.classImg.attached?
+        @course.classImg.purge_later && @course.destroy
       else
         @course.destroy
       end
       redirect_to owner_courses_path, alert: "刪除成功！"
     end
 
-    def information
-      @course = Course.find(params[:id])
-    end
-
     def curriculum
-      @course = Course.find(params[:id])
       @chapters = @course.chapters
     end
-
-    def comments
-      @course = Course.includes(:chapters).friendly.find(params[:id])
-      @chapters = Chapter.includes(:sections).find_by(course_id: @course)
-    end
-
-
     
+    def information; end
+    
+    def comments; end
+
     private
 
-      def find_course
-        @course = Course.friendly.find(params[:id])
-      end
+    def find_course
+      @course = Course.includes(:chapters, :sections, :comments).find(params[:id])
+    end
 
-      def course_params
-        params.require(:course).permit(:title, :content, :price, :published, :description, :classImg, :lecturer_id).merge(user_id: current_user.id)
-      end
+    def course_params
+      params.require(:course).permit(:title, :content, :price, :published, :description, :classImg, :lecturer_id).merge(user_id: current_user.id)
+    end
   end
 end

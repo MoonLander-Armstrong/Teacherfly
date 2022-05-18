@@ -5,8 +5,6 @@ module Owner
     layout "owner"
     before_action :find_section, only: %i[show edit update destroy]
 
-    def index; end
-
     def new
       @course = Course.find(params[:course_id])
       @chapter = Chapter.find(params[:chapter_id])
@@ -54,8 +52,6 @@ module Owner
         redirect_to curriculum_owner_course_path(course), alert: '刪除成功'
       end
     end
-    
-    def show; end
     
     private
     

@@ -5,7 +5,7 @@ class SectionsController < ApplicationController
 
   def show
     @user = current_user
-    @course = Course.friendly.find(params[:course_id])
+    @course = Course.find(params[:course_id])
     @section = Section.find(params[:id])
   end
 end

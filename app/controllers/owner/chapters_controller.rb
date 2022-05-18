@@ -4,19 +4,15 @@ module Owner
   class ChaptersController < ApplicationController
     layout "owner"
     before_action :find_chapter, only: %i[edit update destroy]
-
-    def index
-      @course = Course.find(params[:course_id])
-      @chapters = Chapter.all
-    end
+    before_action :find_course
 
     def new
       @course = Course.find(params[:course_id])
-      @chapter = Chapter.new
+      @chapter = @course.chapters.new
     end
 
     def create
-      @course = Course.friendly.find(params[:course_id])
+      @course = Course.find(params[:course_id])
       @chapter = @course.chapters.new(chapter_params)
 
       if @chapter.save
@@ -30,7 +26,6 @@ module Owner
     def edit
       @course = Course.find(params[:course_id])
     end
-
 
     def update
       @course = Course.find(params[:course_id])
@@ -53,7 +48,11 @@ module Owner
     def chapter_params
       params.require(:chapter).permit(:title)
     end
-    
+
+    def find_course
+      @course = Course.find(params[:course_id])
+    end
+
     def find_chapter
       @chapter = Chapter.find(params[:id])
     end
