@@ -116,6 +116,7 @@ ActiveRecord::Schema.define(version: 2022_05_18_080849) do
     t.bigint "course_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "status"
     t.index ["course_id"], name: "index_orders_on_course_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end

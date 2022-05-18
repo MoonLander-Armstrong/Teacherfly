@@ -1,6 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    aasm (4.12.3)
+      concurrent-ruby (~> 1.0)
     actioncable (6.1.5.1)
       actionpack (= 6.1.5.1)
       activesupport (= 6.1.5.1)
@@ -303,6 +305,7 @@ PLATFORMS
   x86_64-darwin-21
 
 DEPENDENCIES
+  aasm (~> 4.11)
   aws-sdk-s3
   bootsnap (>= 1.4.4)
   byebug
