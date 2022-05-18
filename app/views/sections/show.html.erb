@@ -67,11 +67,9 @@
     <p class="mt-4"><%= markdown(@section.content)%></p>
   <%# 這裡是留言區 %>
     <div>
-      <p>
       <h2 class="text-3xl">留言區:</h2>
       <%= render partial: "comments/form", locals: { section: @section, parent: nil }%>
       <%= render @section.comments.where(parent_id: nil).order(id: :desc) %>
-      </p>
     </div>
   </div>
   <%# 這裡是留言區 %>

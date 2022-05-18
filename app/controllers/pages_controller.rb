@@ -2,7 +2,6 @@
 
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!
-  def home
-    @chapters = Chapter.all
-  end
+
+  def home; end
 end

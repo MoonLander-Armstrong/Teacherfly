@@ -18,36 +18,33 @@
   </ul>
 <% end %>
 
-
 <div class="container">
   <div class="row">
     <div class="w-full p-10 mx-auto mt-28 lg:w-1/2">
       <h1 class="pb-4 text-3xl text-red-800">新增課程小節</h1>
+      <%= form_with(model: @section, url: owner_course_chapter_sections_path(@chapter.course_id, @chapter), method: "post") do |form| %>
+        <div class="field">
+          <%= form.label :title, "標題" %>
+          <%= form.text_field :title %>
+        </div>
 
-        <%= form_with(model: @section, url: owner_course_chapter_sections_path(@chapter.course_id, @chapter), method: "post") do |form| %>
-          <div class="field">
-            <%= form.label :title, "標題" %>
-            <%= form.text_field :title %>
-          </div>
+        <div class="field">
+          <%= form.label :media, "上傳影片" %>
+          <%= form.file_field :media %>
+        </div>
 
-          <div class="field">
-            <%= form.label :media, "上傳影片" %>
-            <%= form.file_field :media %>
-          </div>
+        <div class="field">
+          <%= form.label :content, "課程內文" %>
+          <%= form.text_area :content, data: { controller: "markdown-editor" }   %>
+        </div>
 
-          <div class="field">
-            <%= form.label :content, "課程內文" %>
-            <%= form.text_area :content, data: { controller: "markdown-editor" }   %>
-          </div>
+        <div class="field">
+          <%= form.label :published, "狀態" %>
+          <%= form.select :published, Section.published_state %>
+        </div>
 
-          <div class="field">
-            <%= form.label :published, "狀態" %>
-            <%= form.select :published, Section.published_state %>
-          </div>
-
-          <%= form.submit "送出" %>
-        <% end %>
-      
+        <%= form.submit "送出" %>
+      <% end %>
     </div>
   </div>
 </div>

@@ -1,10 +1,12 @@
 <%= form_with(url: course_section_comments_path(@course, @section), scope: "comment") do |form|%>
-<% if !parent.nil? %>
-<input type="hidden" name=comment[parent_id] value="<%= parent.id %>">
-<% end %>
+  <% if !parent.nil? %>
+    <input type="hidden" name=comment[parent_id] value="<%= parent.id %>">
+  <% end %>
 
-  <%= form.label :content %>
-  <%= form.text_area :content %>
+  <div>
+    <%= form.label :content %>
+    <%= form.text_area :content %>
+  </div>
 
-  <%= form.submit %>
+  <%= form.submit "送出" %>
 <% end %>
