@@ -1,13 +1,22 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = ["sectionDropdown", "loading", "loadingCircle"];
+  static targets = [
+    "sectionDropdown",
+    "loading",
+    "loadingCircle",
+    "progressBar",
+    "progress",
+  ];
 
   connect() {
-    if (window.screen.width > 767) {
-      this.sectionDropdownTarget.classList.remove("fade");
-    }
+    // progressbarWidth
+    this.progressBarTarget.style.setProperty(
+      "--progressBar-width",
+      `${this.progressBarTarget.dataset.progressbar}%`
+    );
 
+    // loading block
     function addDot(target) {
       let dotArr = target.textContent.split("g")[1];
       if (dotArr.length === 3) {
@@ -30,17 +39,25 @@ export default class extends Controller {
     }, 2000);
   }
 
-  toggle() {
+  toggleSideBar() {
     this.sectionDropdownTarget.classList.toggle("fade");
     this.sectionDropdownTarget.classList.toggle("show");
   }
 
-  resize() {
+  viewportResize() {
     if (window.screen.width > 767) {
       this.sectionDropdownTarget.classList.remove("fade");
       this.sectionDropdownTarget.classList.remove("show");
     } else {
       this.sectionDropdownTarget.classList.add("fade");
     }
+  }
+
+  setWidth({ detail }) {
+    this.progressBarTarget.style.setProperty(
+      "--progressBar-width",
+      detail.progressBarWidth
+    );
+    this.progressTarget.textContent = detail.progressBarWidth;
   }
 }

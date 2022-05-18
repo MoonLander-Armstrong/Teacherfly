@@ -24,4 +24,8 @@ class Course < ApplicationRecord
   def all_published_sections
     sections.published
   end
+
+  def section_finished_rate
+    (all_published_sections.select{ |section| section.finished }.count.to_f / all_published_sections.count * 100).to_i
+  end
 end

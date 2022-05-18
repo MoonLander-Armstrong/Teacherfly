@@ -1,13 +1,13 @@
 <%= content_for :header do %>
   <div class="flex justify-between flex-grow text-xl text-green-800 section_header">
     <div class="flex items-center">
-      <div >
+      <div>
         <%= link_to courses_path, class: "section_header_btn" do %>
           <i class="fa-solid fa-house"></i>
         <% end %>
       </div>
       <div class="border-l border-green-700 md:hidden">
-        <button class="section_header_btn" data-action="click->section-list#toggle">
+        <button class="section_header_btn" data-action="click->section-list#toggleSideBar">
           <i class="fa-solid fa-list"></i>
         </button>
       </div>
@@ -43,17 +43,16 @@
 <% end %>
 
 <%= content_for :sidebar do %>
-  <nav class="absolute left-0 right-0 z-10 flex-shrink-0 overflow-scroll bg-white section-dropdown fade md:relative md:w-64 lg:w-72 md:max-h-screen" data-section-list-target="sectionDropdown" data-action="resize@window->section-list#resize">
+  <nav class="absolute left-0 right-0 z-10 flex-shrink-0 overflow-scroll bg-white section-dropdown fade md:relative md:w-64 lg:w-72 md:max-h-screen" data-section-list-target="sectionDropdown" data-action="resize@window->section-list#viewportResize">
     <div class="shadow">
       <h1 class="text-xl font-bold text-center"><%= @course.title %></h1>
       <div class="px-4 my-4 text-center">
-        <div class="relative h-3 border rounded-full progress-bar">
-        </div>
-        <span class="inline-block my-3">已完成<span class="ml-4">50%</span></span>
+        <div class="relative h-3 border rounded-full progress-bar" data-section-list-target="progressBar" data-progressBar=<%= @course.section_finished_rate %> data-action="sendWidth@document->section-list#setWidth"></div>
+        <span class="inline-block my-3">已完成<span class="ml-4" data-section-list-target="progress"><%= @course.section_finished_rate %>%</span></span>
       </div>
     </div>
     <h2 class="text-lg font-bold text-center">所有章節</h2>
-    <%= render partial: "chapter", collection: @course.chapters %>
+    <%= render partial: "chapter", collection: @course.chapters, locals: { course: @course } %>
   </nav>
 <% end %>
 
