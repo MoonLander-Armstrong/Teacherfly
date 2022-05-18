@@ -5,6 +5,8 @@
 }
 
 .section_main {
+  --progressBar-width: 0%;
+
   .section-dropdown {
     ul li:first-child {
       @apply py-3 pl-4;
@@ -12,7 +14,9 @@
 
     .progress-bar::before {
       content: "";
-      @apply absolute top-0 left-0 bottom-0 w-1/2 bg-green-400 rounded-full;
+      width: var(--progressBar-width);
+      @apply absolute top-0 left-0 bottom-0
+        bg-green-400 rounded-full;
     }
   }
 

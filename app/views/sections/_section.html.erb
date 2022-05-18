@@ -1,14 +1,12 @@
-<li>
-  <%= link_to course_section_path(@course, section), class: "flex items-center py-3 bg-gray-100 hover:bg-green-200 transition" do %>
-  <div class="px-4 text-green-600 border-r border-green-700">
-    <% if true %>
-      <i class="fa-solid fa-circle-check"></i>
-    <% else %>
-
-    <% end %>
-  </div>
-  <div class="ml-4">
-    <i class="mr-2 fa-solid fa-book"></i><%= section.title %>
-  </div>
+<li class="relative" data-controller="finished-list" data-course-id=<%= course.friendly_id %> data-section-id=<%= section.friendly_id %>>
+  <label for="<%= section.friendly_id %>" class="flex items-center pl-2 absolute inset-y-0 cursor-pointer">
+      <i class="fa-solid fa-circle-check <%= "hidden" unless section.finished %>" data-finished-list-target="finishedIcon"></i>
+      <span class="bg-white w-4 h-4 border-2 border-black rounded-full <%= "hidden" if section.finished %>" data-finished-list-target="unfinishedIcon"></span>
+    <input type="checkbox" class="hidden" id="<%= section.friendly_id %>" <%= "checked" if section.finished %> data-action="change->finished-list#toggleFinished">
+  </label>
+  <%= link_to course_section_path(@course, section), class: "flex items-center pl-4 py-3 bg-gray-100 hover:bg-green-200 transition" do %>
+    <div class="ml-4">
+      <i class="mr-2 fa-solid fa-book"></i><%= section.title %>
+    </div>
   <% end %>
 </li>

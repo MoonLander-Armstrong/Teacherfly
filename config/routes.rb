@@ -45,7 +45,14 @@ Rails.application.routes.draw do
           post :reply
         end
       end
+
+      resources :courses, only: [] do
+        resources :sections, only: [] do
+          member do
+            patch :finished
+          end
+        end
+      end
     end
   end
-
 end

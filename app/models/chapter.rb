@@ -15,13 +15,13 @@ class Chapter < ApplicationRecord
 
   def prev_chapter
     if course.chapters.where("id < ?", id).present?
-      course.chapters.where("id < ?", id).last
+      course.chapters.where("id < ?", id).select{ |chapter| chapter.sections.published.present? }.last
     end
   end
 
   def next_chapter
     if course.chapters.where("id > ?", id).present?
-      course.chapters.where("id > ?", id)
+      course.chapters.where("id > ?", id).select{ |chapter| chapter.sections.published.present? }.first
     end
   end
 end

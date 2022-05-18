@@ -1,4 +1,4 @@
 <ul>
   <li><%= chapter.title %></li>
-  <%= render chapter.sections.published %>
+  <%= render partial: "section" , collection: chapter.sections.published, locals: { course: course } %>
 </ul>

@@ -3,8 +3,6 @@
 class Section < ApplicationRecord
   include Slugable
 
-  has_one_attached :media, dependent: :destroy
-
   # validates
   validates :title,
             presence: true,
@@ -15,6 +13,8 @@ class Section < ApplicationRecord
   # relationship
   belongs_to :chapter
   has_many :comments
+  has_one_attached :media, dependent: :destroy
+
   scope :published, -> { where(published: "publish") }
   scope :draft, -> { where(published: "draft") }
 
@@ -41,7 +41,7 @@ class Section < ApplicationRecord
     if chapter.sections.where(["id > ? and published = ?", id, "publish"]).present?
       chapter.sections.where(["id > ? and published = ?", id, "publish"]).first
     else
-      chapter.next_chapter.first.sections.published.first
-    end
+      chapter.next_chapter.sections.published.first
+    end 
   end
 end
