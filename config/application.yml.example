@@ -8,3 +8,5 @@ google_client_secret: "YOUR_GOOGLE_CLIENT_SECRET"
 newebpay_key: "HashKey"
 newebpay_iv: "HashIV"
 merchant_id: "merchant_id"
+
+ngrok_host_name: "YOUR_NGROK_Forwarding"
