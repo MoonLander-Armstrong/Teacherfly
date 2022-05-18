@@ -7,25 +7,25 @@
     </li>
   </ul>
 <% end %>
-
 <div class="container">
   <div class="row">
     <div class="w-full p-10 mx-auto mt-28 lg:w-1/2">
+    <%= render "shared/flash" %>	
       <div class="">
           <h1>編輯講師</h1>
       </div>
       <div>
         <%= form_with(model: @lecturer, url: owner_lecturer_path(@lecturer)) do |form| %>
-          <div class="field tt w-40 h-40 mx-auto rounded-full overflow-hidden" data-controller="avatar-label">
+          <div class="w-40 h-40 mx-auto overflow-hidden rounded-full field tt" data-controller="avatar-label">
             <%= form.label :mugshot, class: "avatar-label relative block w-40 h-40 rounded-full overflow-hidden cursor-pointer" do %>
-              <div class="absolute inset-0 text-white w-40 h-40 mx-auto">
+              <div class="absolute inset-0 w-40 h-40 mx-auto text-white">
                 <% if @lecturer.mugshot.attached? %>
                   <%= image_tag url_for(@lecturer.mugshot), class: "w-40 h-40 object-cover", data: { avatar_label_target: "preview" } %>
                 <% else %>
-                  <div class="flex justify-center items-center bg-gray-300 w-40 h-40 rounded-full overflow-hidden" data-avatar-label-target="fakeImg">
-                    <i class="fa-solid fa-user text-6xl"></i>
+                  <div class="flex items-center justify-center w-40 h-40 overflow-hidden bg-gray-300 rounded-full" data-avatar-label-target="fakeImg">
+                    <i class="text-6xl fa-solid fa-user"></i>
                   </div>
-                  <img src="" class="w-40 h-40 object-cover hidden" data-avatar-label-target="preview">
+                  <img src="" class="hidden object-cover w-40 h-40" data-avatar-label-target="preview">
                 <% end %>
               </div>
             <% end %>

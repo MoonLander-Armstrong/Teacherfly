@@ -1,4 +1,4 @@
-<%= form_with(url: course_section_comments_path(@course, @section), scope: "comment") do |form|%>
+<%= form_with(url: course_section_comments_path(course, section), scope: "comment") do |form|%>
   <% if !parent.nil? %>
     <input type="hidden" name=comment[parent_id] value="<%= parent.id %>">
   <% end %>

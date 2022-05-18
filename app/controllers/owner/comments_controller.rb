@@ -1,6 +1,6 @@
 class Owner::CommentsController < ApplicationController
   def create
-    @course = Course.friendly.find(params[:course_id])
+    @course = Course.find(params[:course_id])
     @section = Section.find(params[:section_id])
     @comment = @section.comments.new(comment_params)
     if @comment.save
@@ -10,6 +10,6 @@ class Owner::CommentsController < ApplicationController
 
   private
   def comment_params
-    params.require(:comment).permit(:content, :parent_id).merge(user: current_user)
+    params.require(:comment).permit(:content, :parent_id).merge(user: current_user, course: @course)
   end
 end

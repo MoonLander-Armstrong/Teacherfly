@@ -11,6 +11,7 @@ class Course < ApplicationRecord
   has_one_attached :classImg
   has_many :chapters, dependent: :destroy
   has_many :sections, through: :chapters
+  has_many :comments
 
   # scope
   scope :published, -> { where(published: "publish") }

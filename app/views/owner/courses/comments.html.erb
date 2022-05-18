@@ -33,7 +33,7 @@
 			</tr>
 		</thead>
 		<tbody class="owner-tbody">
-			<% Comment.includes(:section, :user).order(id: :desc).all.each do |comment| %>
+			<% Comment.where(course_id: @course.id).includes(:section, :user).order(id: :desc).each do |comment| %>
 				<tr class="border-b border-gray-200 hover:bg-gray-100">
 					<td class="text-left owner-text whitespace-nowrap">
 						<div class="flex items-center">
