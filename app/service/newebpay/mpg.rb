@@ -29,7 +29,7 @@ module Newebpay
       info[:Version] = "2.0"
       info[:MerchantOrderNo] = order.slug
       info[:Amt] = order.price
-      info[:ItemDesc] = order.title 
+      info[:ItemDesc] = order.name    
       info[:LoginType] = 0
       
       #選填欄位
