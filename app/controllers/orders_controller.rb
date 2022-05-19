@@ -8,15 +8,18 @@ class OrdersController < ApplicationController
 
   def payment_response
     response = Newebpay::MpgResponse.new(params[:TradeInfo])
-    render html: response.result
+    redirect_to orders_path
   end
 
 
   def payment
-    @order = current_user.orders.new
-    @course = Course.friendly.find(params[:course_id])
-    order = @course
-    @form_info = Newebpay::Mpg.new(order).form_info
-  end
+    @course = Course.find(params[:course_id])
+    order = @course.orders.new(name: @course.title, price:@course.price, user: current_user, email: current_user.email)
 
+    if order.save
+      @form_info = Newebpay::Mpg.new(order).form_info
+    else
+      render file: "#{Rails.root}/public/500.html"
+    end
+  end
 end

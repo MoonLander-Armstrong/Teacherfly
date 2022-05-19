@@ -1,5 +1,6 @@
 class Order < ApplicationRecord
   include AASM
+  include Slugable
 
   aasm column: "status" do
     state :panding, initial: true
