@@ -1,11 +1,10 @@
 class CommentsController < ApplicationController
   def create
-    course = Course.friendly.find(params[:course_id])
-    section = Section.find(params[:section_id])
-    comment = section.comments.new(comment_params)
-
-    comment.save
-    redirect_to course_section_path(course, section)
+    @course = Course.find(params[:course_id])
+    @section = Section.find(params[:section_id])
+    @comment = @section.comments.new(comment_params)
+    
+    render "sections/show" unless @comment.save
   end
 
   private
