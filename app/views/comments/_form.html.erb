@@ -1,12 +1,12 @@
-<%= form_with(url: course_section_comments_path(course, section), scope: "comment") do |form|%>
+<%= form_with(url: course_section_comments_path(course, section), scope: "comment", data: { remote: true }) do |form|%>
   <% if !parent.nil? %>
     <input type="hidden" name=comment[parent_id] value="<%= parent.id %>">
   <% end %>
 
   <div>
     <%= form.label :content %>
-    <%= form.text_area :content %>
+    <%= form.text_area :content , class: "comments_input" %>
   </div>
 
-  <%= form.submit "送出" %>
+  <%= form.submit "送出", data: { action: "click->nested#disappear" } %>
 <% end %>

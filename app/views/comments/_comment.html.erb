@@ -1,12 +1,12 @@
 <article data-controller="nested">
   <p><%= comment.content %></p>
   <small>by <%= current_user.username %></small>
-  <button class="text-blue-700" data-action="click->nested#appear" data-nested-target="action">回覆</button>
+  <button class="text-blue-700" data-action="click->nested#appear">回覆</button>
   <div class="comment-form" data-nested-target="comments">  
     <%= render partial: "comments/form", locals: { course: @course, section: @section, parent: comment }%>
   </div>
   <hr>
-  <div class="sub-comment">
+  <div class="sub-comment" id="comment_<%= comment.id %>">
     <%= render comment.comments.order(id: :desc) %>
   </div>
 </article>

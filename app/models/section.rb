@@ -12,7 +12,7 @@ class Section < ApplicationRecord
 
   # relationship
   belongs_to :chapter
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_one_attached :media, dependent: :destroy
 
   scope :published, -> { where(published: "publish") }
