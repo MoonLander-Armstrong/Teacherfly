@@ -56,7 +56,7 @@ input {
   @apply w-full pl-3 py-1 mt-1 mb-3 border bg-gray-50 border-black rounded;
 
   &:focus {
-    @apply border-2 border-green-300 outline-none ring-2 ring-green-500;
+    @apply border-2 border-blue outline-none ring-2 ring-blue;
   }
 }
 
@@ -64,27 +64,27 @@ input[type="checkbox"] {
   @apply w-auto mr-4;
 
   &:focus {
-    @apply border-green-300;
+    @apply border-blue;
   }
 
   &:checked {
-    @apply bg-green-400;
+    @apply bg-blue;
   }
 }
 
 input[type="submit"] {
-  @apply pl-0 border-none bg-green-300;
+  @apply pl-0 border-none bg-blue;
 
   &:hover {
-    @apply bg-green-400 ring-offset-green-300 ring-offset-1 cursor-pointer;
+    @apply bg-blue ring-offset-blue ring-offset-1 cursor-pointer;
   }
 
   &:focus {
-    @apply ring-offset-green-300;
+    @apply ring-offset-blue;
   }
 
   &:active {
-    @apply border-none ring-offset-green-300;
+    @apply border-none ring-offset-blue;
   }
 }
 
@@ -113,7 +113,7 @@ textarea {
 }
 
 .flash-notice {
-  @apply bg-green-600;
+  @apply bg-green;
 }
 
 .flash-alert {

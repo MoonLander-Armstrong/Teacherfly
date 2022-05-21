@@ -50,14 +50,14 @@
   }
 
   a {
-    @apply text-green-400;
+    @apply text-blue;
 
     &:hover {
-      @apply text-green-200 underline;
+      @apply text-blue underline;
     }
 
     &:active {
-      @apply text-green-400 underline;
+      @apply text-blue underline;
     }
   }
 

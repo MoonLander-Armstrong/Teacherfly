@@ -1,12 +1,12 @@
 <%= content_for :header do %>
-  <div class="flex justify-between flex-grow text-xl text-green-800 section_header">
+  <div class="flex justify-between flex-grow text-xl text-blue section_header">
     <div class="flex items-center">
       <div>
         <%= link_to courses_path, class: "section_header_btn" do %>
           <i class="fa-solid fa-house"></i>
         <% end %>
       </div>
-      <div class="border-l border-green-700 md:hidden">
+      <div class="border-l border-blue md:hidden">
         <button class="section_header_btn" data-action="click->section-list#toggleSideBar">
           <i class="fa-solid fa-list"></i>
         </button>
@@ -14,12 +14,12 @@
     </div>
     <div class="flex items-center mr-2 md:hidden">
       <% unless @course.all_published_sections.first == @section %>
-        <%= link_to course_section_path(@course, @section.prev_section), class: "px-6 py-0.5 mr-2 border border-green-700 rounded hover:bg-green-700 hover:text-green-200 transition" do %>
+        <%= link_to course_section_path(@course, @section.prev_section), class: "px-6 py-0.5 mr-2 border border-blue rounded hover:bg-blue hover:text-blue transition" do %>
           <i class="mr-2 fa-solid fa-chevron-left"></i>
         <% end %>
       <% end %>
       <% unless @course.all_published_sections.last == @section %>
-        <%= link_to course_section_path(@course, @section.next_section), class: "px-6 py-0.5 border border-green-700 rounded hover:bg-green-700 hover:text-green-200 transition" do %>
+        <%= link_to course_section_path(@course, @section.next_section), class: "px-6 py-0.5 border border-blue rounded hover:bg-blue hover:text-blue transition" do %>
           <i class="ml-2 fa-solid fa-chevron-right"></i>
         <% end %>
       <% end %>
@@ -27,13 +27,13 @@
     
     <div class="items-center hidden mr-2 md:flex">      
       <% unless @course.all_published_sections.first == @section %>
-        <%= link_to course_section_path(@course, @section.prev_section), class: "px-6 py-0.5 mr-2 border border-green-700 rounded hover:bg-green-700 hover:text-green-200 transition" do %>
+        <%= link_to course_section_path(@course, @section.prev_section), class: "px-6 py-0.5 mr-2 border border-blue rounded hover:bg-blue hover:text-blue transition" do %>
           <i class="mr-2 fa-solid fa-chevron-left"></i>
           前往上一章節
         <% end %>
       <% end %>
       <% unless @course.all_published_sections.last == @section %>
-        <%= link_to course_section_path(@course, @section.next_section), class: "px-6 py-0.5 border border-green-700 rounded hover:bg-green-700 hover:text-green-200 transition" do %>
+        <%= link_to course_section_path(@course, @section.next_section), class: "px-6 py-0.5 border border-blue rounded hover:bg-blue hover:text-blue transition" do %>
           前往下一章節
           <i class="ml-2 fa-solid fa-chevron-right"></i>
         <% end %>
