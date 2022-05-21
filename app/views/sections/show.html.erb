@@ -64,7 +64,7 @@
 <% end %>
 
 <% if current_user.bought?(@course) %>
-  <section class="relative flex flex-grow h-screen px-5 border-l overflow-scroll">
+  <section class="relative flex flex-grow h-screen px-5 overflow-scroll border-l">
     <div class="mx-auto">
       <h1 class="mb-4 text-3xl"><%= @section.title %></h1>
       <div class="section-media" data-section-list-target="loading">
