@@ -1,3 +1,9 @@
+.owner-main {
+  flex-grow: 1;
+  overflow-y: scroll;
+  border-top: 16px solid #f9c04b;
+}
+
 .owner-list {
   @apply w-full h-full px-4 py-10 m-auto bg-gradient-to-tl;
 }
@@ -11,25 +17,27 @@
 }
 
 .owner-thead {
-  @apply text-sm leading-normal text-gray-600 uppercase bg-gray-200;
+  @apply leading-normal text-blue uppercase bg-blue-sea border-b border-blue;
 }
 
 .owner-text {
-  @apply px-6 py-3;
+  @apply px-6 py-3 font-bold;
 }
 
 .owner-tbody {
-  @apply text-sm font-light text-gray-600;
+  @apply text-sm text-black;
 }
 
 .tag {
-  @apply px-3 py-1 text-xs rounded-full;
+  @apply px-3 py-2 text-sm rounded-full;
 }
 
 .tag-publish {
-  @apply text-green-600 bg-green-200;
+  @apply text-white bg-yellow;
 }
 
 .tag-draft {
-  @apply text-red-400 bg-red-200;
+  @apply text-white bg-yellow-draft;
 }
+
+

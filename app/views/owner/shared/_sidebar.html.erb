@@ -1,45 +1,42 @@
 <div class="owner-logo">
   <%= link_to owner_courses_path do %>
-    <h1 class="whitespace-nowrap text-center"><%= current_user.username %>'s school</h1>
+    <h1 class="text-center text-white whitespace-nowrap"><%= current_user.username %>'s school</h1>
   <% end %>
+    <span class="block text-center text-black">使用者信箱</span>
+    <span class="block text-center text-black"><%= current_user.email %></span>
 </div>
-<ul class="sidebar-list">
+<ul class="sidebar-list ">
   <li>
     <%= link_to owner_courses_path do %>
-      <i class="fa-solid fa-book-open"></i>Courses
+      <i class="fa-solid fa-book-open"></i>全部課程
     <% end %>
     <%= yield :course %>
   </li>
   <li>
     <%= link_to owner_lecturers_path do %>
-      <i class="fa-solid fa-chalkboard-user"></i>Lecturers
+      <i class="fa-solid fa-chalkboard-user"></i>講師名單
     <% end %>
     <%= yield :lecturer %>
   </li>
   <li>
     <%= link_to owner_users_path do %>
-      <i class="fa-solid fa-user-group"></i>Users
+      <i class="fa-solid fa-user-group"></i>學生管理
     <% end %>
     <%= yield :user %>
   </li>
-  <li>
+  <li class="mx-2 border-b border-black">
     <%= link_to "#" do %>
-      <i class="fa-solid fa-chart-line"></i>Dashboard
+      <i class="fa-solid fa-cart-shopping"></i>授課管理
     <% end %>
   </li>
-  <li>
-    <%= link_to "#" do %>
-      <i class="fa-solid fa-computer"></i>Site
+  <li class="bottom-0 ">
+    <%= link_to "/" do %>
+      <i class="fa-solid fa-house"></i>學校首頁
     <% end %>
   </li>
   <li>
     <%= link_to "#" do %>
       <i class="fa-solid fa-gear"></i>Setting
-    <% end %>
-  </li>
-  <li class="bottom-0 ">
-    <%= link_to "/" do %>
-      <i class="fa-solid fa-gear"></i>HOME
     <% end %>
   </li>
 </ul>
