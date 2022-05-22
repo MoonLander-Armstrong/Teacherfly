@@ -22,7 +22,7 @@
     <header class="fixed z-20 flex items-center w-full bg-green-200 shadow-md section_header h-14">
       <%= yield :header %>
     </header>
-    <main class="relative max-h-screen pt-20 section_main md:flex">
+    <main class="relative max-h-screen overflow-hidden pt-20 section_main md:flex">
       <%= yield :sidebar %>
       <%= yield %>
     </main>

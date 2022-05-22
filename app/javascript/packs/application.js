@@ -14,7 +14,7 @@ import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers";
 Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
-Turbolinks.setProgressBarDelay(10);
+Turbolinks.setProgressBarDelay();
 
 window.Stimulus = Application.start();
 const context = require.context("./controllers", true, /\.js$/);

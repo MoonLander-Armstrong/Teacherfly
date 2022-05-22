@@ -13,6 +13,7 @@ class Course < ApplicationRecord
   has_many :sections, through: :chapters
   has_many :comments, dependent: :destroy
   has_many :orders
+  has_many :buyers, through: :orders, source: :user
 
   # scope
   scope :published, -> { where(published: "publish") }
@@ -25,9 +26,5 @@ class Course < ApplicationRecord
 
   def all_published_sections
     sections.published
-  end
-
-  def section_finished_rate
-    (all_published_sections.select{ |section| section.finished }.count.to_f / all_published_sections.count * 100).to_i
   end
 end

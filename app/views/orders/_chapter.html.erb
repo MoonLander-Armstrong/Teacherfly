@@ -1,0 +1,6 @@
+<ul class="my-8 rounded overflow-hidden">
+  <li class="px-8 py-3 bg-red-400 text-2xl">
+    <%= chapter.title %>
+    <%= render partial: "section", collection: chapter.sections %>
+  </li>
+</ul>
