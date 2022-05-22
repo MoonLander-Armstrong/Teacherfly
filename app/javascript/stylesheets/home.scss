@@ -1,4 +1,6 @@
-.banner {
+.banner-bg::before {
+  content: "";
+  @apply absolute z-20 inset-x-0 top-0 h-4 bg-secondary-400;
 }
 
 .banner-gradient {
@@ -17,6 +19,7 @@
 }
 
 .home-information-img {
+  aspect-ratio: 3/2;
   border-top-left-radius: 30% 50%;
   border-top-right-radius: 30% 50%;
   border-bottom-left-radius: 30% 50%;

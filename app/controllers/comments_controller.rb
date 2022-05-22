@@ -3,7 +3,6 @@ class CommentsController < ApplicationController
     @course = Course.find(params[:course_id])
     @section = Section.find(params[:section_id])
     @comment = @section.comments.new(comment_params)
-    
     render "sections/show" unless @comment.save
   end
 

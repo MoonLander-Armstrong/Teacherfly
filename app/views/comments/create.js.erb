@@ -1,6 +1,6 @@
 var comment = "<%= j render('comments/comment', comment: @comment) %>"
 
-var list = document.querySelector(".comments")
+var list = document.querySelector(".comment")
 var block = document.querySelector("#comment_<%= @comment.parent_id %>")
 
 <% if @comment.parent_id.nil? %>
@@ -9,6 +9,6 @@ var block = document.querySelector("#comment_<%= @comment.parent_id %>")
   block.insertAdjacentHTML("afterbegin", comment)
 <% end %>
 
-document.querySelectorAll(".comments_input").forEach((e)=>{
-  e.value=""
+document.querySelectorAll(".comment-triangle textarea").forEach((textarea)=>{
+  textarea.value=""
 })

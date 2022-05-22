@@ -13,6 +13,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application', 'data-t  urbolinks-track': 'reload' %>
@@ -23,7 +24,7 @@
     <header class="fixed z-20 flex items-center w-full shadow-md section_header h-14 bg-primary-300">
       <%= yield :header %>
     </header>
-    <main class="relative max-h-screen pt-20 overflow-hidden section_main md:flex">
+    <main class="relative max-h-screen overflow-hidden pt-14 section_main md:flex">
       <%= yield :sidebar %>
       <%= yield %>
     </main>
