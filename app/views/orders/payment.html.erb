@@ -1,8 +1,8 @@
 <h1 class="mt-12 text-4xl text-center">訂單資訊</h1>
+<%= render "shared/flash" if flash %>
 
 <%=form_with url: "https://ccore.newebpay.com/MPG/mpg_gateway", method: "post" do |form| %>
   <div class="hidden">
-    <%#= @form_info %> 
     <%= form.text_field :MerchantID, value: @form_info[:MerchantID] %>
     <%= form.text_field :TradeInfo, value: @form_info[:TradeInfo] %>
     <%= form.text_field :TradeSha, value: @form_info[:TradeSha] %>

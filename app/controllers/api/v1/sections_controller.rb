@@ -1,19 +1,18 @@
 class Api::V1::SectionsController < ApplicationController
   def finished
-    course = Course.find(params[:course_id])
-    section = Section.find(params[:id])
+    read_section = current_user.reads.to_read_sections(params[:sectionId])
 
-    if section.update(finished: params[:finished])
+    if read_section.update(finished: params[:finished])
       render json: {
         message: "更新成功",
-        progress: "#{course.section_finished_rate}%",
-        finished: section.finished
+        progress: "#{Read.read_finished_rate(current_user, params[:course_id])}%",
+        finished: read_section.pluck(:finished)
       }
     else
       render json: {
         message: "更新失敗",
-        finished: section.finished
-      }, status: 404
+        finished: read_section.pluck(:finished)
+      }, status: 500
     end
   end
 end

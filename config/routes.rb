@@ -63,7 +63,7 @@ Rails.application.routes.draw do
     end
 
   end
-  resources :orders, only: [:index] do
+  resources :orders, only: [:index, :show] do
     collection do
       post :payment_response
     end

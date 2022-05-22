@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-
   include Slugable
 
   # Include default devise modules. Others available are:
@@ -28,5 +27,12 @@ class User < ApplicationRecord
   has_many :courses
   has_many :comments
   has_many :orders
+  has_many :reads
+  has_many :bought_courses, through: :orders, source: :course
+  has_many :to_reads, through: :reads, source: :section
   has_one_attached :avatar, dependent: :destroy
+
+  def bought?(course)
+    orders.where(status: "paid").exists?(course_id: course.id)
+  end
 end

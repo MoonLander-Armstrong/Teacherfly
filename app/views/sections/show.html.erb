@@ -46,33 +46,45 @@
   <nav class="absolute left-0 right-0 z-10 flex-shrink-0 overflow-scroll bg-white section-dropdown fade md:relative md:w-64 lg:w-72 md:max-h-screen" data-section-list-target="sectionDropdown" data-action="resize@window->section-list#viewportResize">
     <div class="shadow">
       <h1 class="text-xl font-bold text-center"><%= @course.title %></h1>
-      <div class="px-4 my-4 text-center">
-        <div class="relative h-3 border rounded-full progress-bar" data-section-list-target="progressBar" data-progressBar=<%= @course.section_finished_rate %> data-action="sendWidth@document->section-list#setWidth"></div>
-        <span class="inline-block my-3">已完成<span class="ml-4" data-section-list-target="progress"><%= @course.section_finished_rate %>%</span></span>
-      </div>
+      <% if current_user.bought?(@course) %>
+        <div class="px-4 my-4 text-center">
+          <div class="relative h-3 border rounded-full progress-bar" data-section-list-target="progressBar" data-progressBar=<%= @rate %> data-action="sendWidth@document->section-list#setWidth"></div>
+          <span class="inline-block my-3">已完成<span class="ml-4" data-section-list-target="progress"><%= @rate %>%</span></span>
+        </div>
+      <% else %>
+        <div class="px-4 my-4 text-center">
+          <div class="relative h-3 border rounded-full progress-bar"></div>
+          <span class="inline-block my-3">已完成<span class="ml-4">0%</span></span>
+        </div>
+      <% end %>
     </div>
     <h2 class="text-lg font-bold text-center">所有章節</h2>
     <%= render partial: "chapter", collection: @course.chapters, locals: { course: @course } %>
   </nav>
 <% end %>
 
-<section class="relative flex flex-grow max-h-screen px-5 overflow-scroll">
-  <div class="mx-auto">
-    <h1 class="mb-4 text-3xl"><%= @section.title %></h1>
-    <div class="section-media" data-section-list-target="loading">
-      <div class="loading">Loading...</div>
-      <div class="lds-ring"><div></div><div></div><div></div><div></div><span class="text-xl font-bold" data-section-list-target="loadingCircle">Loading</span></div>
-      <%= video_tag url_for(@section.media), id: "myVideo", controls: true, controlsList: "nodownload"  if @section.media.attached? %>
-    </div>
-    <p class="mt-4"><%= markdown(@section.content)%></p>
-  <%# 這裡是留言區 %>
-    <div>
-      <h2 class="text-3xl">留言區:</h2>
-      <%= render partial: "comments/form", locals: { course: @course, section: @section, parent: nil }%>
-      <div class="comments">
+<% if current_user.bought?(@course) %>
+  <section class="relative flex flex-grow h-screen px-5 border-l overflow-scroll">
+    <div class="mx-auto">
+      <h1 class="mb-4 text-3xl"><%= @section.title %></h1>
+      <div class="section-media" data-section-list-target="loading">
+        <div class="loading">Loading...</div>
+        <div class="lds-ring"><div></div><div></div><div></div><div></div><span class="text-xl font-bold" data-section-list-target="loadingCircle">Loading</span></div>
+        <%= video_tag url_for(@section.media), id: "myVideo", controls: true, controlsList: "nodownload"  if @section.media.attached? %>
+      </div>
+      <p class="mt-4"><%= markdown(@section.content)%></p>
+    <%# 這裡是留言區 %>
+      <div>
+        <h2 class="text-3xl">留言區:</h2>
+        <%= render partial: "comments/form", locals: { course: @course, section: @section, parent: nil }%>
         <%= render @section.comments.where(parent_id: nil).order(id: :desc) %>
       </div>
     </div>
-  </div>
-  <%# 這裡是留言區 %>
-</section>
+    <%# 這裡是留言區 %>
+  </section>
+<% else %> 
+  <section class="border-l">
+    <p>請先購買喔！！！！！</p>
+    <%= link_to "buy it",course_path(@course) %>
+  </section>
+<% end %>

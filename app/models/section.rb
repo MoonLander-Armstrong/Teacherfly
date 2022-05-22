@@ -12,7 +12,10 @@ class Section < ApplicationRecord
 
   # relationship
   belongs_to :chapter
+  has_one :course, through: :chapter
   has_many :comments, dependent: :destroy
+  has_many :reads
+  has_many :readers, through: :reads, source: :user
   has_one_attached :media, dependent: :destroy
 
   scope :published, -> { where(published: "publish") }
@@ -42,6 +45,6 @@ class Section < ApplicationRecord
       chapter.sections.where(["id > ? and published = ?", id, "publish"]).first
     else
       chapter.next_chapter.sections.published.first
-    end 
+    end
   end
 end
