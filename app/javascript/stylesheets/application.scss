@@ -53,10 +53,10 @@ label.avatar-label {
 }
 
 input {
-  @apply w-full pl-3 py-1 mt-1 mb-3 border bg-gray-50 border-black rounded;
+  @apply w-full pl-3 py-1 mt-1 mb-3 border bg-gray-50 border-primary-300 rounded;
 
   &:focus {
-    @apply border-2 border-blue outline-none ring-2 ring-blue;
+    @apply border-2 border-primary-300 outline-none ring-2 ring-primary-300;
   }
 }
 
@@ -64,32 +64,32 @@ input[type="checkbox"] {
   @apply w-auto mr-4;
 
   &:focus {
-    @apply border-blue;
+    @apply border-primary-300;
   }
 
   &:checked {
-    @apply bg-blue;
+    @apply bg-primary-300;
   }
 }
 
 input[type="submit"] {
-  @apply pl-0 border-none bg-blue;
+  @apply pl-0 border-none bg-primary-300;
 
   &:hover {
-    @apply bg-blue ring-offset-blue ring-offset-1 cursor-pointer;
+    @apply bg-primary-300 ring-offset-primary-300 ring-offset-1 cursor-pointer;
   }
 
   &:focus {
-    @apply ring-offset-blue;
+    @apply ring-offset-primary-300;
   }
 
   &:active {
-    @apply border-none ring-offset-blue;
+    @apply border-none ring-offset-primary-300;
   }
 }
 
 textarea {
-  @apply border border-black;
+  @apply border border-primary-300 rounded;
 }
 
 .field_with_errors {
@@ -113,7 +113,7 @@ textarea {
 }
 
 .flash-notice {
-  @apply bg-green;
+  @apply bg-safe;
 }
 
 .flash-alert {
@@ -141,4 +141,24 @@ textarea {
 
 .main {
   padding-top: 88px;
+}
+
+
+
+.input {
+  @apply appearance-none
+  block
+  w-full
+  px-3
+  py-1.5
+  text-base
+  font-normal
+  text-primary-300
+  bg-white bg-clip-padding bg-no-repeat
+  border border-solid border-primary-300
+  rounded
+  transition
+  ease-in-out
+  m-0
+  focus:text-primary-300 focus:bg-white focus:border-primary-300 focus:outline-none
 }
