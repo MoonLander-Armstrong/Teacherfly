@@ -6,7 +6,28 @@ module.exports = {
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: {
+          100: "#D3EAF5",
+          200: "#66B4DB",
+          300: "#2983B1",
+          400: "#237096",
+          500: "#1D5B7A",
+          600: "#16465E",
+        },
+        secondary: {
+          100: "#FEF1D7",
+          200: "#FBD588",
+          300: "#F9C04B",
+          400: "#8B5E04",
+        },
+        wrong: "#D883A3",
+        safe: "#98C37C",
+        draft: "#CAC7AE",
+        rice: "#F0EDCE",
+      },
+    },
   },
   variants: {
     extend: {},
