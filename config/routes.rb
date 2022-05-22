@@ -17,7 +17,7 @@ Rails.application.routes.draw do
         resources :sections, only: [:new, :create]
 
         collection do
-          resources :sections, except: [:new, :create] do 
+          resources :sections, except: [:new, :create] do
             resources :comments, shallow: true, only: [:create, :destroy]
           end
         end
@@ -31,8 +31,7 @@ Rails.application.routes.draw do
   end
 
   # front stage
-  resources :courses, only: %i[index show]do
-
+  resources :courses, only: %i[index show] do
     resources :orders, only: [] do
       collection do
         get :payment
@@ -61,8 +60,8 @@ Rails.application.routes.draw do
         end
       end
     end
-
   end
+
   resources :orders, only: [:index, :show] do
     collection do
       post :payment_response

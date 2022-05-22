@@ -1,4 +1,4 @@
-<%= form_with model: @course, url: owner_courses_path do |form| %>
+<%= form_with model: @course, url: owner_courses_path, method: "post" do |form| %>
 <div class="relative w-full h-full px-8 m-auto font-light bg-gradient-to-tl">
   <nav class="flex items-center justify-between w-full h-16 mt-4">
     <h1 class="inline-block my-4 text-4xl font-extrabold text-primary-300">新增課程</h1> 

@@ -12,13 +12,21 @@
 }
 
 .chapter > li:first-child {
-  @apply px-2 bg-gray-300 text-black;
+  @apply px-3 py-4 bg-gray-300 text-primary-600;
 }
 
 .chapter > li:not(:first-child) {
-  @apply px-6 py-1 mb-0.5 bg-gray-200 text-gray-600;
+  @apply px-3 mb-0.5 bg-gray-200 text-primary-600;
 }
 
 .chapter > li:not(:first-child):hover {
   @apply bg-gray-400 text-gray-200 transition;
+
+  & i {
+    @apply text-warning-100;
+  }
+
+  & span {
+    @apply border-warning-100;
+  }
 }

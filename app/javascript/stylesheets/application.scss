@@ -12,7 +12,11 @@
 @import "./owner";
 @import "./owner_sidebar";
 @import "./markdown";
-@import "./comment";
+
+// font-family noto sans
+body {
+  font-family: "Noto Sans TC", sans-serif;
+}
 
 // form controls
 .form-control-group {
@@ -53,44 +57,46 @@ label.avatar-label {
   }
 }
 
-input {
-  @apply w-full pl-3 py-1 mt-1 mb-3 border bg-gray-50 border-primary-300 rounded;
+// input {
+//   @apply w-full pl-3 py-1 mt-1 mb-3 border bg-gray-50 border-primary-300 rounded;
 
-  &:focus {
-    @apply border-2 border-primary-300 outline-none ring-2 ring-primary-300;
-  }
-}
+//   &:focus {
+//     @apply border-2 border-primary-300 outline-none ring-2 ring-primary-300;
+//   }
+// }
 
-input[type="checkbox"] {
-  @apply w-auto mr-4;
+// input[type="checkbox"] {
+//   accent-color: #f9c04b;
+//   @apply w-auto mr-4;
 
-  &:focus {
-    @apply border-primary-300;
-  }
+//   &:focus {
+//     @apply border-primary-300;
+//   }
 
-  &:checked {
-    @apply bg-primary-300;
-  }
-}
+//   &:checked {
+//     @apply bg-primary-300;
+//   }
+// }
 
-input[type="submit"] {
-  @apply pl-0 border-none bg-primary-300;
+// input[type="submit"] {
+//   @apply pl-0 border-none bg-primary-300;
 
-  &:hover {
-    @apply bg-primary-300 ring-offset-primary-300 ring-offset-1 cursor-pointer;
-  }
+//   &:hover {
+//     @apply bg-primary-300 ring-offset-primary-300 ring-offset-1 cursor-pointer;
+//   }
 
-  &:focus {
-    @apply ring-offset-primary-300;
-  }
+//   &:focus {
+//     @apply ring-offset-primary-300;
+//   }
 
-  &:active {
-    @apply border-none ring-offset-primary-300;
-  }
-}
+//   &:active {
+//     @apply border-none ring-offset-primary-300;
+//   }
+// }
 
 textarea {
-  @apply border border-primary-300 rounded;
+  resize: none;
+  @apply border rounded;
 }
 
 .field_with_errors {
@@ -157,7 +163,6 @@ textarea {
   @apply bg-secondary-300;
 }
 
-
 .input {
   @apply appearance-none
   block
@@ -173,5 +178,5 @@ textarea {
   transition
   ease-in-out
   m-0
-  focus:text-primary-300 focus:bg-white focus:border-primary-300 focus:outline-none
+  focus:text-primary-300 focus:bg-white focus:border-primary-300 focus:outline-none;
 }

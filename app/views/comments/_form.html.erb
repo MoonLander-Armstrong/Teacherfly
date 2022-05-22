@@ -3,10 +3,16 @@
     <input type="hidden" name=comment[parent_id] value="<%= parent.id %>">
   <% end %>
 
-  <div>
-    <%= form.label :content %>
-    <%= form.text_area :content , class: "comments_input" %>
+  <div class="md:flex mb-6">
+    <div class="flex-shrink-0 w-12 h-12 mb-4 md:w-20 md:h-20 rounded-full overflow-hidden">
+      <%= image_tag current_user.avatar, class: "w-full h-full object-cover" if current_user.avatar.attached? %>
+    </div>
+    <div class="comment-triangle relative flex-grow p-4 md:ml-4 bg-secondary-100">
+      <h3 class="mb-4 text-primary-300"><%= current_user.username %></h3>
+      <%= form.text_area :content , class: "w-full h-32 p-2 mb-2 md:mb-4", placeholder: "在此輸入留言" %>
+      <div class="flex">
+        <%= form.submit "送出", data: { action: "click->comments#send" }, class: "px-6 py-1 md:py-2 ml-auto text-white bg-primary-300 rounded-md hover:bg-primary-200 focus:bg-primary-300" %>
+      </div>
+    </div>
   </div>
-
-  <%= form.submit "送出", data: { action: "click->nested#disappear" } %>
 <% end %>

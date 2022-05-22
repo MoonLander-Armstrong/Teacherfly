@@ -1,24 +1,64 @@
-.member-form {
-  @apply px-4 py-8 mx-auto border border-gray-200 rounded-lg sm:w-2/3 lg:w-2/5 shadow-lg;
-}
+// teacher-view
+.teacher-member {
+  &::before {
+    content: "";
+    @apply absolute inset-x-0 bottom-0 h-4 bg-secondary-400;
+  }
 
-.member-form-title {
-  @apply mb-6 text-2xl font-extrabold text-center leading-6 text-gray-800;
-}
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    @apply w-full pl-3 py-1 mt-1 mb-3 border bg-gray-50 border-gray-500 rounded;
 
-.form-link {
-  @apply flex justify-center items-center px-3 py-2 my-2 text-center rounded-md;
-}
+    &:focus {
+      @apply border-secondary-400 outline-none ring-2 ring-secondary-400;
+    }
+  }
 
-.form-link-self {
-  @apply bg-primary-300;
+  input[type="checkbox"] {
+    accent-color: #f9c04b;
+    @apply w-auto mr-4;
+  }
 
-  &:hover {
-    @apply bg-primary-300;
+  input[type="submit"] {
+    @apply w-full py-1 mt-1 mb-3 border-none bg-secondary-400 rounded;
+
+    &:hover {
+      @apply bg-secondary-200 ring-offset-secondary-400 ring-offset-1 cursor-pointer;
+    }
+
+    &:focus {
+      @apply ring-offset-secondary-400;
+    }
+
+    &:active {
+      @apply border-none ring-offset-secondary-400;
+    }
   }
 }
 
-.form-link-google {
+.teacher-member-form {
+  box-shadow: 0 0 5px 2px #fbd588;
+  @apply px-4 py-8 mx-auto rounded-lg sm:w-2/3 lg:w-2/5;
+}
+
+.teacher-member-form-title {
+  @apply mb-6 text-2xl font-extrabold text-center leading-6 text-gray-800;
+}
+
+.teacher-form-link {
+  @apply flex justify-center items-center px-3 py-2 my-2 text-center rounded-md;
+}
+
+.teacher-form-link-self {
+  @apply bg-secondary-400;
+
+  &:hover {
+    @apply bg-secondary-400;
+  }
+}
+
+.teacher-form-link-google {
   @apply bg-gray-50 border border-gray-200;
 
   &:hover {

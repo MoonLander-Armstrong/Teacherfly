@@ -1,5 +1,5 @@
 <%- if controller_name != 'sessions' %>
-  <%= link_to t(".sign_in"), new_session_path(resource_name), class: "form-link form-link-self" %>
+  <%= link_to t(".sign_in"), new_session_path(resource_name), class: "teacher-form-link teacher-form-link-self" %>
 <% end %>
 
 <%# if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
@@ -7,20 +7,20 @@
 <%# end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to t(".sign_up"), new_registration_path(resource_name), class: "form-link form-link-self" %>
+  <%= link_to t(".sign_up"), new_registration_path(resource_name), class: "teacher-form-link teacher-form-link-self" %>
 <% end %>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-  <%= link_to t('.didn_t_receive_confirmation_instructions'), new_confirmation_path(resource_name), class: "form-link"%>
+  <%= link_to t('.didn_t_receive_confirmation_instructions'), new_confirmation_path(resource_name), class: "teacher-form-link"%>
 <% end %>
 
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
-  <%= link_to t('.didn_t_receive_unlock_instructions'), new_unlock_path(resource_name), class: "form-link form-link-self" %>
+  <%= link_to t('.didn_t_receive_unlock_instructions'), new_unlock_path(resource_name), class: "teacher-form-link teacher-form-link-self" %>
 <% end %>
 
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to omniauth_authorize_path(resource_name, provider), method: ":post", class: "form-link form-link-google" do %>
+    <%= link_to omniauth_authorize_path(resource_name, provider), method: ":post", class: "teacher-form-link teacher-form-link-google" do %>
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="w-4 h-4 mr-2 " viewBox="0 0 48 48">
         <defs>
           <path id="a" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z" />

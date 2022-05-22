@@ -17,12 +17,16 @@ module.exports = {
           600: "#16465E",
         },
         secondary: {
-          100: "#FEF1D7",
-          200: "#FBD588",
-          300: "#F9C04B", //基本副色
-          400: "#8B5E04",
+          100: "#FEF9EE",
+          200: "#FEF1D7",
+          300: "#FBD588", //基本副色
+          400: "#F9C04B",
+          500: "#8B5E04",
         },
-        wrong: "#D883A3",
+        warning: {
+          100: "#F192AA",
+          200: "#D883A3",
+        },
         safe: "#98C37C",
         draft: "#CAC7AE",
         rice: "#F0EDCE",

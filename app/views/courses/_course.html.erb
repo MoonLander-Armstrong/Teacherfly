@@ -7,16 +7,10 @@
         <div>此課程沒有圖片</div>
       <% end %>
     </div>
-
     <div class="p-6 course-card-main">
-      <h2 class="mb-6 text-2xl font-bold text-center">
-        <%= course.title %>
-      </h2>
-      <p>
-        <%= course.description %>
-      </p>
+      <h2 class="mb-6 text-2xl font-bold text-center"><%= course.title %></h2>
+      <p><%= course.description %></p>
     </div>
-
     <div class="flex items-center justify-between p-6">
       <div class="flex items-center">
         <div class="w-8 h-8 mr-2 overflow-hidden rounded-full">
@@ -28,9 +22,9 @@
             </div>
           <% end %>
         </div>
-        <span class="text-sm">講師：<%= Lecturer.find(course.lecturer_id).name %></span>   
+        <span class="text-sm">講師：<%= Lecturer.find(course.lecturer_id).name %><span><%= " / #{Lecturer.find(course.lecturer_id).nickname}" if Lecturer.find(course.lecturer_id).nickname %></span></span>   
       </div>
-      <span>
+      <span class="text-warning-100">
           <% if current_user && current_user.bought?(course) %>
             已完成 <%= Read.read_finished_rate(current_user, course.friendly_id) %>%
           <% else %>

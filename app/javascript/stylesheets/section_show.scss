@@ -1,6 +1,10 @@
 .section_header {
   .section_header_btn {
-    @apply flex items-center h-14 px-4;
+    @apply flex items-center h-14 px-4 transition;
+
+    &:hover {
+      @apply text-gray-300 transition;
+    }
   }
 }
 
@@ -61,7 +65,7 @@
       left: -10px;
       bottom: -40%;
       letter-spacing: 2px;
-      color: rgb(52, 211, 153);
+      color: #2983b1;
     }
   }
   .lds-ring div {
@@ -71,10 +75,10 @@
     width: 64px;
     height: 64px;
     margin: 8px;
-    border: 8px solid rgb(52, 211, 153);
+    border: 8px solid #2983b1;
     border-radius: 50%;
     animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border-color: rgb(52, 211, 153) transparent transparent transparent;
+    border-color: #2983b1 transparent transparent transparent;
   }
   .lds-ring div:nth-child(1) {
     animation-delay: -0.45s;
@@ -92,5 +96,39 @@
     100% {
       transform: rotate(360deg);
     }
+  }
+}
+
+.comment-triangle {
+  box-shadow: 0 0 5px 0 #ddd;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    border-style: solid;
+    border-width: 0 6px 12px 6px;
+    border-color: transparent transparent #fef9ee transparent;
+  }
+}
+
+.comment {
+  @apply my-4;
+
+  & .comment {
+    @apply pl-10;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .comment-triangle::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: -12px;
+    border-style: solid;
+    border-width: 6px 12px 6px 0px;
+    border-color: transparent #fef9ee transparent transparent;
   }
 }
