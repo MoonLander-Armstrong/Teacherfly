@@ -22,7 +22,7 @@
   <nav class="flex items-center justify-between w-full h-16 border-b-2">
     <h1 class="inline-block m-4 text-2xl text-blue-900">Curriculum</h1> 
     <%= link_to new_owner_course_chapter_path(@course) do %>
-    	<button class="px-4 py-2 mx-5 my-auto border-0 border-gray-800 rounded bg-blue hover:bg-blue">新增章節</button>
+    	<button class="px-4 py-2 mx-5 my-auto border-0 border-gray-800 rounded bg-primary-300 hover:bg-primary-300">新增章節</button>
     <% end %>
   </nav>
 	<%= render "shared/flash" %>
@@ -39,7 +39,7 @@
 			</thead>
 			<tbody class="text-sm font-light text-gray-600">
 				<% chapter.sections.each do |section| %>
-					<tr class="border-gray-200 hover:bg-blue">
+					<tr class="border-gray-200 hover:bg-primary-300">
 						<td class="px-6 py-3 text-left whitespace-nowrap">
 							<div class="flex items-center justify-between">
 								<span class="px-5 font-mediums">
@@ -61,12 +61,12 @@
 						</td>
 					</tr>
 				<% end %>
-				<tr class="border-gray-200 hover:bg-blue">
+				<tr class="border-gray-200 hover:bg-primary-300">
 					<td class="px-8 py-3 text-left whitespace-nowrap">
 						<%= link_to new_owner_course_chapter_section_path(@course, chapter) do %>
 							<div class="flex items-center">
 								<div class="mr-2"></div>
-								<span class="font-medium text-blue"> + 新增Section</span>
+								<span class="font-medium text-primary-300"> + 新增Section</span>
 							</div>
 						<% end %>
 					</td>

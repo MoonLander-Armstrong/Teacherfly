@@ -5,31 +5,31 @@
     <span class="block text-center text-black">使用者信箱</span>
     <span class="block text-center text-black"><%= current_user.email %></span>
 </div>
-<ul class="sidebar-list ">
-  <li>
+<ul class="sidebar-list">
+  <li class="mx-4 mt-10">
     <%= link_to owner_courses_path do %>
       <i class="fa-solid fa-book-open"></i>全部課程
     <% end %>
     <%= yield :course %>
   </li>
-  <li>
+  <li class="mx-4">
     <%= link_to owner_lecturers_path do %>
       <i class="fa-solid fa-chalkboard-user"></i>講師名單
     <% end %>
     <%= yield :lecturer %>
   </li>
-  <li>
+  <li class="mx-4">
     <%= link_to owner_users_path do %>
       <i class="fa-solid fa-user-group"></i>學生管理
     <% end %>
     <%= yield :user %>
   </li>
-  <li class="mx-2 border-b border-black">
+  <li class="mx-4 text-left">
     <%= link_to "#" do %>
       <i class="fa-solid fa-cart-shopping"></i>授課管理
     <% end %>
   </li>
-  <li class="bottom-0 ">
+  <li class="bottom-0 mx-4 mt-6 border-t border-black">
     <%= link_to "/" do %>
       <i class="fa-solid fa-house"></i>學校首頁
     <% end %>

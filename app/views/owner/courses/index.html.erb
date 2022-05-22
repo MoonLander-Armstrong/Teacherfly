@@ -1,13 +1,13 @@
 <div class="w-full h-full px-8 m-auto bg-gradient-to-tl">
   <nav class="flex items-center justify-between w-full h-16 mt-4">
-    <h1 class="inline-block my-4 text-4xl font-extrabold text-blue">全部課程</h1> 
+    <h1 class="inline-block my-4 text-4xl font-extrabold text-primary-300">全部課程</h1> 
 		<%= render "shared/flash" %>	
 		<%= link_to  new_owner_course_path do %>  
-    	<button class="px-4 py-2 mx-5 my-auto text-white border-gray-800 rounded bg-blue hover:bg-blue-baby"> + 新增課程</button>
+    	<button class="px-4 py-2 mx-5 my-auto text-white border-gray-800 rounded bg-primary-300 hover:bg-primary-100"> + 新增課程</button>
 		<% end %>
   </nav>	
 
-	<table class="mt-6 owner-table">
+	<table class="mt-6 overflow-hidden border border-black rounded-md owner-table">
 		<thead class="owner-thead">
 			<tr>
 				<th class="text-left owner-text">課程名稱</th>
@@ -19,11 +19,11 @@
 		</thead>
 		<tbody class="owner-tbody">
 			<% @courses.each do |course| %>
-				<tr class="border-b border-gray-200 hover:bg-blue-light">
+				<tr class="hover:bg-primary">
 					<td class="text-left owner-text whitespace-nowrap">
 						<div class="flex items-center">
 							<div class="mr-2">
-								<span class="text-lg font-medium text-blue-dark"><%= link_to course.title, information_owner_course_path(course) %></span>
+								<span class="text-lg font-medium text-primary"><%= link_to course.title, information_owner_course_path(course) %></span>
 							</div>
 						</div>
 					</td>

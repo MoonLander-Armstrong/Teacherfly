@@ -11,10 +11,10 @@
 }
 
 .form-link-self {
-  @apply bg-blue;
+  @apply bg-primary-300;
 
   &:hover {
-    @apply bg-blue;
+    @apply bg-primary-300;
   }
 }
 

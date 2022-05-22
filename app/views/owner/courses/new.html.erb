@@ -1,18 +1,75 @@
-<div class="container">
-  <div class="row">
-    <div class="w-full p-10 mx-auto mt-28 lg:w-1/2">
-      <h1 class="pb-4 text-3xl text-red-800">新增課程</h1>
-      <%= form_for(@course, url: owner_courses_path) do |form| %>
-         <%= form.label :title %>
-        <div>
-          <%= form.text_field :title %>
+<%= form_with model: @course, url: owner_courses_path do |form| %>
+<div class="relative w-full h-full px-8 m-auto font-light bg-gradient-to-tl">
+  <nav class="flex items-center justify-between w-full h-16 mt-4">
+    <h1 class="inline-block my-4 text-4xl font-extrabold text-primary-300">新增課程</h1> 
+		<%= render "shared/flash" %>	
+		<%= form.submit "+ 新增課程", class: "py-2 mx-5 my-auto text-white rounded bg-primary-300 w-28" %>  
+  </nav>	
+
+  <div class="py-8 pl-16 pr-32 mx-2 my-6 border-2 border-gray-300 border-dashed rounded">
+    <div class="flex mb-4">
+      <div class="pt-2 mr-2">
+        <%= form.label :classImg, "課程圖片" %>
+      </div>
+      <div class="w-11/12">
+        <%= form.file_field :classImg %>
+      </div>
+    </div>
+    <div class="flex mb-4">
+      <div class="pt-2 mr-2">
+        <%= form.label :title, "課程標題" %>
+      </div>
+      <div class="w-11/12">
+        <%= form.text_field :title %>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 mb-4">
+      <div class="flex mr-4 ">
+        <div class="pt-2 mr-2">
+          <%= form.label :description, "課程簡介" %>
         </div>
-          <%= form.label :lecturer_id %>
-        <div>
-          <%= form.select :lecturer_id, Lecturer.order(id: :desc).pluck(:name, :id) %>
+        <div class= "w-10/12">
+          <%= form.text_area :description, class: "w-full h-48" %>
         </div>
-        <%= form.submit %>
-      <% end %>
+      </div>
+      <div class="grid content-between">
+        <div class="flex">
+          <div class="pt-2 mr-2">
+            <%= form.label :published, "課程狀態" %>
+          </div>
+          <div class="w-10/12">
+            <%= form.select :published, options_for_select(Section.published_state),{include_blank: "選擇您的課程狀態"}, { class: "input"} %>
+          </div>
+        </div>
+        <div class="flex">
+          <div class="pt-2 mr-2">
+            <%= form.label :lecturer_id, "課程講師" %>
+          </div>
+          <div class="w-10/12">
+            <%= form.select :lecturer_id, Lecturer.pluck(:name, :id),{include_blank: "選擇您的講師" }, { class: "input"} %>
+          </div>
+        </div>
+        <div class="flex">
+          <div class="pt-2 mr-2">
+            <%= form.label :price, "課程售價" %>
+          </div>
+          <div class="w-10/12 ">
+            <%= form.number_field :price, placeholder: "輸入您的課程售價", class: "placeholder-primary-300" %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex">
+      <div class="pt-2 mr-2">
+        <%= form.label :content, "課程介紹" %>
+      </div>
+      <div class="w-11/12">
+        <%= form.text_area :content, data: { controller: "markdown-editor" }, class: "border border-primary-300 overflow-hidden" %> 
+      </div>
     </div>
   </div>
+
+
 </div>
+<% end %>
+

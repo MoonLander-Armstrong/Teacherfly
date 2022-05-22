@@ -3,6 +3,8 @@ class Course < ApplicationRecord
 
   # validates
   validates :title, presence: true
+  validates :price, presence: true
+  validates :published, presence: true
   validates :description, length: { maximum: 50 }
 
   # relationship

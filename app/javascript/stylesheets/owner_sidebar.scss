@@ -1,5 +1,5 @@
 .owner_sidebar {
-  @apply flex-shrink-0 w-64 overflow-y-auto bg-blue text-white;
+  @apply flex-shrink-0 w-64 overflow-y-auto bg-primary-300 text-white;
 
   .sidebar-list {
     @apply text-gray-500;
@@ -7,14 +7,14 @@
     & .sidebar-list {
       li {
         a {
-          @apply pl-12 py-3 bg-gray-800;
+          @apply block pl-12 py-3 hover:bg-primary-200  hover:text-primary-300 transition-colors duration-200 rounded-md ;
         }
       }
     }
 
     li {
       a {
-        @apply block pl-8 py-4 text-lg hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 transition-colors duration-200;
+        @apply block pl-6 py-3 text-lg hover:bg-primary-200  hover:text-primary-300 transition-colors duration-200 rounded-md;
 
         i {
           @apply mr-4;
@@ -25,7 +25,7 @@
 }
 
 .owner-logo {
-  @apply overflow-y-scroll bg-blue hover:bg-gray-700 hover:bg-opacity-25 transition-colors duration-200;
+  @apply overflow-y-scroll bg-primary-200 hover:bg-gray-700 hover:bg-opacity-25 transition-colors duration-200;
 
   a {
     @apply block px-3 py-6 text-2xl font-semibold;

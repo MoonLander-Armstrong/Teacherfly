@@ -18,7 +18,7 @@
   }
 
   ul li:hover {
-    @apply bg-blue;
+    @apply bg-primary-300;
   }
 
   ul li:not(:last-child) {
