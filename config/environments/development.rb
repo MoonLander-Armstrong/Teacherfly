@@ -78,6 +78,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
   # config.autoload_paths << Rails.root.join('service') ＃如果讀不到app內新增的資料夾要加這句
   config.hosts << ".ngrok.io"
-  config.hosts << "2c45-61-220-182-115.jp.ngrok.io"
+  config.hosts << "2c45-61-220-182-115.jp.ngrok.io" 
+  config.hosts << "ff7a-114-43-208-170.jp.ngrok.io"
   config.hosts << "ngrok.io"
 end

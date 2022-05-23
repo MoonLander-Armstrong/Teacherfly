@@ -6,9 +6,9 @@
     <% end %>
     <button class="relative hidden mr-20 md:block" data-action="click->section-hamburger#hiddenAvatar">
       <div class="w-10 h-10 overflow-hidden rounded-full">
-        <%= image_tag current_user.avatar if current_user.avatar.attached? %>
+        <%= image_tag current_user.avatar_url if current_user.avatar %>
       </div>
-      <ul class="absolute hidden overflow-hidden bg-primary-300 rounded-md shadow-md top-full -right-12"  data-section-hamburger-target="avatarButton">
+      <ul class="absolute hidden overflow-hidden rounded-md shadow-md bg-primary-300 top-full -right-12"  data-section-hamburger-target="avatarButton">
         <li><%= link_to "我的課程", orders_path %></li>
         <li><%= link_to "編輯會員資料", "#" %></li>
         <li><%= link_to "登出", destroy_user_session_path, method: :delete %></li>
@@ -18,9 +18,9 @@
       <div class="w-7 h-0.5 my-1 bg-white"></div>
       <div class="w-7 h-0.5 my-2 bg-white"></div>
       <div class="w-7 h-0.5 my-1 bg-white"></div>
-      <ul class="absolute right-0 hidden overflow-hidden bg-primary-300 rounded-md mobile-list top-full" data-section-hamburger-target="hamburgerButton">
+      <ul class="absolute right-0 hidden overflow-hidden rounded-md bg-primary-300 mobile-list top-full" data-section-hamburger-target="hamburgerButton">
         <li class="w-10 h-10 p-0 mx-auto mt-4 overflow-hidden rounded-full">
-          <%= image_tag current_user.avatar if current_user.avatar.attached? %>
+          <%= image_tag current_user.avatar_url if current_user.avatar %>
         </li>
         <li><%= link_to "我的課程", orders_path %></li>
         <li><%= link_to "編輯會員資料", "#" %></li>

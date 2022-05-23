@@ -3,12 +3,12 @@
     <div class="flex items-center">
       <div class="mr-2">
         <%= link_to information_owner_user_path(user), class: "flex items-center" do %>
-          <% if user.avatar.attached? %>
-            <div class="w-8 h-8 mr-4 rounded-full overflow-hidden">
-              <%= image_tag url_for(user.avatar) if user.avatar.attached? %>
+          <% if user.avatar %>
+            <div class="w-8 h-8 mr-4 overflow-hidden rounded-full">
+              <%= image_tag user.avatar_url if user.avatar %>
             </div>
           <% else %>
-            <div class="flex justify-center items-center bg-gray-300 w-8 h-8 mr-4 rounded-full overflow-hidden">
+            <div class="flex items-center justify-center w-8 h-8 mr-4 overflow-hidden bg-gray-300 rounded-full">
               <i class="fa-solid fa-user"></i>
             </div>
           <% end %>

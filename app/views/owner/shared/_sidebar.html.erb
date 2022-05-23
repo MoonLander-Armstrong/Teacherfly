@@ -1,13 +1,13 @@
-<div class="fixed inset-x-0 md:inset-y-0 md:w-64 flex md:block text-3xl px-4 py-3 bg-primary-300 md:overflow-scroll">
+<div class="fixed inset-x-0 flex px-4 py-3 text-3xl md:inset-y-0 md:w-64 md:block bg-primary-300 md:overflow-scroll">
   <label for="hamburger" class="md:hidden"><i class="fa-solid fa-bars"></i></label>
-  <div class="hidden md:block w-24 h-24 mx-auto my-8 rounded-full overflow-hidden">
-    <%= image_tag current_user.avatar, class: "w-full h-full object-cover" if current_user.avatar.attached? %>
+  <div class="hidden w-24 h-24 mx-auto my-8 overflow-hidden rounded-full md:block">
+    <%= image_tag current_user.avatar_url, class: "w-full h-full object-cover" if current_user.avatar %>
   </div>
   <%= link_to owner_courses_path, class: "mx-auto hover:bg-primary-100" do %>
     <h1 class="text-center whitespace-nowrap"><%= current_user.username %>'s school</h1>
   <% end %>
-  <input type="checkbox" id="hamburger" class="hamburger hidden" />
-  <ul class="w-64 h-screen absolute top-full -left-full md:top-56 md:left-0 bg-primary-300 transition-all duration-500 sidebar-list overflow-y-scroll md:overflow-y-hidden">
+  <input type="checkbox" id="hamburger" class="hidden hamburger" />
+  <ul class="absolute w-64 h-screen overflow-y-scroll transition-all duration-500 top-full -left-full md:top-56 md:left-0 bg-primary-300 sidebar-list md:overflow-y-hidden">
     <li class="mx-4 mt-10">
       <%= link_to owner_courses_path do %>
         <i class="fa-solid fa-book-open"></i>全部課程
