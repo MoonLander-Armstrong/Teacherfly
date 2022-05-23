@@ -6,41 +6,41 @@
   <%= link_to owner_courses_path, class: "mx-auto hover:bg-primary-100" do %>
     <h1 class="text-center whitespace-nowrap"><%= current_user.username %>'s school</h1>
   <% end %>
-    <span class="block text-center text-black">使用者信箱</span>
-    <span class="block text-center text-black"><%= current_user.email %></span>
+  <input type="checkbox" id="hamburger" class="hamburger hidden" />
+  <ul class="w-64 h-screen absolute top-full -left-full md:top-56 md:left-0 bg-primary-300 transition-all duration-500 sidebar-list overflow-y-scroll md:overflow-y-hidden">
+    <li class="mx-4 mt-10">
+      <%= link_to owner_courses_path do %>
+        <i class="fa-solid fa-book-open"></i>全部課程
+      <% end %>
+      <%= yield :course %>
+    </li>
+    <li class="mx-4">
+      <%= link_to owner_lecturers_path do %>
+        <i class="fa-solid fa-chalkboard-user"></i>講師名單
+      <% end %>
+      <%= yield :lecturer %>
+    </li>
+    <li class="mx-4">
+      <%= link_to owner_users_path do %>
+        <i class="fa-solid fa-user-group"></i>學生管理
+      <% end %>
+      <%= yield :user %>
+    </li>
+    <li class="mx-4 text-left">
+      <%= link_to "#" do %>
+        <i class="fa-solid fa-cart-shopping"></i>授課管理
+      <% end %>
+    </li>
+    <li class="mx-4 text-left">
+      <%= link_to "#" do %>
+        <i class="fa-solid fa-gear"></i>Setting
+      <% end %>
+    </li>
+    <li class="bottom-0 mx-4 mt-6 border-t border-black">
+      <%= link_to "/" do %>
+        <i class="fa-solid fa-house"></i>學校首頁
+      <% end %>
+    </li>
+  </ul>
 </div>
-<ul class="sidebar-list">
-  <li class="mx-4 mt-10">
-    <%= link_to owner_courses_path do %>
-      <i class="fa-solid fa-book-open"></i>全部課程
-    <% end %>
-    <%= yield :course %>
-  </li>
-  <li class="mx-4">
-    <%= link_to owner_lecturers_path do %>
-      <i class="fa-solid fa-chalkboard-user"></i>講師名單
-    <% end %>
-    <%= yield :lecturer %>
-  </li>
-  <li class="mx-4">
-    <%= link_to owner_users_path do %>
-      <i class="fa-solid fa-user-group"></i>學生管理
-    <% end %>
-    <%= yield :user %>
-  </li>
-  <li class="mx-4 text-left">
-    <%= link_to "#" do %>
-      <i class="fa-solid fa-cart-shopping"></i>授課管理
-    <% end %>
-  </li>
-  <li class="bottom-0 mx-4 mt-6 border-t border-black">
-    <%= link_to "/" do %>
-      <i class="fa-solid fa-house"></i>學校首頁
-    <% end %>
-  </li>
-  <li>
-    <%= link_to "#" do %>
-      <i class="fa-solid fa-gear"></i>Setting
-    <% end %>
-  </li>
-</ul>
+
