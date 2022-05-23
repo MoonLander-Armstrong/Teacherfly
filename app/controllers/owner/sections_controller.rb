@@ -15,13 +15,15 @@ module Owner
       @course = Course.find(params[:course_id])
       @chapter = @course.chapters.find(params[:chapter_id])
       @section = @chapter.sections.new(section_params)
+      @media = @section.media
+      @section.update!(media: nil)
       
-      if @section.save  
+      if @section.save 
         redirect_to curriculum_owner_course_path(@course), notice: '新增成功'
-        #redirect_to root_path, notice: '新增成功'
+        # redirect_to root_path, notice: '新增成功'
       else
         flash.now[:alert] = '請輸入正確資訊'
-        # render :new
+        render :new
       end
     end
 
@@ -43,8 +45,8 @@ module Owner
 
     def destroy
       course = Course.find(params[:course_id])
-      if @section.media.attached?
-        @section.media.purge_later 
+      if @section.media
+        @section.update(media: nil)
         @section.destroy
         redirect_to curriculum_owner_course_path(course), alert: '刪除成功'
       else

@@ -31,8 +31,8 @@
           <div class="field">
             <%= form.label :media, "上傳影片" %>
             <%= form.file_field :media%>
-            <% if @section.media.attached? %>
-            <p class="text-lg text-pink-400">已上傳檔案: </p>
+            <% if @section.media %>
+            <p class="text-lg text-primary-300">已上傳檔案: </p>
             <%= @section.media.filename %>
             <% end %>
           </div> 

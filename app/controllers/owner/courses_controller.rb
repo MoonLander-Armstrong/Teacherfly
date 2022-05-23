@@ -32,8 +32,8 @@ module Owner
     end
 
     def destroy
-      if @course.classImg.attached?
-        @course.classImg.purge_later && @course.destroy
+      if @course.image
+        @course.update(image: nil) && @course.destroy
       else
         @course.destroy
       end
@@ -55,7 +55,7 @@ module Owner
     end
 
     def course_params
-      params.require(:course).permit(:title, :content, :price, :published, :description, :classImg, :lecturer_id).merge(user_id: current_user.id)
+      params.require(:course).permit(:title, :content, :price, :published, :description, :image, :lecturer_id).merge(user_id: current_user.id)
     end
   end
 end

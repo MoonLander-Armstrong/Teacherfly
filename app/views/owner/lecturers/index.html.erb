@@ -10,22 +10,22 @@
 
   <table class="owner-table">
     <thead class="owner-thead">
-      <th class="owner-text text-left">講師姓名</th>
-      <th class="owner-text text-center">其他</th>
+      <th class="text-left owner-text">講師姓名</th>
+      <th class="text-center owner-text">其他</th>
     </thead>
     <tbody class="owder-tbody">
       <% @lecturers.each do |lecturer| %>
         <tr class="border-b border-gray-200 hover:bg-gray-100">
-          <td class="owner-text text-left whitespace-nowrap">
+          <td class="text-left owner-text whitespace-nowrap">
             <div class="flex items-center">
               <div class="mr-2">
                 <%= link_to edit_owner_lecturer_path(lecturer), class: "font-medium flex items-center" do %>
-                  <% if lecturer.mugshot.attached? %>
-                    <div class="w-8 h-8 mr-4 rounded-full overflow-hidden">
-                      <%= image_tag url_for(lecturer.mugshot) if lecturer.mugshot.attached? %>
+                  <% if lecturer.mugshot %>
+                    <div class="w-8 h-8 mr-4 overflow-hidden rounded-full">
+                      <%= image_tag url_for(lecturer.mugshot_url) if lecturer.mugshot %>
                     </div>
                   <% else %>
-                    <div class="flex justify-center items-center bg-gray-300 w-8 h-8 mr-4 rounded-full overflow-hidden">
+                    <div class="flex items-center justify-center w-8 h-8 mr-4 overflow-hidden bg-gray-300 rounded-full">
                       <i class="fa-solid fa-user"></i>
                     </div>
                   <% end %>
