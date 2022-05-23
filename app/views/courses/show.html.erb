@@ -1,7 +1,7 @@
 <section class="information">
   <div class="banner">
     <div class="relative banner-bg">
-      <%= image_tag @course.classImg, class: "w-full h-full object-cover" if @course.classImg.attached? %>
+      <%= image_tag @course.image_url, class: "w-full h-full object-cover" if @course.image_url %>
       <div class="absolute z-10 w-2/3 transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
         <h1 class="mb-4 text-5xl font-bold text-center text-white"><%= @course.title %></h1>
         <h2 h2 class="mb-6 text-3xl text-center text-white"><%= @course.description %></h2>
@@ -28,8 +28,8 @@
     <div class="w-2/3 p-8 mx-auto lectuere-info md:flex">
       <div class="lecturer-profile">
         <div class="mx-auto mb-4 overflow-hidden rounded-full lecturer-avatar">
-          <% if @lecturer.mugshot.attached? %>
-            <%= image_tag url_for(@lecturer.mugshot) %>
+          <% if @lecturer.mugshot %>
+            <%= image_tag url_for(@lecturer.mugshot_url) %>
           <% else %>
             <div class="flex items-center justify-center w-full h-full text-6xl bg-gray-300">
               <i class="text-gray-600 fa-solid fa-user"></i>

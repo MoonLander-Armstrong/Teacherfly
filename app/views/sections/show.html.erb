@@ -70,7 +70,7 @@
       <div class="section-media" data-section-list-target="loading">
         <div class="loading">Loading...</div>
         <div class="lds-ring"><div></div><div></div><div></div><div></div><span class="text-xl font-bold" data-section-list-target="loadingCircle">Loading</span></div>
-        <%= video_tag url_for(@section.media), id: "myVideo", controls: true, controlsList: "nodownload"  if @section.media.attached? %>
+        <%= video_tag url_for(@section.media_url), id: "myVideo", controls: true, controlsList: "nodownload"  if @section.media %>
       </div>
       <p class="mt-4"><%= markdown(@section.content)%></p>
     <%# 這裡是留言區 %>

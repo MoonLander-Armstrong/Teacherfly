@@ -34,8 +34,8 @@ class Owner::LecturersController < ApplicationController
   end
 
   def destroy
-    if @lecturer.mugshot.attached?
-      @lecturer.mugshot.purge_later
+    if @lecturer.mugshot
+      @lecturer.update(mugshot: nil) && @lecturer.destroy
     end
 
     @lecturer.destroy

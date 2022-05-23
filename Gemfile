@@ -25,6 +25,10 @@ gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 5.0'
 gem 'friendly_id', '~> 5.4', '>= 5.4.2'
 gem 'aasm', '~> 4.11'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'mini_magick', '~> 4.5', '>= 4.5.1'
+gem "shrine", "~> 3.4"
+gem 'streamio-ffmpeg', '~> 3.0', '>= 3.0.2'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -43,7 +47,3 @@ group :test do
   gem 'selenium-webdriver', '>= 4.0.0.rc1'
   gem 'webdrivers'
 end
-
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-
-gem 'mini_magick', '~> 4.5', '>= 4.5.1'

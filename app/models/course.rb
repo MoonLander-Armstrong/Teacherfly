@@ -1,5 +1,6 @@
 class Course < ApplicationRecord
   include Slugable
+  include ImageUploader::Attachment(:image) # adds an `image` virtual attribute
 
   # validates
   validates :title, presence: true
@@ -10,11 +11,11 @@ class Course < ApplicationRecord
   # relationship
   belongs_to :user
   belongs_to :lecturer
-  has_one_attached :classImg
+  # has_one_attached :classImg
   has_many :chapters, dependent: :destroy
   has_many :sections, through: :chapters
   has_many :comments, dependent: :destroy
-  has_many :orders
+  has_many :orders, dependent: :destroy
   has_many :buyers, through: :orders, source: :user
 
   # scope
