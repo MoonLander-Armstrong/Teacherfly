@@ -22,9 +22,9 @@
 						<td class="text-left owner-text text-primary-500">
 							<div class="flex items-center">
                 <%= link_to edit_owner_lecturer_path(lecturer), class: "flex items-center hover:underline" do %>
-                  <% if lecturer.mugshot.attached? %>
+                  <% if lecturer.mugshot %>
                     <div class="w-8 h-8 mr-4 rounded-full overflow-hidden">
-                      <%= image_tag url_for(lecturer.mugshot) if lecturer.mugshot.attached? %>
+                      <%= image_tag lecturer.mugshot_url if lecturer.mugshot %>
                     </div>
                   <% else %>
                     <div class="flex items-center justify-center w-8 h-8 mr-4 overflow-hidden bg-gray-300 rounded-full">

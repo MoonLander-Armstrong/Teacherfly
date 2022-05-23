@@ -12,7 +12,7 @@
         <div class="w-40 h-40 mx-auto mb-8 overflow-hidden rounded-full field tt" data-controller="avatar-label">
           <%= form.label :mugshot, class: "avatar-label relative block w-40 h-40 rounded-full overflow-hidden cursor-pointer" do %>
             <div class="absolute inset-0 w-40 h-40 mx-auto text-white">
-              <% if @lecturer.mugshot.attached? %>
+              <% if @lecturer.mugshot %>
                 <%= image_tag url_for(@lecturer.mugshot), class: "w-40 h-40 object-cover", data: { avatar_label_target: "preview" } %>
               <% else %>
                 <div class="flex items-center justify-center w-40 h-40 overflow-hidden bg-gray-300 rounded-full" data-avatar-label-target="fakeImg">

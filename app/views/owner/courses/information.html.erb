@@ -24,49 +24,7 @@
       <h1 class="inline-block my-4 text-4xl font-extrabold text-primary-300">編輯課程</h1>
       <div>
         <%= form.submit "更新課程", class: "owner-course-btn" %>
-      </div>  
-    </nav>
-    <div class="flex flex-col w-11/12 mt-10">
-      <header class="flex flex-row items-center gap-3">
-        <div class="text-xl font-bold"> 課程發布狀態 </div>
-      </header>
-      <footer class="flex flex-row items-center gap-3 pt-7">
-        <div class="font-semibold">
-          <%= form.label :published, "狀態" %>
-        </div>
-        <div class="px-2 py-1 duration-100 delay-100 border-2 border-gray-200 rounded-xl">
-          <%= form.select :published, Section.published_state %>
-        </div> 
-      </footer>
-      <hr class="mt-5">
-    </div>
-    <div class="flex flex-col w-11/12 mt-10">
-      <header class="flex flex-row items-center gap-3">
-        <div class="text-xl font-bold">課程價錢</div>
-      </header>
-      <footer class="flex flex-row items-center gap-3 pt-7">
-        <div class="font-semibold">
-          <%= form.label :price, "價錢" %>
-        </div>
-        <div class="px-2 py-1 duration-100 delay-100 border-2 border-gray-200 rounded-xl">
-          <%= form.number_field :price %>
-        </div> 
-      </footer>
-      <hr class="mt-5">
-    </div>
-    <div class="flex flex-col w-11/12 mt-5">
-      <header class="flex flex-row items-center gap-3">
-        <div class="text-xl font-bold"> 課程背景圖片 </div>
-      </header>
-      <footer class="flex flex-row items-center gap-3 pt-7">
-        <div class="font-semibold">
-          <%= form.label :image, "圖片" %>
-        </div>
-          <div class="px-2 py-1 duration-100 delay-100 ">
-          <%= form.file_field :image %>
-        </div>  
-      </footer>
-      <hr class="mt-5">
+      </div>
     </div>
     <div class="p-8 border-2 bg-white border-gray-300 border-dashed rounded">
       <div class="flex items-center mb-4">
