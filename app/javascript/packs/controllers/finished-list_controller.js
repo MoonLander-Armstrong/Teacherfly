@@ -4,7 +4,7 @@ import Rails from "@rails/ujs";
 export default class extends Controller {
   static targets = ["finishedIcon", "unfinishedIcon"];
 
-  connect() {
+  initialize() {
     const sendWidth = new CustomEvent("sendWidth", {
       detail: { progressBarWidth: "0%" },
     });

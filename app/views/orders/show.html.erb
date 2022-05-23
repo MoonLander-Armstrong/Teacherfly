@@ -1,5 +1,5 @@
 <%= content_for :header do %>
-  <nav class="flex justify-between flex-grow mx-auto" data-controller="section-hamburger">
+  <nav class="flex justify-between flex-grow mx-auto text-white" data-controller="section-hamburger">
     <%= link_to 'javascript:history.back()', class: "flex items-center md:ml-20 ml-8 py-4 left-arrow text-xl" do %>
       <i class="mr-4 fa-solid fa-angle-left"></i>
       <span>上一頁</span>
@@ -8,23 +8,23 @@
       <div class="w-10 h-10 overflow-hidden rounded-full">
         <%= image_tag current_user.avatar if current_user.avatar.attached? %>
       </div>
-      <ul class="absolute hidden overflow-hidden bg-green-200 rounded-md shadow-md top-full -right-12"  data-section-hamburger-target="avatarButton">
-        <li><%= link_to "我的課程", "#" %></li>
+      <ul class="absolute hidden overflow-hidden bg-primary-300 rounded-md shadow-md top-full -right-12"  data-section-hamburger-target="avatarButton">
+        <li><%= link_to "我的課程", orders_path %></li>
         <li><%= link_to "編輯會員資料", "#" %></li>
-        <li><%= link_to "登出", "#" %></li>
+        <li><%= link_to "登出", destroy_user_session_path, method: :delete %></li>
       </ul>
     </button>
     <button class="relative p-1 mr-8 md:hidden" data-action="click->section-hamburger#hiddenHamburger">
-      <div class="w-7 h-0.5 my-1 bg-black"></div>
-      <div class="w-7 h-0.5 my-2 bg-black"></div>
-      <div class="w-7 h-0.5 my-1 bg-black"></div>
-      <ul class="absolute right-0 hidden overflow-hidden bg-green-200 rounded-md mobile-list top-full" data-section-hamburger-target="hamburgerButton">
+      <div class="w-7 h-0.5 my-1 bg-white"></div>
+      <div class="w-7 h-0.5 my-2 bg-white"></div>
+      <div class="w-7 h-0.5 my-1 bg-white"></div>
+      <ul class="absolute right-0 hidden overflow-hidden bg-primary-300 rounded-md mobile-list top-full" data-section-hamburger-target="hamburgerButton">
         <li class="w-10 h-10 p-0 mx-auto mt-4 overflow-hidden rounded-full">
           <%= image_tag current_user.avatar if current_user.avatar.attached? %>
         </li>
-        <li><%= link_to "我的課程", "#" %></li>
+        <li><%= link_to "我的課程", orders_path %></li>
         <li><%= link_to "編輯會員資料", "#" %></li>
-        <li><%= link_to "登出", "#" %></li>
+        <li><%= link_to "登出", destroy_user_session_path, method: :delete %></li>
       </ul>
     </button>
   </nav>
@@ -44,7 +44,7 @@
     </div>
     <ul class="text-xl">
       <li class="hidden">no used</li>
-      <li class="relative transition hover:bg-green-200">
+      <li class="relative transition bg-secondary-200 text-secondary-500 hover:bg-secondary-300">
         <%= link_to order_path(@order), class: "block pl-4 py-3" do %>
           <i class="mr-3 fa-solid fa-table-list"></i>課程大綱
         <% end %>
@@ -53,9 +53,9 @@
   </nav>
 <% end %>
 
-<section class="relative flex flex-grow h-screen px-5 overflow-scroll border-l">
+<section class="relative flex flex-grow h-screen px-5 pt-5 overflow-scroll border-l">
   <div class="container mx-auto">
-    <h1 class="mb-4 text-3xl">課程大綱</h1>
+    <h1 class="mb-4 text-3xl text-primary-300">課程大綱</h1>
       <%= render partial: "chapter", collection: @chapters %>
   </div>
 </section>
