@@ -21,6 +21,7 @@ module Teacherfly
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.assets.initialize_on_precompile = false
 
     config.before_configuration do
       env_file = File.join(Rails.root, 'config', 'application.yml')
