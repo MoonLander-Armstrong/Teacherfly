@@ -4,6 +4,7 @@
 @import "./home";
 @import "./member";
 @import "./nav";
+@import "./footer.scss";
 @import "./courses_index";
 @import "./courses_show";
 @import "./section_header";
@@ -143,6 +144,18 @@ textarea {
   padding-top: 88px;
 }
 
+.footer {
+  // height: 300px;
+  overflow: hidden;
+  position: relative;
+}
+.footer::before {
+  content: " ";
+  width: 100%;
+  height: 20px;
+  position: absolute;
+  @apply bg-secondary-300;
+}
 
 
 .input {

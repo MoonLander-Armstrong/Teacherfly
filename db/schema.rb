@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(version: 2022_05_20_064021) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "course_id", null: false
-    t.integer "owner_id"
     t.index ["course_id"], name: "index_chapters_on_course_id"
   end
 
@@ -60,7 +59,6 @@ ActiveRecord::Schema.define(version: 2022_05_20_064021) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "course_id", null: false
-    t.integer "owner_id"
     t.index ["course_id"], name: "index_comments_on_course_id"
     t.index ["section_id"], name: "index_comments_on_section_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
@@ -77,7 +75,6 @@ ActiveRecord::Schema.define(version: 2022_05_20_064021) do
     t.string "description"
     t.bigint "lecturer_id", null: false
     t.string "slug"
-    t.integer "owner_id"
     t.index ["lecturer_id"], name: "index_courses_on_lecturer_id"
     t.index ["slug"], name: "index_courses_on_slug", unique: true
     t.index ["user_id"], name: "index_courses_on_user_id"
@@ -109,7 +106,6 @@ ActiveRecord::Schema.define(version: 2022_05_20_064021) do
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "owner_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -146,30 +142,8 @@ ActiveRecord::Schema.define(version: 2022_05_20_064021) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "chapter_id", null: false
     t.string "slug"
-    t.integer "owner_id"
     t.index ["chapter_id"], name: "index_sections_on_chapter_id"
     t.index ["slug"], name: "index_sections_on_slug", unique: true
-  end
-
-  create_table "students", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_students_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true
-  end
-
-  create_table "tflies", force: :cascade do |t|
-    t.bigint "users_id", default: 0, null: false
-    t.bigint "students_id", default: 0, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["students_id"], name: "index_tflies_on_students_id"
-    t.index ["users_id"], name: "index_tflies_on_users_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -204,6 +178,4 @@ ActiveRecord::Schema.define(version: 2022_05_20_064021) do
   add_foreign_key "reads", "sections"
   add_foreign_key "reads", "users"
   add_foreign_key "sections", "chapters"
-  add_foreign_key "tflies", "students", column: "students_id"
-  add_foreign_key "tflies", "users", column: "users_id"
 end
