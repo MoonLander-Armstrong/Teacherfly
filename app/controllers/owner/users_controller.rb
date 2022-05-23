@@ -3,13 +3,16 @@ class Owner::UsersController < ApplicationController
   before_action :find_user, only: [:information, :update]
 
   def index
+    authorize :user
     @users = User.all
   end
 
   def information
+    authorize :user
   end
 
   def update
+    authorize :user
     if @user.update(user_params)
       flash.now[:notice] = "成功更新學生資料"
       redirect_to information_owner_user_path(@user)

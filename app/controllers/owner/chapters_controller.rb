@@ -5,6 +5,7 @@ module Owner
     layout "owner"
     before_action :find_chapter, only: %i[edit update destroy]
     before_action :find_course
+    before_action :chapter_policy
 
     def new
       @course = Course.find(params[:course_id])
@@ -55,6 +56,10 @@ module Owner
 
     def find_chapter
       @chapter = Chapter.find(params[:id])
+    end
+
+    def chapter_policy
+      authorize @course, policy_class: ChapterPolicy 
     end
   end
 end

@@ -33,7 +33,7 @@
             <%= form.file_field :media%>
             <% if @section.media %>
             <p class="text-lg text-primary-300">已上傳檔案: </p>
-            <%= @section.media.filename %>
+            <%= @section.media.metadata["filename"] %>
             <% end %>
           </div> 
           

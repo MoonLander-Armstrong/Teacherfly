@@ -3,6 +3,8 @@
 class Owner::LecturersController < ApplicationController
   layout "owner"
   before_action :find_lecturer, only:[:edit, :update, :destroy]
+  before_action :lecturer_policy, only:[:index, :new, :create, :edit, :update, :destroy]
+
 
   def index
     @lecturers = Lecturer.all
@@ -50,5 +52,9 @@ class Owner::LecturersController < ApplicationController
 
   def find_lecturer
     @lecturer = Lecturer.find(params[:id])
+  end
+
+  def lecturer_policy
+    authorize :lecturer
   end
 end
