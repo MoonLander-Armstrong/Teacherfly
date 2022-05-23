@@ -1,4 +1,4 @@
-<div class="md:w-1/2 p-4 mx-auto">
+<div class="p-4 mx-auto md:w-1/2">
   <h1 class="mt-12 mb-8 text-4xl text-center text-primary-300">購買資訊</h1>
   <%= render "shared/flash" if flash %>
   <%=form_with url: "https://ccore.newebpay.com/MPG/mpg_gateway", method: "post" do |form| %>
@@ -16,10 +16,10 @@
       <% end %>
     </div>
     <div class="flex py-4">
-      <span class="text-primary-300 ml-8">購買課程</span><span class="ml-auto mr-8"><%= @course.title %></span>
+      <span class="ml-8 text-primary-300">購買課程</span><span class="ml-auto mr-8"><%= @course.title %></span>
     </div>
     <div class="flex py-4">
-      <span class="text-primary-300 ml-8">購買金額</span><span class="ml-auto mr-8">$ <%= @course.price %></span>
+      <span class="ml-8 text-primary-300">購買金額</span><span class="ml-auto mr-8">$ <%= @course.price %></span>
     </div>
     <%= form.submit "確認付款", class: "bg-warning-200 text-white border-warning-200 focus:border-warning-100 hover:bg-warning-100 hover:border-warning-100 hover:cursor-pointer" %>
   <% end %>
