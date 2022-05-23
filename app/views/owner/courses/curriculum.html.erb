@@ -38,7 +38,7 @@
 				</tr>
 			</thead>
 			<tbody class="text-sm font-light text-gray-600">
-				<% chapter.sections.each do |section| %>
+				<% chapter.sections.order(id: :asc).each do |section| %>
 					<tr class="border-gray-200 hover:bg-primary-300">
 						<td class="px-6 py-3 text-left whitespace-nowrap">
 							<div class="flex items-center justify-between">

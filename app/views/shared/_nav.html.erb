@@ -12,7 +12,7 @@
     
   <ul class="text-center md:flex md:max-h-full login-area " data-hamburger-target="navbar">
     <li>
-      <%= link_to "進入後台", owner_courses_path %>
+      <%= link_to "進入後台", owner_courses_path if policy(:course).index? %>
     </li>
     <li>
       <%= link_to "所有課程", courses_path %>
