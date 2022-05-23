@@ -2,52 +2,54 @@
   <ul class="sidebar-list">
     <li>
       <%= link_to information_owner_course_path(@course) do %>
-        <i class="fa-solid fa-chalkboard-user"></i>Information
+        <i class="font-medium fa-solid fa-greater-than"></i>課程內容
       <% end %>
     </li>
     <li>
       <%= link_to curriculum_owner_course_path(@course) do %>
-        <i class="fa-solid fa-chalkboard-user"></i>Curriculum
+        <i class="font-medium fa-solid fa-greater-than"></i>章節內容
       <% end %>
     </li>
-    <li>
-      <%= link_to "#" do %>
-        <i class="fa-solid fa-chalkboard-user"></i>Comment
+    <li class="border-b">
+      <%= link_to comments_owner_course_path(@course) do %>
+        <i class="font-medium fa-solid fa-greater-than"></i>留言管理
       <% end %>
     </li>
   </ul>
 <% end %>
 
-<div class="container">
-  <div class="row">
-    <div class="w-full p-10 mx-auto mt-28 lg:w-1/2">
-      <h1 class="pb-4 text-3xl text-red-800">編輯課程小節</h1>
-        <%= form_with model: @section, url: owner_course_section_path(@section.chapter.course_id, @section) do |form| %>
-          <div class="field">
-            <%= form.label :title, "標題" %>
-            <%= form.text_field :title %>
-          </div>
-          
-          <div class="field">
-            <%= form.label :media, "上傳影片" %>
-            <%= form.file_field :media%>
-            <% if @section.media %>
-            <p class="text-lg text-primary-300">已上傳檔案: </p>
-            <%= @section.media.metadata["filename"] %>
-            <% end %>
-          </div> 
-          
-          <div class="field">
-            <%= form.label :content, "課程內文" %>
-            <%= form.text_area :content, data: { controller: "markdown-editor" }   %>
-          </div>
-
-          <div class="field">
-            <%= form.select :published, Section.published_state %>
-          </div>  
-
-          <%= form.submit "送出" %>
+<div class="owner-main-container relative py-10 min-h-screen">
+  <div class="w-11/12 mx-auto">
+  <%= form_with model: @section, url: owner_course_section_path(@section.chapter.course_id, @section) do |form| %>
+    <div class="flex justify-between items-center">
+      <h1 class="inline-block my-4 text-4xl font-extrabold text-primary-300">編輯小節</h1>
+      <div>
+        <%= form.button class: "owner-course-btn" do %>
+          <i class="fa-solid fa-arrow-rotate-right mr-4"></i>更新資訊
         <% end %>
+      </div>
     </div>
-  </div>
+    <div class="p-8 border-2 bg-white border-gray-300 border-dashed rounded">
+      <div class="flex items-center mb-4">
+        <%= form.label :title, "小節標題", class: "flex-shrink-0 mr-4" %>
+        <%= form.file_field :title %>
+      </div>
+      <div class="flex items-center mb-4">
+        <%= form.label :media, "上傳影片", class: "flex-shrink-0 mr-4" %>
+        <%= form.file_field :media %>
+        <% if @section.media.attached? %>
+          <p class="text-lg text-pink-400">已上傳檔案: </p>
+          <%= @section.media.filename %>
+        <% end %>
+      </div>
+      <div class="flex items-center mb-4">
+        <%= form.label "發布狀態", class: "flex-shrink-0 mr-4" %>
+        <%= form.select :published, Section.published_state %>
+      </div>
+      <div class="flex items-center mb-4">
+        <%= form.label :content, "課程內文", class: "flex-shrink-0 mr-4" %>
+        <%= form.text_area :content, data: { controller: "markdown-editor" } %>
+      </div>
+    </div>
+  <% end %>
 </div>

@@ -1,4 +1,4 @@
-<div class="flex w-full px-4 py-4 sm:w-1/2 md:w-1/3">
+<div class="flex w-full px-4 py-4 sm:w-1/2 lg:w-1/3">
   <%= link_to course_path(course), class: "course-card course-card-hover" do %>
     <div class="w-full course-card-image">
       <% if course.image %>
@@ -11,7 +11,7 @@
       <h2 class="mb-6 text-2xl font-bold text-center"><%= course.title %></h2>
       <p><%= course.description %></p>
     </div>
-    <div class="flex items-center justify-between p-6">
+    <div class="flex items-center justify-between p-3">
       <div class="flex items-center">
         <div class="w-8 h-8 mr-2 overflow-hidden rounded-full">
           <% if course.lecturer.mugshot %>

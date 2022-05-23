@@ -2,29 +2,26 @@
   <ul class="sidebar-list">
     <li>
       <%= link_to information_owner_user_path(@user) do %>
-        <i class="fa-solid fa-chalkboard-user"></i>Information
-      <% end %>
-    </li>
-    <li>
-      <%= link_to "#" do %>
-        <i class="fa-solid fa-chalkboard-user"></i>Enrollment
-      <% end %>
-    </li>
-    <li>
-      <%= link_to "#" do %>
-        <i class="fa-solid fa-chalkboard-user"></i>Purches
+        <i class="font-medium fa-solid fa-greater-than"></i>會員詳細資料
       <% end %>
     </li>
   </ul>
 <% end %>
 
-<section class="container">
-  <div class="row">
-    <div class="w-full p-10 mx-auto mt-28 lg:w-1/2">
-    <%= render "shared/flash" %>	
-      <h1 class="pb-4 text-3xl text-red-800">學生基本資訊</h1>
-      <%= form_with model:@user, url: owner_user_path(@user), method: "patch" do |form| %>
-        <div class="w-40 h-40 mx-auto overflow-hidden rounded-full field tt" data-controller="avatar-label">
+<div class="owner-main-container relative pt-10 min-h-screen">
+  <div class="w-11/12 mx-auto">
+  <%= form_with model: @user, url: owner_user_path(@user), method: "patch" do |form| %>
+    <div class="flex justify-between items-center">
+      <h1 class="inline-block my-4 text-4xl font-extrabold text-primary-300">會員資訊</h1>
+      <div>
+        <%= form.button class: "owner-course-btn" do %>
+          <i class="fa-solid fa-arrow-rotate-right mr-4"></i>更新資訊
+        <% end %>
+      </div>  
+    </div>
+    <div class="p-8 border-2 bg-white border-gray-300 border-dashed rounded">
+      <div class="lg:flex lg:items-center lg:w-3/4 mb-4 lg:mb-0">
+        <div class="w-40 h-40 flex-shrink-0 mx-auto mb-8 lg:mb-0 lg:mx-4 overflow-hidden rounded-full field" data-controller="avatar-label">
           <%= form.label :avatar, class: "avatar-label relative block w-40 h-40 rounded-full overflow-hidden cursor-pointer" do %>
             <div class="absolute inset-0 w-40 h-40 mx-auto text-white">
               <% if @user.avatar.attached? %>
@@ -39,16 +36,17 @@
           <% end %>
           <%= form.file_field :avatar, class: "hidden", data: { action: "change->avatar-label#loadImg", avatar_label_target: "fileInput" } %>
         </div>
-        <div class="field">
-          <%= form.label :username, "姓名" %>
-          <%= form.text_field :username %>
+        <div>
+          <div class="flex items-center mb-4">
+            <%= form.label :username, "學生姓名", class: "flex-shrink-0 mr-4" %>
+            <%= form.text_field :username %>
+          </div>
+          <div class="flex items-center mb-4">
+            <%= form.label :email, "學生信箱", class: "flex-shrink-0 mr-4" %>
+            <%= form.email_field :email %>
+          </div>
         </div>
-        <div class="field">
-          <%= form.label :email %>
-          <%= form.email_field :email %>
-        </div>
-        <%= form.submit "儲存" %>
-      <% end %>
+      </div>
     </div>
-  </div>
-</section>
+  <% end %>
+</div>

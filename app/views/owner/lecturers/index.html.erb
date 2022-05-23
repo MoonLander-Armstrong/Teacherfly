@@ -1,28 +1,30 @@
-<div class="owner-list">
-  <div class="owner-title">
-    <div>
-      <h1 class="text-4xl">講師名單</h1>
-    </div>
-    <div>
-      <%= link_to "新增講師", new_owner_lecturer_path %>
-    </div>
-  </div>
-
-  <table class="owner-table">
-    <thead class="owner-thead">
-      <th class="text-left owner-text">講師姓名</th>
-      <th class="text-center owner-text">其他</th>
-    </thead>
-    <tbody class="owder-tbody">
-      <% @lecturers.each do |lecturer| %>
-        <tr class="border-b border-gray-200 hover:bg-gray-100">
-          <td class="text-left owner-text whitespace-nowrap">
-            <div class="flex items-center">
-              <div class="mr-2">
-                <%= link_to edit_owner_lecturer_path(lecturer), class: "font-medium flex items-center" do %>
-                  <% if lecturer.mugshot %>
-                    <div class="w-8 h-8 mr-4 overflow-hidden rounded-full">
-                      <%= image_tag url_for(lecturer.mugshot_url) if lecturer.mugshot %>
+<div class="owner-main-container relative pt-10 min-h-screen">
+  <div class="w-11/12 mx-auto">
+		<div class="flex items-center w-full h-16 mt-4">
+			<h1 class="inline-block my-4 text-4xl font-extrabold text-primary-300">講師名單</h1>
+      <div class="w-1/3 mx-4 mr-auto">
+        <%= render "shared/flash" %>
+      </div>
+      <%= link_to new_owner_lecturer_path do %>
+        <button class="owner-course-btn"> + 新增講師</button>
+      <% end %>
+		</div>
+		<table class="mt-6 overflow-hidden rounded-md owner-table shadow-md">
+			<thead class="owner-thead">
+				<tr class="">
+					<th class="text-left owner-text">講師姓名</th>
+          <th class="w-60">編輯</th>
+				</tr>
+			</thead>
+			<tbody class="owner-tbody">
+				<% @lecturers.each do |lecturer| %>
+					<tr>
+						<td class="text-left owner-text text-primary-500">
+							<div class="flex items-center">
+                <%= link_to edit_owner_lecturer_path(lecturer), class: "flex items-center hover:underline" do %>
+                  <% if lecturer.mugshot.attached? %>
+                    <div class="w-8 h-8 mr-4 rounded-full overflow-hidden">
+                      <%= image_tag url_for(lecturer.mugshot) if lecturer.mugshot.attached? %>
                     </div>
                   <% else %>
                     <div class="flex items-center justify-center w-8 h-8 mr-4 overflow-hidden bg-gray-300 rounded-full">
@@ -31,27 +33,20 @@
                   <% end %>
                   <span><%= lecturer.name %><%= "/ #{lecturer.nickname}" if lecturer.nickname.present? %></span>
                 <% end %>
-              </div>
-            </div>
-          </td>
-          <td class="px-6 py-3 text-center">
-            <div class="flex justify-center item-center">
-              <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                <%= link_to "修改", edit_owner_lecturer_path(lecturer.id) %>
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+							</div>
+						</td>
+						<td class="px-6 py-6 text-center">
+							<div class="flex justify-center items-center text-primary-300 hover:text-primary-500">
+                <%= link_to owner_lecturer_path(lecturer.id), method: "delete", data: {confirm: "確認是否刪除？"} do %>
+                  <svg xmlns="http://www.w3./2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                   </svg>
+                <% end %>
               </div>
-              <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                <%= link_to "刪除", owner_lecturer_path(lecturer.id), method: "delete", data: {confirm: "確認是否刪除？"} %>
-                <svg xmlns="http://www.w3./2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                </svg>
-              </div>
-            </div>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
 </div>

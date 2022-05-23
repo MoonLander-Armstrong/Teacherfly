@@ -31,15 +31,15 @@ module Newebpay
       info[:Amt] = order.price
       info[:ItemDesc] = order.name    
       info[:LoginType] = 0
-      
+
       #選填欄位
-      info[:ReturnURL] = "https://teacherfly.herokuapp.com/orders/payment_response"
+      info[:ReturnURL] = "https://"+ENV["ngrok_host_name"]+"/orders/payment_response"
       info[:NotifyURL] = ""
       info[:Email] = order.user.email
       info[:CREDIT] = 1
       #info[:TradeLimit] = 300
     end
-    
+
     def trade_info 
       # AES256 加密後資訊
       aes_encode(url_encoded_query_string)
