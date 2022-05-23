@@ -47,10 +47,9 @@ module Owner
     def curriculum
       @chapters = @course.chapters
     end
-    
+
     def information; end
 
-    
     def comments; end
 
     private

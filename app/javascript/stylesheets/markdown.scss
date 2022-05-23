@@ -1,10 +1,14 @@
-.markdown {
+.markdown,
+.editor-preview-full {
   h1,
   h2,
   h3,
   h4,
   h5,
-  h6,
+  h6 {
+    @apply my-4 text-center;
+  }
+
   p {
     @apply my-4;
   }
@@ -66,5 +70,13 @@
       content: "";
       @apply mr-4 border-l-2 border-2 border-gray-600;
     }
+  }
+}
+
+.EasyMDEContainer {
+  @apply w-full;
+
+  div.CodeMirror-focused {
+    @apply border-2 border-primary-300 rounded;
   }
 }

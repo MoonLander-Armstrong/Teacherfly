@@ -1,23 +1,26 @@
-<h1 class="mt-12 text-4xl text-center">訂單資訊</h1>
-<%= render "shared/flash" if flash %>
-
-<%=form_with url: "https://ccore.newebpay.com/MPG/mpg_gateway", method: "post" do |form| %>
-  <div class="hidden">
-    <%= form.text_field :MerchantID, value: @form_info[:MerchantID] %>
-    <%= form.text_field :TradeInfo, value: @form_info[:TradeInfo] %>
-    <%= form.text_field :TradeSha, value: @form_info[:TradeSha] %>
-    <%= form.text_field :Version, value: @form_info[:Version] %>
-  </div>
-
-  <%= form_with(model: @order) do |f| %>
-
-    <%= f.label :購買課程 %>
-    <%= f.text_field :name, value: @course.title %>
-    <%= f.label :購買價格 %>
-    <%= f.text_field :price, value: @course.price %>
-
-
-
-    <%= form.submit "確認付款" %>
+<div class="md:w-1/2 p-4 mx-auto">
+  <h1 class="mt-12 mb-8 text-4xl text-center text-primary-300">購買資訊</h1>
+  <%= render "shared/flash" if flash %>
+  <%=form_with url: "https://ccore.newebpay.com/MPG/mpg_gateway", method: "post" do |form| %>
+    <div class="hidden">
+      <%= form.text_field :MerchantID, value: @form_info[:MerchantID] %>
+      <%= form.text_field :TradeInfo, value: @form_info[:TradeInfo] %>
+      <%= form.text_field :TradeSha, value: @form_info[:TradeSha] %>
+      <%= form.text_field :Version, value: @form_info[:Version] %>
+    </div>
+    <div class="w-full course-card-image">
+      <% if @course.classImg.attached? %>
+        <%= image_tag @course.classImg, class: "w-full h-full object-fit" %>
+      <% else %>
+        <div>此課程沒有圖片</div>
+      <% end %>
+    </div>
+    <div class="flex py-4">
+      <span class="text-primary-300 ml-8">購買課程</span><span class="ml-auto mr-8"><%= @course.title %></span>
+    </div>
+    <div class="flex py-4">
+      <span class="text-primary-300 ml-8">購買金額</span><span class="ml-auto mr-8">$ <%= @course.price %></span>
+    </div>
+    <%= form.submit "確認付款", class: "bg-warning-200 text-white border-warning-200 focus:border-warning-100 hover:bg-warning-100 hover:border-warning-100 hover:cursor-pointer" %>
   <% end %>
-<% end %>
+</div>

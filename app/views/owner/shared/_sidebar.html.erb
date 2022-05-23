@@ -1,6 +1,10 @@
-<div class="owner-logo">
-  <%= link_to owner_courses_path do %>
-    <h1 class="text-center text-white whitespace-nowrap"><%= current_user.username %>'s school</h1>
+<div class="fixed inset-x-0 md:inset-y-0 md:w-64 flex md:block text-3xl px-4 py-3 z-10 bg-primary-300 md:overflow-scroll">
+  <label for="hamburger" class="md:hidden"><i class="fa-solid fa-bars"></i></label>
+  <div class="hidden md:block w-24 h-24 mx-auto my-8 rounded-full overflow-hidden">
+    <%= image_tag current_user.avatar, class: "w-full h-full object-cover" if current_user.avatar.attached? %>
+  </div>
+  <%= link_to owner_courses_path, class: "mx-auto hover:bg-primary-100" do %>
+    <h1 class="text-center whitespace-nowrap"><%= current_user.username %>'s school</h1>
   <% end %>
     <span class="block text-center text-black">使用者信箱</span>
     <span class="block text-center text-black"><%= current_user.email %></span>

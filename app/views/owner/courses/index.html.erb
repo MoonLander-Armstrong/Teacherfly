@@ -1,53 +1,55 @@
-<div class="w-full h-full px-8 m-auto bg-gradient-to-tl">
-  <nav class="flex items-center justify-between w-full h-16 mt-4">
-    <h1 class="inline-block my-4 text-4xl font-extrabold text-primary-300">全部課程</h1> 
-		<%= render "shared/flash" %>	
-		<%= link_to  new_owner_course_path do %>  
-    	<button class="px-4 py-2 mx-5 my-auto text-white border-gray-800 rounded bg-primary-300 hover:bg-primary-100"> + 新增課程</button>
-		<% end %>
-  </nav>	
-
-	<table class="mt-6 overflow-hidden border border-black rounded-md owner-table">
-		<thead class="owner-thead">
-			<tr>
-				<th class="text-left owner-text">課程名稱</th>
-				<th class="text-center owner-text">講師</th>
-				<th class="text-center owner-text">售價</th>
-				<th class="text-center owner-text">授課數</th>
-				<th class="text-center owner-text">狀態</th>
-			</tr>
-		</thead>
-		<tbody class="owner-tbody">
-			<% @courses.each do |course| %>
-				<tr class="hover:bg-primary">
-					<td class="text-left owner-text whitespace-nowrap">
-						<div class="flex items-center">
-							<div class="mr-2">
-								<span class="text-lg font-medium text-primary"><%= link_to course.title, information_owner_course_path(course) %></span>
+<div class="owner-main-container relative pt-10 min-h-screen">
+  <div class="w-11/12 mx-auto">
+		<div class="flex items-center w-full h-16 mt-4">
+			<h1 class="inline-block my-4 text-4xl font-extrabold text-primary-300">全部課程</h1>
+			<div class="w-1/3 mx-4 mr-auto">
+				<%= render "shared/flash" %>
+			</div>
+			<%= link_to new_owner_course_path, class: "owner-course-btn block" do %>
+				+ 新增課程
+			<% end %>
+		</div>
+		<table class="mt-6 overflow-hidden rounded-md owner-table shadow-md">
+			<thead class="owner-thead">
+				<tr>
+					<th class="text-left owner-text">課程名稱</th>
+					<th class="text-center owner-text">講師</th>
+					<th class="text-center owner-text">售價</th>
+					<th class="text-center owner-text">授課數</th>
+					<th class="text-center owner-text">狀態</th>
+				</tr>
+			</thead>
+			<tbody class="owner-tbody">
+				<% @courses.each do |course| %>
+					<tr>
+						<td class="text-left owner-text text-primary-500">
+							<div class="flex items-center">
+								<div class="mr-2">
+									<span class="text-lg text-primary underline hover:text-primary-200"><%= link_to course.title, information_owner_course_path(course) %></span>
+								</div>
 							</div>
-						</div>
-					</td>
-					<td class="px-6 py-6 text-center">
-						<div class="flex items-center justify-center">
-							<span><%= course.lecturer.name %></span>
-						</div>
-					</td>
-					<td class="px-6 py-3 text-center">
-						<div class="flex justify-center item-center">
-							<div class="w-4 mr-2">
-								<span><%= course.price.zero? ? "Free" : "$#{course.price}" %></span>
+						</td>
+						<td class="px-6 py-6 text-center">
+							<div class="flex items-center justify-center">
+								<span><%= course.lecturer.name %></span>
 							</div>
-						</div>
-					</td>
-					<td class="px-6 py-3 text-center">
-						<div class="flex justify-center item-center">
-							<div class="w-4 mr-2">
-								<span>0</span>
+						</td>
+						<td class="px-6 py-3 text-center">
+							<div class="flex justify-center item-center">
+								<div class="w-4 mr-2">
+									<span><%= course.price.zero? ? "Free" : "$#{course.price}" %></span>
+								</div>
 							</div>
-						</div>
-					</td>
-					<td class="flex items-center justify-center px-3 py-6 text-center">
-							<div class="mr-2 transform w-18">
+						</td>
+						<td class="px-6 py-3 text-center">
+							<div class="flex justify-center item-center">
+								<div class="w-4 mr-2">
+									<span>0</span>
+								</div>
+							</div>
+						</td>
+						<td class="flex items-center justify-center px-3 py-6 text-center">
+							<div class="mr-2 w-18">
 								<span class="tag <%= course.published == "publish" ? "tag-publish" : "tag-draft" %>">
 									<%= course.published == "publish" ? "發佈" : "草稿" %>
 								</span>
@@ -59,21 +61,10 @@
 									</svg>
 								<% end %>
 							</div>
-					</td>
-				</tr>
-			<% end %>
-		</tbody>
-	</table>
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
 </div>
-
-
-	
-
-
-
-
-
-
-
-
-
