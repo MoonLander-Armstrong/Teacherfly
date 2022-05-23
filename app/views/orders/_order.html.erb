@@ -19,7 +19,7 @@
       <div class="flex items-center">
         <div class="w-8 h-8 mr-2 overflow-hidden rounded-full">
           <% if order.course.lecturer.mugshot %>
-            <%= image_tag url_for(order.course.lecturer.mugshot) %>
+            <%= image_tag order.course.lecturer.mugshot_url %>
           <% else %>
             <div class="flex items-center justify-center w-8 h-8 mr-4 overflow-hidden bg-gray-300 rounded-full">
               <i class="fa-solid fa-user"></i>

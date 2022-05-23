@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus";
 export default class extends Controller {
   static targets = ["fileInput", "preview", "fakeImg"];
 
-  connect() {
+  initialize() {
     this.reader = new FileReader();
   }
 

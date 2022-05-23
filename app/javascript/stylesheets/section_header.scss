@@ -11,17 +11,19 @@
 
   ul {
     width: 150px;
+
+    li {
+      &:hover {
+        @apply bg-primary-200;
+      }
+
+      a {
+        @apply block p-2;
+      }
+    }
   }
 
-  ul li {
-    @apply p-2;
-  }
-
-  ul li:hover {
-    @apply bg-primary-300;
-  }
-
-  ul li:not(:last-child) {
+  ul ul li:not(:last-child) {
     @apply mb-2;
   }
 

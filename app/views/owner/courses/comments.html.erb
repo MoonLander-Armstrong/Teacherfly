@@ -59,11 +59,11 @@
 						</td>
 					</tr>
 					<tr class="hidden" data-comments-target="commentForm">
-						<td>
+						<td colspan="4">
 							<%= form_with(url: owner_course_section_comments_path(@course, comment.section), scope: "comment") do |form|%>
 								<input type="hidden" name=comment[parent_id] value="<%= comment.id %>">
-								<%= form.text_area :content, class:"" %>
-								<%= form.submit "送出", data: { action: "click->comments#send" } %>
+								<%= form.text_area :content, placeholder: "在此輸入留言" %>
+								<%= form.submit "送出", data: { action: "click->comments#send" }, class: "owner-course-btn" %>
 							<% end %>
 						</td>
 					</tr>

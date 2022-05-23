@@ -6,9 +6,10 @@ export default class extends Controller {
     show: Boolean,
   };
 
-  connect() {
+  initialize() {
     this.show = false;
   }
+
   toggleNavBar() {
     this.showValue = !this.showValue;
   }
