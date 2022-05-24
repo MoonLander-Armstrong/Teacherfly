@@ -2,7 +2,7 @@
   <%= link_to order_path(order), class: "course-card course-card-hover" do %>
     <div class="w-full course-card-image">
       <% if order.course.image %>
-        <%= image_tag order.course.image, class: "w-full h-full object-fit" %>
+        <%= image_tag order.course.image_url, class: "w-full h-full object-fit" %>
       <% else %>
         <div>此課程沒有圖片</div>
       <% end %>

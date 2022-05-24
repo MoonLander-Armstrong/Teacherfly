@@ -10,7 +10,7 @@
     </div>
     <div class="w-full course-card-image">
       <% if @course.image %>
-        <%= image_tag @course.classImg, class: "w-full h-full object-fit" %>
+        <%= image_tag @course.image_url, class: "w-full h-full object-fit" %>
       <% else %>
         <div>此課程沒有圖片</div>
       <% end %>

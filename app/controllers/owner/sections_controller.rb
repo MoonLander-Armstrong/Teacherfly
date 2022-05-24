@@ -17,7 +17,7 @@ module Owner
       @section = @chapter.sections.new(section_params)
       # @media = @section.media
       # @section.update!(media: nil)
-      
+
       if @section.save 
         redirect_to curriculum_owner_course_path(@course), notice: '新增成功'
         # redirect_to root_path, notice: '新增成功'

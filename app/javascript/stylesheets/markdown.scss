@@ -1,14 +1,14 @@
 .markdown,
 .editor-preview-full {
-  h1,
+  h1 {
+    @apply text-center;
+  }
+
   h2,
   h3,
   h4,
   h5,
-  h6 {
-    @apply my-4 text-center;
-  }
-
+  h6,
   p {
     @apply my-4;
   }
@@ -74,6 +74,7 @@
 }
 
 .EasyMDEContainer {
+  z-index: 100;
   @apply w-full;
 
   div.CodeMirror-focused {
