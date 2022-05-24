@@ -36,10 +36,10 @@
       <div class="flex items-center mb-4">
         <%= form.label :media, "上傳影片", class: "flex-shrink-0 mr-4" %>
         <%= form.file_field :media %>
-        <% if @section.media %>
-          <p class="text-lg text-pink-400">已上傳檔案: </p>
-          <%= @section.media.filename %>
-        <% end %>
+        <%# if @section.media %>
+          <%# <p class="text-lg text-pink-400">已上傳檔案: </p> %>
+          <%# @section.media.filename %>
+        <%# end %>
       </div>
       <div class="flex items-center mb-4">
         <%= form.label "發布狀態", class: "flex-shrink-0 mr-4" %>
