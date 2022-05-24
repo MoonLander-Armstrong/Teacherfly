@@ -17,7 +17,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application', 'data-t  urbolinks-track': 'reload' %>
-    <%= favicon_link_tag asset_path('logo-icon.png') %>
+    <%= favicon_link_tag asset_path('logo-icon') %>
   </head>
 
   <body>
@@ -26,7 +26,7 @@
         <%= render layout: "/owner/shared/sidebar" do %>
         <% end %>
       </nav>
-      <main class="pt-14 md:pt-0 bg-gray-100 owner-main">
+      <main class="bg-gray-100 pt-14 md:pt-0 owner-main">
         <%= yield %>
       </main>
     </div>
