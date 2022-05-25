@@ -30,6 +30,7 @@ class OrdersController < ApplicationController
       order = @course.orders.new(name: @course.title, price: @course.price, user: current_user, email: current_user.email)
 
       if order.save
+        current_user.update(teacher_id: @course.user.id)
         @form_info = Newebpay::Mpg.new(order).form_info
       else
         render file: "#{Rails.root}/public/500.html"
