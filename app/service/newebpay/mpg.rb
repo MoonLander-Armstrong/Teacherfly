@@ -33,7 +33,7 @@ module Newebpay
       info[:LoginType] = 0
 
       #選填欄位
-      info[:ReturnURL] = "https://"+ENV["ngrok_host_name"]+"/orders/payment_response"
+      info[:ReturnURL] = "https://teacherfly2.herokuapp.com/orders/payment_response"
       info[:NotifyURL] = ""
       info[:Email] = order.user.email
       info[:CREDIT] = 1
