@@ -4,7 +4,7 @@ class Owner::UsersController < ApplicationController
 
   def index
     authorize :user
-    @users = User.all
+    @users = current_user.students
   end
 
   def information
