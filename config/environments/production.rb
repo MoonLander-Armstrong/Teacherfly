@@ -75,7 +75,7 @@ Rails.application.configure do
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true
 
-  
+
   
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
@@ -132,5 +132,5 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
-  Rails.application.config.hosts << 'teacherfly2.herokuapp.com'
+  Rails.application.config.hosts << 'teacherfly.herokuapp.com'
 end
