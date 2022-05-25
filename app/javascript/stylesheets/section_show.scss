@@ -132,3 +132,14 @@
     border-color: transparent #fef9ee transparent transparent;
   }
 }
+
+.comment {
+  @apply relative flex-grow p-4  rounded comment-triangle md:ml-4
+}
+
+.comment-student {
+  @apply bg-gray-100
+}
+.comment-owner {
+  @apply bg-secondary-200 border border-secondary-300 
+}
