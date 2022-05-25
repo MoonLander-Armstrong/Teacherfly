@@ -21,7 +21,14 @@ Devise.setup do |config|
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
-
+  token_verifier = OmniAuth.config.before_request_phase # omniauth-rails_csrf_protection
+  OmniAuth.config.before_request_phase = proc do |env|
+    begin
+      token_verifier&.call(env)
+    rescue ActionController::InvalidAuthenticityToken => e
+      OmniAuth::FailureEndpoint.new(env).redirect_to_failure
+    end
+  end
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
