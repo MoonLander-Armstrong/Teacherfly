@@ -19,8 +19,8 @@ module Owner
       if @chapter.save
         redirect_to curriculum_owner_course_path(@course), notice: '新增成功'
       else
-        flash.now[:alert] = '請輸入正確資訊'
-        render :new
+        redirect_to curriculum_owner_course_path(@course)
+        flash[:alert] = '請輸入正確資訊'
       end
     end
 
