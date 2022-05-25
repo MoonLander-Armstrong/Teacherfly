@@ -79,6 +79,6 @@ Rails.application.configure do
   # config.autoload_paths << Rails.root.join('service') ＃如果讀不到app內新增的資料夾要加這句
   config.hosts << ".ngrok.io"
   config.hosts << "2c45-61-220-182-115.jp.ngrok.io" 
-  config.hosts << "6164-61-220-182-115.jp.ngrok.io"
+  config.hosts << "e2a1-220-133-132-50.jp.ngrok.io"
   config.hosts << "ngrok.io"
 end
