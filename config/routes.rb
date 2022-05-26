@@ -31,7 +31,9 @@ Rails.application.routes.draw do
   end
 
   # front stage
-  resources :courses, only: %i[index show] do
+  resources :lecturers, only: [:show]
+  resources :courses, only: %i[index show]do
+
     resources :orders, only: [] do
       collection do
         get :payment
