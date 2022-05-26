@@ -5,6 +5,7 @@ class CoursesController < ApplicationController
 
   def index
     @courses = Course.published
+    @lecturers = Lecturer.all
   end
 
   def show
