@@ -18,7 +18,7 @@
   </ul>
 <% end %>
 
-<div class="owner-main-container relative pt-10 min-h-screen">
+<div class="relative min-h-screen pt-10 owner-main-container">
   <div class="w-11/12 mx-auto">
 		<div class="flex items-center w-full h-16 mt-4">
 			<h1 class="inline-block my-4 text-4xl font-extrabold text-primary-300">課程留言</h1>
@@ -26,7 +26,7 @@
 				<%= render "shared/flash" %>
 			</div>
 		</div>
-		<table class="mt-6 overflow-hidden rounded-md owner-table shadow-md comment-table">
+		<table class="mt-6 overflow-hidden rounded-md shadow-md owner-table comment-table">
 			<thead class="owner-thead">
 				<tr>
 					<th class="text-left owner-text">留言</th>
@@ -37,9 +37,9 @@
 			</thead>
 			<tbody class="owner-tbody" data-controller="comments">
 				<% Comment.where(course_id: @course.id).includes(:section, :user).order(id: :desc).each do |comment| %>
-					<tr class="hover:bg-primary-200 transition">
+					<tr class="transition hover:bg-primary-200">
 						<td class="text-left owner-text text-primary-500">
-							<span class="w-44 whitespace-nowrap overflow-ellipsis overflow-hidden">
+							<span class="overflow-hidden w-44 whitespace-nowrap overflow-ellipsis">
 								<%= comment.content %>
 							</span>
 						</td>
@@ -50,7 +50,7 @@
 							<%= comment.section.chapter.title %> / <%= comment.section.title %>
 						</td>
 						<td class="flex items-center px-8">
-							<button class="tag tag-safe mr-auto" data-action="click->comments#toggle">回覆</button>
+							<button class="mr-auto tag tag-safe" data-action="click->comments#toggle">回覆</button>
 							<%= link_to "#", method: "delete", data: { confirm: "確定刪除此留言嗎？" }, class: "block p-2 text-red-400 hover:text-red-600" do %>
 								<svg xmlns="http://www.w3./2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
@@ -58,12 +58,12 @@
 							<% end %>
 						</td>
 					</tr>
-					<tr class="hidden" data-comments-target="commentForm">
+					<tr class="hidden" data-ajaxForm-target="form">
 						<td colspan="4">
 							<%= form_with(url: owner_course_section_comments_path(@course, comment.section), scope: "comment") do |form|%>
 								<input type="hidden" name=comment[parent_id] value="<%= comment.id %>">
 								<%= form.text_area :content, placeholder: "在此輸入留言" %>
-								<%= form.submit "送出", data: { action: "click->comments#send" }, class: "owner-course-btn" %>
+								<%= form.submit "送出", data: { action: "click->ajaxForm#send" }, class: "owner-course-btn" %>
 							<% end %>
 						</td>
 					</tr>

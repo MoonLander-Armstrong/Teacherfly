@@ -28,7 +28,7 @@ module Owner
     end
 
     def update
-      p course_params
+
       if @course.update(course_params)
         redirect_to owner_courses_path, notice: "更新成功！"
       else

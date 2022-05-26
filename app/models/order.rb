@@ -19,9 +19,13 @@ class Order < ApplicationRecord
   scope :bought_course, ->(course) { where(["status = ? and course_id = ?", "paid", course]) }
 
   # callbacks
-  after_update :add_users_to_reads, if: :paid?
+  after_update :add_user_to_reads, :add_teacher_to_user, if: :paid?
 
-  def add_users_to_reads
+  def add_user_to_reads
     user.to_reads << course.all_published_sections
+  end
+
+  def add_teacher_to_user
+    user.update(teacher: course.user)
   end
 end
