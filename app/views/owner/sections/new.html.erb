@@ -19,21 +19,22 @@
 <% end %>
 
 
-<div class="owner-main-container relative py-10 min-h-screen">
+<div class="relative min-h-screen py-10 owner-main-container">
   <div class="w-11/12 mx-auto">
   <%= form_with(model: @section, url: owner_course_chapter_sections_path(@chapter.course_id, @chapter), method: "post") do |form| %>
-    <div class="flex justify-between items-center">
+    <div class="flex items-center justify-between">
       <h1 class="inline-block my-4 text-4xl font-extrabold text-primary-300">新增小節</h1>
       <div>
         <%= form.submit "+ 新增小節", class: "owner-course-btn" %>
       </div>
     </div>
-    <div class="p-8 border-2 bg-white border-gray-300 border-dashed rounded">
+    <div class="p-8 bg-white border-2 border-gray-300 border-dashed rounded">
       <div class="flex items-center mb-4">
         <%= form.label :title, "小節標題", class: "flex-shrink-0 mr-4" %>
         <%= form.text_field :title %>
       </div>
       <div class="flex items-center mb-4">
+        <%= form.hidden_field :media, value: @section.cached_media_data, class: "upload-data" %>
         <%= form.label :media, "上傳影片", class: "flex-shrink-0 mr-4" %>
         <%= form.file_field :media %>
         <%# if @section.media %>

@@ -9,9 +9,9 @@
     </div>
     <div class="relative flex-grow p-4 comment-triangle md:ml-4 bg-secondary-100">
       <h3 class="mb-4 text-primary-300"><%= current_user.username %></h3>
-      <%= form.text_area :content , class: "w-full h-32 p-2 mb-2 md:mb-4", placeholder: "在此輸入留言" %>
+      <%= form.text_area :content , class: "w-full h-32 p-2 mb-2 md:mb-4", data: { ajaxForm_target: "input"}, placeholder: "在此輸入留言" %>
       <div class="flex">
-        <%= form.submit "送出", data: { action: "click->comments#send" }, class: "px-6 py-1 md:py-2 ml-auto text-white bg-primary-300 rounded-md hover:bg-primary-200 focus:bg-primary-300" %>
+        <%= form.submit "送出", data: { action: "click->ajaxForm#send" }, class: "px-6 py-1 md:py-2 ml-auto text-white bg-primary-300 rounded-md hover:bg-primary-200 focus:bg-primary-300" %>
       </div>
     </div>
   </div>

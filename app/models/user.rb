@@ -38,4 +38,8 @@ class User < ApplicationRecord
   def bought?(course)
     orders.where(status: "paid").exists?(course_id: course.id)
   end
+
+  def owner?(course)
+    self == course.user
+  end
 end

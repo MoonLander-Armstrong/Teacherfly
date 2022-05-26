@@ -69,4 +69,6 @@ Rails.application.routes.draw do
       post :payment_response
     end
   end
+
+  mount Shrine.upload_endpoint(:cache) => "/upload" # POST /upload 
 end
