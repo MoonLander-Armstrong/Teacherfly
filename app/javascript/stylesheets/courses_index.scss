@@ -30,3 +30,60 @@
 .course-card-main {
   @apply flex-grow;
 }
+
+// 講師選單
+.drop {
+  position: relative;
+  display: block;
+  margin: 0 0 10px;
+}
+.dropOption {
+  position: relative;
+  color: #666;
+  font-size: 15px;
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #888;
+  border-radius: 5px;
+  box-sizing: border-box;
+  cursor: pointer;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    right: 12px;
+    border-width: 8px 6px;
+    border-style: solid;
+    border-color: #999 transparent transparent transparent;
+  }
+}
+.dropdown {
+  position: absolute;
+  color: #333;
+  background-color: #f9f9f9;
+  box-shadow: 0px 2px 3px 0px #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  overflow: auto;
+  z-index: 10;
+  > li {
+    display: block;
+    color: #000;
+    padding: 12px;
+    font-size: 15px;
+    margin: 0 10px;
+    &:first-child {
+      margin-top: 10px;
+    }
+    &:last-child {
+      margin-bottom: 10px;
+    }
+    &:hover {
+      background-color: orange;
+      border-radius: 6px;
+    }
+    a {
+      display: block;
+    }
+  }
+}
