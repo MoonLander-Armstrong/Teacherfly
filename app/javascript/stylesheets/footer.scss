@@ -30,13 +30,16 @@
 }
 .designer {
   @apply text-white;
-
-  & .name {
-    @apply block my-2 text-center
-  }
+}
+.name{
+  display: flex;
+  justify-content: center;
 }
 .icon {
-  @apply flex justify-around text-secondary-300 text-3xl
+  @apply flex justify-around text-3xl text-rice;
+}
+i:hover {
+  @apply hover:text-secondary-400
 }
 
 .talk-us {

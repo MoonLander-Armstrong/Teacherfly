@@ -79,8 +79,8 @@
       margin-bottom: 10px;
     }
     &:hover {
-      background-color: orange;
       border-radius: 6px;
+      @apply bg-secondary-300
     }
     a {
       display: block;
