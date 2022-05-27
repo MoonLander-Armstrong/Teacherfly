@@ -33,8 +33,7 @@
         <%= form.label :title, "小節標題", class: "flex-shrink-0 mr-4" %>
         <%= form.text_field :title %>
       </div>
-      <div class="flex items-center mb-4">
-        <%= form.hidden_field :media, value: @section.cached_media_data, class: "upload-data" %>
+      <div class="flex items-center mb-4" id="drag-drop-area">
         <%= form.label :media, "上傳影片", class: "flex-shrink-0 mr-4" %>
         <%= form.file_field :media %>
         <%# if @section.media %>
