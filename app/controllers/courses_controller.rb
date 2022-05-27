@@ -4,8 +4,12 @@ class CoursesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @courses = Course.published
     @lecturers = Lecturer.all
+    if params[:search]
+      @courses = Course.published.search(params[:search])
+    else
+      @courses = Course.published
+    end
   end
 
   def show
