@@ -20,7 +20,7 @@ module.exports = {
           100: "#FEF9EE",
           200: "#FEF1D7",
           300: "#FBD588", //基本副色
-          400: "#F9C04B",
+          400: "#F9C04B", //logo副色
           500: "#8B5E04",
         },
         warning: {
