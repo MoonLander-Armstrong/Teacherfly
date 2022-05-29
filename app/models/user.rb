@@ -34,6 +34,8 @@ class User < ApplicationRecord
   belongs_to :teacher, class_name: "User", optional: true
   has_many :students, foreign_key: :teacher_id, class_name: "User"
 
+  #scope 
+  scope :ordered, -> { includes(:orders).order('orders.price') }
 
   def bought?(course)
     orders.where(status: "paid").exists?(course_id: course.id)
