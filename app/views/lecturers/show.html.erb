@@ -1,17 +1,4 @@
-<div class="container flex justify-between p-1 mx-auto mt-12" data-controller="search">
-  <div class="w-1/3 drop" data-action="click->search#showOption">
-    <div class="w-full dropOption" data-search-target="button">選擇講師</div>
-    <ul class="invisible w-full dropdown" data-search-target="option">
-    <% @lecturers.each do |lecturer|%>
-      <li>
-        <a><%= link_to lecturer.name, lecturer_path(lecturer) %></a>
-      </li>
-    <% end %>
-    </ul>
-  </div>
-  
-    <div>課程搜尋</div>
-</div>
+<%= render "shared/search" %>
 
 <h1 class="container mx-auto mt-12 text-4xl text-center"><%= @lecturer.name %>講師課程</h1>
 <%= render "shared/flash" if flash %>
