@@ -28,4 +28,8 @@ class Order < ApplicationRecord
   def add_teacher_to_user
     user.update(teacher: course.user)
   end
+
+  def self.time_select(time)
+    where('created_at >= ?', time.days.ago)
+  end
 end

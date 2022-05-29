@@ -23,10 +23,12 @@ Rails.application.routes.draw do
         end
       end
     end
-    resources :users, only: [:index, :update] do
+    resources :users, only: [:index, :create, :update] do
       member do
         get :information
       end
+    end
+    resources :orders, only: [:index] do 
     end
   end
 

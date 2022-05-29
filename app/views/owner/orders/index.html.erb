@@ -1,0 +1,71 @@
+<div class="relative min-h-screen pt-10 owner-main-container">
+  <div class="w-11/12 mx-auto">
+		<div class="flex items-center w-full h-16 mt-4">
+			<h1 class="inline-block my-4 text-4xl font-extrabold text-primary-300">訂單管理</h1>
+			<div class="w-1/3 mx-4 mr-auto">
+				<%= render "shared/flash" %>
+			</div>
+			<%# @orders = @orders.time_select(30)%>
+			<%# @orders = @orders.time_select(7)%>
+			<%# @orders = @orders.time_select(2)%>
+			<span class="font-semibold text-primary-300">已出售:
+				<span class="ml-2 text-4xl text-warning-200">
+					$ <%= @orders.map{ |o| o.price }.sum %>
+				</span>
+			</span>
+		</div>
+		<table class="mt-6 overflow-hidden rounded-md shadow-md owner-table">
+			<thead class="owner-thead">
+				<tr>
+					<th class="text-left owner-text">訂單編號</th>
+					<th class="text-center owner-text">購課學生</th>
+					<th class="text-center owner-text">學生信箱</th>
+					<th class="text-center owner-text">購買課程</th>
+					<th class="text-center owner-text">購買價格</th>
+					<th class="text-center owner-text">購買時間</th>
+				</tr>
+			</thead>
+			<tbody class="owner-tbody">
+				<% @orders.each do |order| %>
+					<tr>
+						<td class="text-center owner-text text-primary-500">
+							<div class="flex items-center">
+								<div class="mr-2">
+									<span class="text-lg text-primary hover:text-primary-200">
+										<%= order.slug %>
+									</span>
+								</div>
+							</div>
+						</td>
+						<td class="px-6 py-6 text-center">
+							<div class="flex items-center justify-center">
+								<span><%= order.user.username %></span>
+							</div>
+						</td>
+						<td class="px-6 py-6 text-center">
+							<div class="flex items-center justify-center">
+								<span><%= order.user.email %></span>
+							</div>
+						</td>
+						<td class="px-6 py-6 text-center">
+							<div class="flex items-center justify-center">
+								<span><%= order.course.title %></span>
+							</div>
+						</td>
+						<td class="px-6 py-6 text-center">
+							<div class="flex items-center justify-center">
+								<span>$<%= order.price %></span>
+							</div>
+						</td>
+						<td class="px-6 py-6 text-center">
+							<div class="flex items-center justify-center">
+								<span><%= order.created_at.to_formatted_s(:db) %></span>
+							</div>
+						</td>
+
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
