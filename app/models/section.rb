@@ -2,7 +2,7 @@
 
 class Section < ApplicationRecord
   include Slugable
-  include MediaUploader::Attachment(:media) # adds an `image` virtual attribute
+  
   # validates
   validates :title,
             presence: true,
@@ -16,7 +16,8 @@ class Section < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :reads
   has_many :readers, through: :reads, source: :user
-  # has_one_attached :media, dependent: :destroy
+  has_one_attached :media, dependent: :destroy
+
 
   scope :published, -> { where(published: "publish") }
   scope :draft, -> { where(published: "draft") }

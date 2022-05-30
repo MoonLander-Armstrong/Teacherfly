@@ -2,7 +2,6 @@
 
 class User < ApplicationRecord
   include Slugable
-  include AvatarUploader::Attachment(:avatar) # adds an `image` virtual attribute
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -29,6 +28,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :orders
   has_many :reads
+  has_one_attached :avatar, dependent: :destroy
   has_many :bought_courses, through: :orders, source: :course
   has_many :to_reads, through: :reads, source: :section
   belongs_to :teacher, class_name: "User", optional: true

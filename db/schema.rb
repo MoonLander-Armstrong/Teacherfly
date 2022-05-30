@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_23_213339) do
+ActiveRecord::Schema.define(version: 2022_05_23_082145) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,7 +75,6 @@ ActiveRecord::Schema.define(version: 2022_05_23_213339) do
     t.string "description"
     t.bigint "lecturer_id", null: false
     t.string "slug"
-    t.text "image_data"
     t.index ["lecturer_id"], name: "index_courses_on_lecturer_id"
     t.index ["slug"], name: "index_courses_on_slug", unique: true
     t.index ["user_id"], name: "index_courses_on_user_id"
@@ -107,7 +106,6 @@ ActiveRecord::Schema.define(version: 2022_05_23_213339) do
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.text "mugshot_data"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -144,7 +142,6 @@ ActiveRecord::Schema.define(version: 2022_05_23_213339) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "chapter_id", null: false
     t.string "slug"
-    t.text "media_data"
     t.index ["chapter_id"], name: "index_sections_on_chapter_id"
     t.index ["slug"], name: "index_sections_on_slug", unique: true
   end
@@ -163,7 +160,6 @@ ActiveRecord::Schema.define(version: 2022_05_23_213339) do
     t.string "slug"
     t.integer "teacher_id"
     t.string "role", default: "student"
-    t.text "avatar_data"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["slug"], name: "index_users_on_slug", unique: true

@@ -1,7 +1,7 @@
 <article data-controller="ajaxForm">
   <div class="md:flex">
     <div class="flex-shrink-0 w-12 h-12 mb-4 overflow-hidden rounded-full md:w-20 md:h-20">
-      <%= image_tag comment.user.avatar_url, class: "w-full h-full object-cover" if comment.user.avatar %>
+      <%= image_tag url_for(comment.user.avatar), class: "w-full h-full object-cover" if comment.user.avatar.attached? %>
     </div>
     
     <div class="comments <%= @course.user == comment.user ? "comment-owner" : "comment-student" %>">

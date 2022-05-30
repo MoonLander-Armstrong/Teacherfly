@@ -30,7 +30,6 @@ module Owner
 
 
     def update
-      @section.update(media: nil)
       if @section.update(section_params)
         redirect_to curriculum_owner_course_path(@course), notice: '新增成功'
       else
@@ -40,8 +39,8 @@ module Owner
     end
 
     def destroy
-      if @section.media
-        @section.update(media: nil)
+      if @section.media.attached?
+        @section.media.purge_later
         @section.destroy
         redirect_to curriculum_owner_course_path(@course), alert: '刪除成功'
       else
