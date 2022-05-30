@@ -37,7 +37,8 @@ class Owner::LecturersController < ApplicationController
 
   def destroy
     if @lecturer.mugshot
-      @lecturer.mugshot.purge && @lecturer.destroy
+      @lecturer.mugshot.purge 
+      @lecturer.destroy
     end
 
     @lecturer.destroy

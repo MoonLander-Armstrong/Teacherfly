@@ -11,6 +11,16 @@ class Owner::UsersController < ApplicationController
     authorize :user
   end
 
+  def subscription
+    @order = @user.orders.new(state: "paid")
+    if @order.save
+      redirect_to 
+    else
+    end
+
+  end
+
+
   def update
     authorize :user
     if @user.update(user_params)
@@ -39,6 +49,6 @@ class Owner::UsersController < ApplicationController
   end
 
   def find_user
-    @user = current_user.students.includes(:orders).find(params[:id])
+    @user = current_user.students.find(params[:id])
   end
 end
