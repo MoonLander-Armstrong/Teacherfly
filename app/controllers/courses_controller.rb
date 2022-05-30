@@ -5,11 +5,8 @@ class CoursesController < ApplicationController
 
   def index
     @lecturers = Lecturer.all
-    if params[:search]
-      @courses = Course.published.search(params[:search])
-    else
-      @courses = Course.published
-    end
+    @courses = Course.published
+    @courses = @courses.search(params[:search]) if params[:search]
   end
 
   def show

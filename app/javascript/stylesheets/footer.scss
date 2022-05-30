@@ -31,15 +31,14 @@
 .designer {
   @apply text-white;
 }
-.name{
-  display: flex;
-  justify-content: center;
+.name {
+  @apply flex justify-center;
 }
 .icon {
   @apply flex justify-around text-3xl text-rice;
 }
 i:hover {
-  @apply hover:text-secondary-400
+  @apply hover:text-secondary-400;
 }
 
 .talk-us {
@@ -49,5 +48,5 @@ i:hover {
 .talk-area {
   width: 100%;
   padding: 10px;
-  @apply border border-secondary-300
+  @apply border border-secondary-300;
 }
