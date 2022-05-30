@@ -73,5 +73,4 @@ Rails.application.routes.draw do
     end
   end
 
-  mount Shrine.upload_endpoint(:cache) => "/upload" # POST /upload 
 end

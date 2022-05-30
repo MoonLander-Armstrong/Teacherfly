@@ -5,7 +5,7 @@
         <%= link_to information_owner_user_path(user), class: "flex items-center" do %>
           <% if user.avatar %>
             <div class="w-8 h-8 mr-4 overflow-hidden rounded-full">
-              <%= image_tag user.avatar_url if user.avatar %>
+              <%= image_tag url_for(user.avatar) if user.avatar.attached? %>
             </div>
           <% else %>
             <div class="flex items-center justify-center w-8 h-8 mr-4 overflow-hidden bg-gray-300 rounded-full">

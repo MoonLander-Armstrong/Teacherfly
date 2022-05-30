@@ -37,8 +37,9 @@ module Owner
     end
 
     def destroy
-      if @course.image
-        @course.update(image: nil) && @course.destroy
+      if @course.image.attached?
+        @course.image.purge
+        @course.destroy
       else
         @course.destroy
       end
