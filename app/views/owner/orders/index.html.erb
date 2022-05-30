@@ -7,7 +7,7 @@
 			</div>
 			<%# @orders = @orders.time_select(30)%>
 			<%# @orders = @orders.time_select(7)%>
-			<%# @orders = @orders.time_select(2)%>
+			<% @orders = @orders.time_select(7)%>
 			<span class="font-semibold text-primary-300">已出售:
 				<span class="ml-2 text-4xl text-warning-200">
 					$ <%= @orders.map{ |o| o.price }.sum %>

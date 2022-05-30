@@ -39,6 +39,6 @@ class Owner::UsersController < ApplicationController
   end
 
   def find_user
-    @user = User.friendly.find(params[:id])
+    @user = current_user.students.includes(:orders).find(params[:id])
   end
 end

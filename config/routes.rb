@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :create, :update] do
       member do
         get :information
+        post :subscription
       end
     end
     resources :orders, only: [:index] do 
