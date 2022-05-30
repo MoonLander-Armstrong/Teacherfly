@@ -21,7 +21,7 @@ module Owner
       lecturer = Lecturer.find(params[:course][:lecturer_id])
       @course = lecturer.courses.new(course_params)
       if @course.save
-        redirect_to owner_courses_path, notice: "新增成功！"
+        redirect_to curriculum_owner_course_path(@course), notice: "新增成功！"
       else
         render :new
       end

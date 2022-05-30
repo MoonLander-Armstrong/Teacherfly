@@ -30,6 +30,6 @@ class Order < ApplicationRecord
   end
 
   def self.time_select(time)
-    where('created_at >= ?', time.days.ago)
+    where('created_at >= ?', (time.to_i).days.ago)
   end
 end

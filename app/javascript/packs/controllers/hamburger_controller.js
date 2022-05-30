@@ -16,9 +16,11 @@ export default class extends Controller {
 
   showValueChanged(current) {
     if (current) {
-      this.element.parentElement.style.height = "360px";
+      this.element.parentElement.style.height = "440px";
+      this.navbarTarget.classList.toggle("hidden");
     } else {
       this.element.parentElement.style.height = "88px";
+      this.navbarTarget.classList.toggle("hidden");
     }
   }
 

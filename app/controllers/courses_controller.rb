@@ -4,7 +4,7 @@ class CoursesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @courses = Course.published.order(id: :desc)
+    @courses = Course.published.order(id: :desc) 
     @lecturers = Lecturer.all
     @courses = Course.published
     @courses = @courses.search(params[:search]) if params[:search]
