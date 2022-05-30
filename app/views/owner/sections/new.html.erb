@@ -36,6 +36,7 @@
       <div class="flex items-center mb-4" id="drag-drop-area">
         <%= form.label :media, "上傳影片", class: "flex-shrink-0 mr-4" %>
         <%= form.file_field :media %>
+
         <%# if @section.media %>
           <%# <p class="text-lg text-pink-400">已上傳檔案: </p> %>
           <%# @section.media.filename %>
@@ -52,3 +53,10 @@
     </div>
   <% end %>
 </div>
+<h2>HTML5 File Upload Progress Bar Tutorial</h2>
+<form id="upload_form" enctype="multipart/form-data" method="post">
+  <input type="file" name="section[media]" id="section_media" onchange="uploadFile()"><br>
+  <progress id="progressBar" value="0" max="100" style="width:300px;"></progress>
+  <h3 id="status"></h3>
+  <p id="loaded_n_total"></p>
+</form>

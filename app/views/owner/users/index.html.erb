@@ -1,4 +1,4 @@
-<div class="owner-main-container relative pt-10 min-h-screen" data-controller="ajaxForm">
+<div class="relative min-h-screen pt-10 owner-main-container" data-controller="ajaxForm">
   <div class="w-11/12 mx-auto">
 		<div class="flex items-center w-full h-16 mt-4">
 			<h1 class="inline-block my-4 text-4xl font-extrabold text-primary-300">會員列表</h1>
@@ -7,7 +7,7 @@
 			</div>
 				<button class="owner-course-btn" data-action="click->ajaxForm#toggle"> + 新增學生</button>
 		</div>
-		<table class="mt-6 overflow-hidden rounded-md owner-table shadow-md">
+		<table class="mt-6 overflow-hidden rounded-md shadow-md owner-table">
 			<thead class="owner-thead">
 				<tr>
 					<th class="text-left owner-text">學生姓名</th>
@@ -20,7 +20,7 @@
 				<%= render @users %>
 			</tbody>
 		</table>
-			<div class="hidden mx-auto my-20" data-ajaxForm-target="form">
+		<div class="hidden mx-auto my-20" data-ajaxForm-target="form">
 		<%= form_with(scope: "user", url: owner_users_path, method: :post) do |form| %>
 			<div class="p-8 border border-gray-300 rounded bg-secondary-200">
 				<div class="flex items-center mb-4">	
@@ -38,6 +38,6 @@
 				</div>
 			</div>
 		<% end %>
-	</div>
+		</div>
 	</div>
 </div>

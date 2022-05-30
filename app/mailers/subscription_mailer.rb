@@ -1,0 +1,3 @@
+class SubscriptionMailer < ApplicationMailer
+  
+end
