@@ -54,7 +54,7 @@
 						</td>
 						<td class="px-6 py-6 text-center">
 							<div class="flex items-center justify-center">
-								<span>$<%= order.price %></span>
+								<span><%= order.price.zero? ? "贈送" : "$#{order.price}" %></span>
 							</div>
 						</td>
 						<td class="px-6 py-6 text-center">

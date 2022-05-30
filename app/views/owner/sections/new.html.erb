@@ -36,8 +36,10 @@
       <div class="flex items-center mb-4" id="drag-drop-area" data-controller=" uploads">
         <%= form.label :media, "上傳影片", class: "flex-shrink-0 mr-4" %>
         <div class="relative flex-grow">
-          <%# <div class="absolute inset-y-0 w-1/5 bg-secondary-400 opacity-30" data-uploads-target="progressbar">
-          </div> %>
+          <div class="absolute inset-y-0 opacity-50 pointer-events-none bg-secondary-400 " data-uploads-target="progressbar" id="upload-progressbar">
+          </div>
+          <div class="absolute hidden right-2 inset-y-2" id="progressPercent"> 
+          </div>
           <%= form.file_field :media, direct_upload: true, data: { 'action': 'change->uploads#upload', 'uploads_target': 'mediaInput'} %>
         </div>
       </div>

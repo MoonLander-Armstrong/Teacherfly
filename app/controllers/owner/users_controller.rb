@@ -1,6 +1,6 @@
 class Owner::UsersController < ApplicationController
   layout "owner"
-  before_action :find_user, only: [:information, :update]
+  before_action :find_user, only: [:information, :update, :subscription]
 
   def index
     authorize :user
@@ -12,23 +12,22 @@ class Owner::UsersController < ApplicationController
   end
 
   def subscription
-    @order = @user.orders.new(state: "paid")
+    @order = @user.orders.new(course_id: params[:course_id])
     if @order.save
-      redirect_to 
+      @order.pay!
+      redirect_to information_owner_user_path(@user), notice: "新增訂閱課程"
     else
+      redirect_to information_owner_user_path(@user), alert: "請確認資料"
     end
-
   end
 
 
   def update
     authorize :user
     if @user.update(user_params)
-      flash.now[:notice] = "成功更新學生資料"
-      redirect_to information_owner_user_path(@user)
+      redirect_to information_owner_user_path(@user), notice: "成功更新學生資料"
     else
-      flash.now[:alert] = "請輸入正確資訊"
-      render :information
+      render :information, alert: "請輸入正確資訊"
     end
   end
 
@@ -38,7 +37,7 @@ class Owner::UsersController < ApplicationController
       redirect_to owner_users_path, notice:  "成功新增學生資料"
     else
       redirect_to owner_users_path  
-      flash.now[:notice] = "XXXXXXXXXXXX"
+      flash.now[:notice] = "請重新輸入"
     end
   end
 
