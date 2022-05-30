@@ -109,7 +109,7 @@ ActiveRecord::Schema.define(version: 2022_05_23_082145) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "price"
+    t.integer "price", default: 0
     t.string "name"
     t.string "email"
     t.string "slug"

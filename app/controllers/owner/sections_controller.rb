@@ -15,10 +15,9 @@ module Owner
     def create
       @chapter = @course.chapters.find(params[:chapter_id])
       @section = @chapter.sections.new(section_params)
-
+      
       if @section.save 
         redirect_to curriculum_owner_course_path(@course), notice: '新增成功'
-        # redirect_to root_path, notice: '新增成功'
       else
         flash.now[:alert] = '請輸入正確資訊'
         render :new

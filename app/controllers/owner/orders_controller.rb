@@ -1,6 +1,8 @@
 class Owner::OrdersController < ApplicationController
   layout "owner"
+
   def index
+    authorize :order
     @courses = current_user.courses
     @orders = Order.includes(:user).where(course: @courses).paid.order(id: :desc)    
 

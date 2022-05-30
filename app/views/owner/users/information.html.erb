@@ -13,6 +13,7 @@
     <%= form_with model: @user, url: owner_user_path(@user), method: "patch" do |form| %>
       <div class="flex items-center justify-between">
         <h1 class="inline-block my-4 text-4xl font-extrabold text-primary-300">會員資訊</h1>
+        <%= render "shared/flash" %>
         <div>
           <%= form.button class: "owner-course-btn" do %>
             <i class="mr-4 fa-solid fa-arrow-rotate-right"></i>更新資訊
@@ -80,14 +81,18 @@
               </tbody>
             </table>
           </div>
-          <div class="h-20 border rounded-md bg-secondary-200 ">
-            <%= form_with(url: subscription_owner_user_path, scope: "order") do |form| %>
-            <%= form.select :course_id, current_user.courses.where(published: "publish").pluck(:title, :id) %>
-            <%= form.submit %>
+    <% end %>
+          <div class="h-20 mt-6 border rounded-md bg-secondary-200">
+            <% if @user.orders.pluck(:course_id).sort() === current_user.courses.where(published: "publish").pluck(:id) %>
+              <span>此學生已經擁有您的全部課程</span>
+            <% else %>
+              <%= form_with(model: @order, url: subscription_owner_user_path(@user), method: :post) do |form| %>
+              <%= form.select :course_id, (current_user.courses.where(published: "publish") - @user.orders.map { |order| order.course }).pluck(:title, :id) %>
+              <%= form.submit %>
+              <% end %>
             <% end %>
           </div>
         </div>
       </div>
-    <% end %>
   </div>
 </div>
