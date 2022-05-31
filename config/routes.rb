@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # back stage
   namespace :owner do
     resources :lecturers
+    resources :comments, only: [:index]
     resources :courses do
       member do
         get :information
