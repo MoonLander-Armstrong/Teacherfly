@@ -21,7 +21,7 @@
 
 <div class="relative min-h-screen py-10 owner-main-container">
   <div class="w-11/12 mx-auto">
-  <%= form_with(model: @section, url: owner_course_chapter_sections_path(@chapter.course_id, @chapter), method: "post") do |form| %>
+  <%= form_with(model: @section, url: owner_course_chapter_sections_path(@chapter.course_id, @chapter), method: "post", class: "form") do |form| %>
     <div class="flex items-center justify-between">
       <h1 class="inline-block my-4 text-4xl font-extrabold text-primary-300">新增小節</h1>
       <div>

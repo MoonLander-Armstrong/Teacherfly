@@ -15,6 +15,11 @@
       <%= yield :course %>
     </li>
     <li class="mx-4">
+      <%= link_to owner_comments_path do %>
+        <i class="fa-solid fa-book-open"></i>所有留言
+      <% end %>
+    </li>
+    <li class="mx-4">
       <%= link_to owner_lecturers_path do %>
         <i class="fa-solid fa-chalkboard-user"></i>講師名單
       <% end %>

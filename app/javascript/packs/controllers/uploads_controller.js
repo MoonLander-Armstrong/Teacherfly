@@ -8,6 +8,8 @@ export default class extends Controller {
     const uploader = new Uploader(this.mediaInputTarget.files[0], this.url);
     uploader.start()
     document.getElementById("progressPercent").classList.toggle("hidden")
+    this.mediaInputTarget.value = null
+
   }
 
 
@@ -31,6 +33,13 @@ class Uploader {
         // Handle the error
       } else {
         console.log(blob);
+        const hiddenField = document.createElement('input')
+        const input = document.getElementById('section_media')
+        hiddenField.setAttribute("type", "hidden");
+        hiddenField.setAttribute("value", blob.signed_id);
+        hiddenField.name = input.name
+        document.querySelector('.form').appendChild(hiddenField)  
+        
         // Add an appropriately-named hidden input to the form
         // with a value of blob.signed_id
       }
@@ -39,6 +48,7 @@ class Uploader {
 
 
   directUploadWillStoreFileWithXHR(request) {
+    console.log(request);
     request.upload.addEventListener("progress",
       event => this.directUploadDidProgress(event))
   }
@@ -47,5 +57,5 @@ class Uploader {
     // Use event.loaded and event.total to update the progress bar
     document.getElementById("upload-progressbar").style.width = `${Math.round((event.loaded / event.total)* 100)}%`
     document.getElementById("progressPercent").textContent = `${Math.round((event.loaded / event.total)* 100)}%` 
-  }
+  } 
 }

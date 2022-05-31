@@ -6,7 +6,6 @@ class CoursesController < ApplicationController
   def index
     @courses = Course.published.order(id: :desc) 
     @lecturers = Lecturer.all
-    @courses = Course.published
     @courses = @courses.search(params[:search]) if params[:search]
   end
 
