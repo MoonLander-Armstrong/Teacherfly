@@ -3,12 +3,12 @@ class Owner::CommentsController < ApplicationController
 
   def index
     @courses = current_user.courses 
-    if params[:course]
-      return @courses if params[:course] == "0"
-      @course_option = params[:course]
-      @courses = @courses[(Course.find(params[:course].to_i).id)- 1 ]
-    else
+    
+    if params[:course].nil? || params[:course] == "0" 
       @courses
+    else 
+      @course_option = params[:course]
+      @courses = @courses.find(params[:course]) 
     end
   end
 

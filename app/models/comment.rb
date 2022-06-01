@@ -9,6 +9,6 @@ class Comment < ApplicationRecord
   has_many :comments, foreign_key: :parent_id 
 
   def self.sort_comments(course)
-    where(course: course).includes(:section, :user).order(course_id: :asc, section_id: :desc)
+    where(course: course).includes(:section, :user).order( section_id: :asc, course_id: :desc)
   end
 end

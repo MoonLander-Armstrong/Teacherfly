@@ -29,10 +29,8 @@ class Uploader {
   start() {
     this.uploader.create((error, blob) => {
       if (error) {
-        console.log(error);
         // Handle the error
       } else {
-        console.log(blob);
         const hiddenField = document.createElement('input')
         const input = document.getElementById('section_media')
         hiddenField.setAttribute("type", "hidden");
@@ -48,7 +46,6 @@ class Uploader {
 
 
   directUploadWillStoreFileWithXHR(request) {
-    console.log(request);
     request.upload.addEventListener("progress",
       event => this.directUploadDidProgress(event))
   }
