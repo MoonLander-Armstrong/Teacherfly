@@ -6,7 +6,7 @@
 				<%= render "shared/flash" %>
 			</div>
 			<%= form_tag owner_orders_path, method: :get, data: { controller: "order-time"} do%>
-				<%= select_tag :days, options_for_select([["全部", 0], ["七天", 7], ["三十天", 30 ], ["九十天", 90 ]]	, @order_option || 0), data: { action: "change->order-time#select"}%>
+				<%= select_tag :days, options_for_select([["全部", 0], ["本週", 7], ["本月", 30 ], ["本季", 90 ]]	, @order_option || 0), data: { action: "change->order-time#select"}%>
 			<% end %>
 			<span class="font-semibold text-primary-300">已出售:
 				<span class="ml-2 text-4xl text-warning-200">

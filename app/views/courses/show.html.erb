@@ -8,7 +8,7 @@
         <div class="flex">
           <% if current_user && current_user.bought?(@course) %>
             <%= link_to "進入觀看", order_path(@order), class: "inline-block px-6 py-3 mx-auto bg-warning-200 text-white rounded-full hover:bg-warning-100" %>
-          <% elsif  current_user.owner?(@course) %>
+          <% elsif  current_user && current_user.owner?(@course) %>
             <%= link_to "我是課程老師", course_section_path(@course, @course.all_published_sections.first), class: "inline-block px-6 py-3 mx-auto bg-warning-200 text-white rounded-full hover:bg-warning-100"%>
           <% else  %>
               <%= link_to payment_course_orders_path(@course), class: "inline-block px-6 py-3 mx-auto bg-warning-200 text-white rounded-full hover:bg-warning-100" do %>
